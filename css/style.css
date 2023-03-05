@@ -104,6 +104,8 @@ h6,
 }
 
 .navbar-light .navbar-brand img {
+    
+    filter:invert(95%) sepia(91%) saturate(2213%) hue-rotate(175deg) brightness(102%) contrast(87%);
     max-height: 60px;
     transition: .5s;
 }
