@@ -348,6 +348,10 @@ h6,
     background: var(--light);
 }
 
+.service-card-paragraph{
+   font-size: 1rem;
+}
+
 
 /*** Testimonial ***/
 .newsletter,
