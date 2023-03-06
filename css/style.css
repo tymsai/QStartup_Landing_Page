@@ -219,6 +219,7 @@ h6,
 }
 
 
+
 /*** Section Title ***/
 .section-title::before {
     position: absolute;
@@ -340,16 +341,85 @@ h6,
 
 
 /*** Testimonial ***/
-.newsletter,
-.testimonial {
-    background:
-        url(../img/bg-top.png),
-        url(../img/bg-bottom.png);
-    background-position:
-        left top,
-        right bottom;
-    background-repeat: no-repeat;
+
+
+.triangle-animation{
+    position: relative;
 }
+.triangle img{
+    width: 100px;
+}
+
+.triangle{
+    position:absolute;
+    top: 30px;
+    right:4%;
+    z-index: -11;
+    animation:triangle 8s linear infinite;
+    opacity: .4;
+}
+@keyframes triangle {
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+
+}
+
+.circle-animation{
+    position: relative;
+}
+
+.circle img{
+    width: 100px;
+}
+
+.circle{
+    position:absolute;
+    top: 30px;
+    left:4%;
+    z-index: -11;
+    animation:circle 8s linear infinite;
+    /* opacity: .4; */
+}
+
+@keyframes circle {
+    0%{
+      margin-left:700px;
+      opacity:.3;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .circle{
+        position:absolute;
+        top: 30px;
+        left:4%;
+        z-index: -1;
+        animation:circle 8s linear infinite;
+    }
+
+    @keyframes circle {
+        0%{
+          margin-left:50px;
+          opacity:.3;
+        }
+        100%{
+            opacity: 0;
+        }
+    
+    }
+    
+}
+
+
+
 
 .testimonial-carousel .owl-item .testimonial-item,
 .testimonial-carousel .owl-item.center .testimonial-item * {
