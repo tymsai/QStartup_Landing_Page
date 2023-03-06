@@ -1,3 +1,13 @@
+/****** Custom CSS *******/
+.img-fluid{
+    height: 368px;
+    width: 501px;
+}
+
+
+
+
+
 /********** Template CSS **********/
 :root {
     --primary: #2124B1;
