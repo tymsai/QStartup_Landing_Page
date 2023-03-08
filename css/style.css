@@ -1,16 +1,6 @@
-/****** Custom CSS *******/
-.img-fluid{
-    height: 368px;
-    width: 501px;
-}
-
-
-
-
-
 /********** Template CSS **********/
 :root {
-    --primary: #2124B1;
+    --primary: #2124b1;
     --secondary: #4777F5;
     --light: #F7FAFF;
     --dark: #1D1D27;
