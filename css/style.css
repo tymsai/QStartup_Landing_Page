@@ -198,10 +198,48 @@ h6,
 
 .light-class{
     width: 80px;
-    top:15%;
+    top:14%;
     left:5%;
     position: absolute;
     animation: krish 5s ease infinite ;
+}
+
+@media screen and (max-width:768px) {
+    .light-class{
+        width: 80px;
+        top:5%;
+        left:35%;
+        position: absolute;
+        animation: krish 5s ease infinite ;
+    }
+
+    .triangle-animationn{
+        position: relative;
+    }
+    .trianglee img{
+        width: 100px;
+        opacity: .5;
+        animation: trianglee 17s linear infinite;
+        display: flex;
+        margin: 0 auto;
+    }
+    .trianglee{
+        position: absolute;
+        top:30px;
+        right:50%;
+        margin-top:298px;
+    }
+    
+    @keyframes trianglee {
+        0%{
+            transform: rotate(360deg);
+        }
+    
+        100%{
+            /* transform: rotate(360deg); */
+            opacity:.3;
+        }
+    }
 }
 
 @keyframes krish {
@@ -218,6 +256,68 @@ h6,
     
 }
 
+/*circle animation start here*/
+
+/* triangle animation hero section start here */
+.triangle-animationn{
+    position: relative;
+}
+.trianglee img{
+    width: 100px;
+    opacity: .5;
+    animation: trianglee 17s linear infinite;
+    display: flex;
+    margin-top: 498px !important;
+    margin: 0 auto;
+}
+.trianglee{
+    position: absolute;
+    top:30px;
+    right:30px;
+}
+
+@keyframes trianglee {
+    0%{
+        transform: rotate(360deg);
+    }
+
+    100%{
+        /* transform: rotate(360deg); */
+        opacity:.3;
+    }
+}
+
+/* triangle animation hero section end here */
+
+.circle-animationn{
+    position: relative;
+}
+
+.circlee img{
+    position: absolute;
+    right: 40px;
+    width: 100px;
+    z-index: 1;
+    opacity: .5;
+    animation: circlee 17s linear infinite;
+}
+.circlee{
+    position: absolute;
+    top:10px;
+    right: 0;
+}
+@keyframes circlee {
+    0%{
+        margin-top:380px;
+    }
+
+    100%{
+        margin-bottom: 400px;
+        opacity:.5;
+    }
+}
+
+/* circle animation end here */
 
 /*** Section Title ***/
 .section-title::before {
@@ -338,18 +438,94 @@ h6,
     background: var(--light);
 }
 
+.service-card-paragraph{
+   font-size: 0.8rem;
+}
+
 
 /*** Testimonial ***/
-.newsletter,
-.testimonial {
-    background:
-        url(../img/bg-top.png),
-        url(../img/bg-bottom.png);
-    background-position:
-        left top,
-        right bottom;
-    background-repeat: no-repeat;
+
+.triangle-animation{
+    position: relative;
 }
+.triangle img{
+    width: 100px;
+    opacity: .5;
+    animation: triangle 17s linear infinite;
+}
+.triangle{
+    position: absolute;
+    top:30px;
+    right:30px;
+}
+
+@keyframes triangle {
+    0%{
+        transform: rotate(360deg);
+    }
+
+    100%{
+        /* transform: rotate(360deg); */
+        opacity:.3;
+    }
+}
+
+.circle-animation{
+    position: relative;
+}
+
+.circle img{
+    width: 100px;
+    opacity: .5;
+    animation: circle 17s linear infinite;
+}
+.circle{
+    position: absolute;
+    top:10px;
+}
+
+@media screen and (max-width:768px) {
+
+    .circle-animation{
+        position: relative;
+    }
+    
+    .circle img{
+        width: 100px;
+        opacity: .5;
+        animation: circle 17s linear infinite;
+    }
+    .circle{
+        position: absolute;
+        top:10px;
+    }
+    
+  
+    @keyframes circle {
+        0%{
+            margin-left:0px;
+        }
+    
+        100%{
+            margin-left:0px;
+            opacity:.3;
+        }
+    }
+    
+}
+@keyframes circle {
+    0%{
+        margin-left:10px;
+    }
+
+    100%{
+        margin-left: 200px;
+        opacity:.3;
+    }
+}
+
+
+
 
 .testimonial-carousel .owl-item .testimonial-item,
 .testimonial-carousel .owl-item.center .testimonial-item * {
