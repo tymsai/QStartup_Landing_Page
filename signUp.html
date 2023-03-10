@@ -54,6 +54,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link ">Q Startup</a>
@@ -63,12 +64,21 @@
                         <a href="project.html" class="nav-item nav-link">Q Partners</a>
                         <a href="about.html" class="nav-item nav-link">About Us</a><!--Q Founders-->
                         <div class="nav-item dropdown">
+
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Contact Us</a>
                             <div class="dropdown-menu m-0">
                                 <a href="team.html" class="dropdown-item">Book a Meeting</a>
                                 <a href="contact.html" class="dropdown-item">Send a Message</a>
                                 <!--<a href="404.html" class="dropdown-item">404 Page</a>-->
                             </div>
+                        </div>
+                        <div id="login">
+
+                            <!-- <a href="project.html" class="nav-item nav-link" id="login">Login</a> -->
+                        </div>
+                        <div id="logout">
+
+                            <!-- <a href="project.html" class="nav-item nav-link" id="logout">Logout</a> -->
                         </div>
                     </div>
                     <!--<butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>-->
@@ -124,53 +134,52 @@
 
 
 
-        <!-- signUp form start -->
+        <!-------------------------------------------------------------- signUp form start ------------------------------------------------------->
         <section class="bg-image" style="">
             <div class="mask d-flex align-items-center  gradient-custom-3">
                 <div class="container ">
                     <div class="row d-flex justify-content-center align-items-center ">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp"
+                            <div class="section-title position-relative text-center mb-3 pb-2 wow fadeInUp"
                                 data-wow-delay="0.1s">
                                 <h6 class="position-relative d-inline text-primary ps-4">Sign Up</h6>
                                 <h2 class="mt-2">Create Your account</h2>
                             </div>
                             <div class="card" style="border-radius: 15px;">
-                                <div class="card-body p-5">
+                                <div class="card-body  p-5">
 
 
-                                    <form>
-                                        <div class="form-floating mb-3">
+                                    <form id="form">
+                                        <div class="form-floating h-1 mb-2">
                                             <input name="name" type="text" class="form-control" id="name"
-                                                placeholder="Your Name">
+                                                placeholder="Your Name" required>
                                             <label for="name">Your Name</label>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                            <input name="name" type="text" class="form-control" id="name"
-                                                placeholder="Your Name">
-                                            <label for="name">Your Email</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input name="name" type="text" class="form-control" id="name"
-                                                placeholder="Your Name">
-                                            <label for="name">Your Password</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input name="name" type="text" class="form-control" id="name"
-                                                placeholder="Your Name">
-                                            <label for="name">Confirm Password</label>
+
+                                        <div class="form-floating mb-2">
+                                            <input name="email" type="email" class="form-control" id="email"
+                                                placeholder="Your Email" required>
+                                            <label for="email">Your Email</label>
                                         </div>
 
-                                        <a href="" class="text-decoration-underline">
-                                            Forget Password
-                                        </a>
+                                        <div class="form-floating mb-2">
+                                            <input name="password" type="password" class="form-control" id="password"
+                                                placeholder="Your password" required>
+                                            <label for="password">Your Password</label>
+                                        </div>
+
+                                        <div class="form-floating mb-2">
+                                            <input name="confirm-password" type="password" class="form-control"
+                                                id="confirmPassword" placeholder="Your password" required>
+                                            <label for="password">Confirm Password</label>
+                                        </div>
 
                                         <div class="d-flex justify-content-center">
-                                            <button type="button"
+                                            <button type="submit"
                                                 class="btn btn-primary btn-block  btn-lg   mt-2 w-100">Register</button>
                                         </div>
 
-                                        <p class="text-center  mt-2 mb-0">
+                                        <p class="text-center  mt-2 mb-2">
                                             Have already an account?
                                             <a href="#!" class="fw-bold  text-primary">
                                                 <u>Login here</u>
@@ -178,10 +187,10 @@
                                         </p>
 
 
-                                        <div class="d-flex align-items-center my-3 ">
+                                        <div class="d-flex align-items-center my-2 ">
                                             <hr
                                                 style="height:2px; width:100%; border-width:0; color:rgb(85, 79, 79); background-color:rgb(85, 79, 79)">
-                                            <h5>OR</h5>
+                                            <h6>OR</h6>
                                             <hr
                                                 style="height:2px; width:100%; border-width:0; color:rgb(85, 79, 79); background-color:rgb(85, 79, 79)">
                                         </div>
@@ -198,8 +207,6 @@
                                             <span class="mx-3">SignUp With Google</span>
                                         </button>
 
-
-
                                     </form>
 
                                 </div>
@@ -209,7 +216,7 @@
                 </div>
             </div>
         </section>
-        <!-- sign up end -->
+        <!------------------------------------------------------------ sign up end-------------------------------------------------------------- -->
 
         <!-- Footer Start -->
         <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -324,6 +331,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/signUp.js"></script>
 </body>
 
 </html>
