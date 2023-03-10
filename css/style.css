@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #2124B1;
+    --primary: #2124b1;
     --secondary: #4777F5;
     --light: #F7FAFF;
     --dark: #1D1D27;
@@ -432,6 +432,10 @@ h6,
 .service-item:hover a.btn::before {
     width: 100%;
     background: var(--light);
+}
+
+.service-card-paragraph{
+   font-size: 0.8rem;
 }
 
 
