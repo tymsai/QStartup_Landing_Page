@@ -6,6 +6,22 @@
     --dark: #1D1D27;
 }
 
+/* dark mode start here*/
+.darkmode--activated h2, h1,  .darkmode--activated li {
+    color: #fff;
+  }
+a,i{
+    isolation: isolate;
+}
+
+nav{
+    isolation: isolate;
+    
+}
+
+
+/* dark mode end here */
+
 
 /*** Spinner ***/
 #spinner {
