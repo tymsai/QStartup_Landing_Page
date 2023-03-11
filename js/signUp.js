@@ -6,6 +6,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebas
 import { getAuth, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCG2qEVagEiVy-F5BWey2LZ_X6flcznqbk",
     authDomain: "q-startups-pvt-ltd.firebaseapp.com",
@@ -89,7 +90,12 @@ console.log(accessToken)
 
 
 const handleLogout = () => {
-    localStorage.removeItem('email')
+    signOut(auth)
+        .then(() => {
+            localStorage.removeItem('email')
+            console.log('signOut')
+        })
+        .catch(error => { console.log(error) })
     console.log('clicked')
 }
 
@@ -100,5 +106,5 @@ if (email) {
 } else {
     loginBtn.innerHTML = `<a  class="nav-item nav-link" id="login">Login</a>`
 }
-loginBtn.addEventListener('click', handleLogout);
+// loginBtn.addEventListener('click', handleLogout);
 logoutBtn.addEventListener('click', handleLogout);

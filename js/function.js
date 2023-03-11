@@ -1,3 +1,3 @@
-const clicked = () => {
+export const clicked = () => {
     console.log('js clicked')
 }
