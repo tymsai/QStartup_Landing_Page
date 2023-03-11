@@ -3,7 +3,7 @@ console.log('js connected')
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 
 
@@ -20,9 +20,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
 const auth = getAuth(app)
-
+const googleProvider = new GoogleAuthProvider()
 
 document.getElementById('form').onsubmit = (event) => {
     event.preventDefault()
@@ -85,6 +84,7 @@ const loginBtn = document.getElementById("login")
 console.log(loginBtn)
 const logoutBtn = document.getElementById("logout")
 const accessToken = localStorage.getItem('accessToken')
+const LocalCurrentUser = localStorage.getItem('currentUser')
 const email = localStorage.getItem('email')
 console.log(accessToken)
 
@@ -92,15 +92,15 @@ console.log(accessToken)
 const handleLogout = () => {
     signOut(auth)
         .then(() => {
-            localStorage.removeItem('email')
+            localStorage.removeItem('currentUser')
             console.log('signOut')
         })
         .catch(error => { console.log(error) })
     console.log('clicked')
 }
 
-if (email) {
-    logoutBtn.innerHTML = `<a onClick="${handleLogout}" class="nav-item nav-link" id="login">Logout</a>`
+if (LocalCurrentUser) {
+    logoutBtn.innerHTML = `<a  class="nav-item nav-link" id="login">Logout</a>`
 
 
 } else {
@@ -108,3 +108,25 @@ if (email) {
 }
 // loginBtn.addEventListener('click', handleLogout);
 logoutBtn.addEventListener('click', handleLogout);
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+console.log('currentUser', currentUser)
+
+// set current user
+const unsubscribe = auth.onAuthStateChanged(currentUser => {
+    console.log(currentUser);
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+});
+
+// unsubscribe when component unmounts
+() => unsubscribe();
+
+
+
+const googleButton = document.getElementById('googleButton')
+//use login by google
+const loginWithEmail = () => {
+
+    return signInWithPopup(auth, googleProvider)
+}
+googleButton.addEventListener('click', loginWithEmail)
