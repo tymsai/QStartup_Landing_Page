@@ -3,7 +3,7 @@ console.log('js connected')
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 
 const firebaseConfig = {
@@ -38,26 +38,22 @@ document.getElementById('form').onsubmit = (event) => {
 
 
 
-    // Sign the user up with email and password
+    // Sign Up with email and password
     createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed up successfully
-            const user = userCredential.user;
-            console.log("Signed up successfully with UID:", user.uid);
+        .then((result) => {
+
+            const user = result.user;
+            console.log('user', user);
+            localStorage.setItem('email', user.email)
+            form.reset()
+            // window.location.href = '/index.html'
         })
         .catch((error) => {
-            // Handle errors here
+
             console.log(error)
         });
 
-
-
-
-
-
-
-
-
+    // calling the logOUt function
     // calling the save user to database function
     // console.log(user)
     // saveUserToDatabase(user)
@@ -83,23 +79,26 @@ const saveUserToDatabase = async (user) => {
     return data;
 }
 
-// login, logout  button get by Id
-const loginBtn = document.getElementById("login")
-const logoutBtn = document.getElementById("logout")
 
+const loginBtn = document.getElementById("login")
+console.log(loginBtn)
+const logoutBtn = document.getElementById("logout")
 const accessToken = localStorage.getItem('accessToken')
+const email = localStorage.getItem('email')
 console.log(accessToken)
 
 
-// conditional rendering of login and log out button
-{
-    loginBtn.innerHTML = accessToken ? `<a onClick="handleLogout()" class="nav-item nav-link" id="login">Logout</a>`
-        :
-        `<a onClick="handleLogout()" class="nav-item nav-link" id="login">Login</a>`
-}
-
-// handle logout function.
 const handleLogout = () => {
-    localStorage.removeItem('accessToken')
+    localStorage.removeItem('email')
     console.log('clicked')
 }
+
+if (email) {
+    logoutBtn.innerHTML = `<a onClick="${handleLogout}" class="nav-item nav-link" id="login">Logout</a>`
+
+
+} else {
+    loginBtn.innerHTML = `<a  class="nav-item nav-link" id="login">Login</a>`
+}
+loginBtn.addEventListener('click', handleLogout);
+logoutBtn.addEventListener('click', handleLogout);
