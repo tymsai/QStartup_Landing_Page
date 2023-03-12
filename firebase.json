@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "QStartup_Landing_Page",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
