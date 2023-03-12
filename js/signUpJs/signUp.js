@@ -3,7 +3,7 @@ console.log('js connected')
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, updateProfile } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 
 
@@ -47,6 +47,12 @@ document.getElementById('form').onsubmit = (event) => {
             const user = result.user;
             console.log('user', user);
             localStorage.setItem('email', user.email)
+            //   2. Update Name
+
+            updateProfile(auth.currentUser, {
+                displayName: username,
+
+            })
 
             // saveUserToDatabase
             fetch(`http://localhost:5000/signup`, {
@@ -114,7 +120,9 @@ console.log('currentUser', currentUser)
 // set current user to local strorage
 const unsubscribe = auth.onAuthStateChanged(currentUser => {
     console.log(currentUser);
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    if (currentUser?.uid) {
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
 });
 () => unsubscribe();
 
