@@ -7,6 +7,8 @@ import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, s
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 
 
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyCG2qEVagEiVy-F5BWey2LZ_X6flcznqbk",
     authDomain: "q-startups-pvt-ltd.firebaseapp.com",
@@ -32,8 +34,8 @@ document.getElementById('form').onsubmit = (event) => {
     const password = form.password.value;
     const confirmpassword = form.confirmPassword.value;
 
-    const user = {
-        username, email, password, confirmpassword
+    const createdUser = {
+        username, email
     }
 
 
@@ -45,6 +47,19 @@ document.getElementById('form').onsubmit = (event) => {
             const user = result.user;
             console.log('user', user);
             localStorage.setItem('email', user.email)
+
+            // saveUserToDatabase
+            fetch(`http://localhost:5000/signup`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(createdUser)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
             form.reset()
             // window.location.href = '/index.html'
         })
@@ -53,42 +68,24 @@ document.getElementById('form').onsubmit = (event) => {
             console.log(error)
         });
 
-    // calling the logOUt function
-    // calling the save user to database function
-    // console.log(user)
-    // saveUserToDatabase(user)
-    //     .then(data => {
-    //         console.log(data)
-    //         localStorage.setItem('accessToken', data.token);
 
-    //     })
-    //     .catch(error => console.log(error))
 
 }
 
-// -save user to data base function
-const saveUserToDatabase = async (user) => {
-    const res = await fetch('http://localhost:5000/signup', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-    const data = await res.json()
-    return data;
-}
+
 
 
 const loginBtn = document.getElementById("login")
-console.log(loginBtn)
+
 const logoutBtn = document.getElementById("logout")
 const accessToken = localStorage.getItem('accessToken')
-const LocalCurrentUser = localStorage.getItem('currentUser')
+const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
 const email = localStorage.getItem('email')
-console.log(accessToken)
+console.log(LocalCurrentUser)
 
 
+
+// logout function
 const handleLogout = () => {
     signOut(auth)
         .then(() => {
@@ -99,34 +96,56 @@ const handleLogout = () => {
     console.log('clicked')
 }
 
-if (LocalCurrentUser) {
-    logoutBtn.innerHTML = `<a  class="nav-item nav-link" id="login">Logout</a>`
-
+// conditional rendering of login and logout button
+if (LocalCurrentUser?.uid) {
+    logoutBtn.innerHTML = `<a  class="nav-item nav-link cursor-pointer" id="login">Logout</a>`
 
 } else {
-    loginBtn.innerHTML = `<a  class="nav-item nav-link" id="login">Login</a>`
+    loginBtn.innerHTML = `<a  class="nav-item nav-link cursor-pointer" id="login">Login</a>`
 }
-// loginBtn.addEventListener('click', handleLogout);
+
 logoutBtn.addEventListener('click', handleLogout);
+
+
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 console.log('currentUser', currentUser)
 
-// set current user
+// set current user to local strorage
 const unsubscribe = auth.onAuthStateChanged(currentUser => {
     console.log(currentUser);
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 });
-
-// unsubscribe when component unmounts
 () => unsubscribe();
 
 
-
+//user login by google
 const googleButton = document.getElementById('googleButton')
-//use login by google
-const loginWithEmail = () => {
 
-    return signInWithPopup(auth, googleProvider)
+const loginWithEmail = () => {
+    signInWithPopup(auth, googleProvider)
+        .then(result => {
+            const user = result.user
+            const currentUser = {
+                username: user.displayName,
+                email: user.email
+            }
+            if (user) {
+                fetch(`http://localhost:5000/signup`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
+            }
+
+        })
+        .catch(error => { console.log(error) })
+
 }
 googleButton.addEventListener('click', loginWithEmail)
