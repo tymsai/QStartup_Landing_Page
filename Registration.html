@@ -159,7 +159,7 @@
                             <h2 class="mt-2">Get Disruptive Acceleration With Q Startups</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <form id="ft-form">
+                            <form id="ft-form" class="form">
 
 
                                 <fieldset>
@@ -179,13 +179,13 @@
                                     <fieldset>
                                         <label>
                                             Mentor Name *
-                                            <input type="text" name="First name" required>
+                                            <input type="text" name="FirstName" required>
                                         </label>
                                         <div class="two-cols">
-                                            <!-- <label>
+                                            <label>
                                                 Email address *
                                                 <input type="email" name="Email" required>
-                                            </label> -->
+                                            </label>
                                             <label>
                                                 Phone *
                                                 <input type="tel" name="Phone" required>
@@ -201,7 +201,7 @@
                                                 <input type="text" name="City">
                                             </label>
                                         </div>
-                                        <!-- <div class="two-cols">
+                                        <div class="two-cols">
 
                                             <label>
                                                 Linkedin URL *
@@ -279,7 +279,7 @@
                                         <label>
                                             Brief / Tagline
                                             <input type="text" name="briefTagline">
-                                        </label> -->
+                                        </label>
 
                                     </fieldset>
                                     <div class="btns">
@@ -301,122 +301,121 @@
 
 
 
+                            <form id="ft-form" class="startupForm">
+                                <div class="green box">
 
+                                    <fieldset>
+                                        <label>
+                                            Startup Name *
+                                            <input type="text" name="startup name" required>
+                                        </label>
+                                        <div class="two-cols">
+                                            <label>
+                                                Email address *
+                                                <input type="email" name="Email" required>
+                                            </label>
+                                            <label>
+                                                Phone *
+                                                <input type="tel" name="Phone" required>
+                                            </label>
+                                        </div>
+                                        <div class="two-cols">
+                                            <label>
+                                                Registered State
+                                                <input type="text" name="Citizenship">
+                                            </label>
+                                            <label>
+                                                Registered City
+                                                <input type="text" name="City">
+                                            </label>
+                                        </div>
+                                        <label>
+                                            Company URL
+                                            <input type="text" name="Address">
+                                        </label>
+                                        <div class="two-cols">
 
-                            <!-- <div class="green box">
+                                            <label>
+                                                Industry *
+                                                <input type="text" name="Industry" required>
+                                            </label>
+                                            <label>
+                                                Sector *
+                                                <input type="text" name="Sector" required>
+                                            </label>
+                                        </div>
+                                        <label>
+                                            Services *
+                                            <input type="text" name="Services" required>
+                                        </label>
+                                        <label>
+                                            MSME Certificate Number
+                                            <input type="text" name="Certificate">
+                                        </label>
+                                        <label>
+                                            Profile Picture
+                                            <input type="file" name="Photo" accept=".jpg, .jpeg" id="sturtupFile">
+                                        </label>
 
-                                <fieldset>
-                                    <label>
-                                        Startup Name *
-                                        <input type="text" name="startup name" required>
-                                    </label>
-                                    <div class="two-cols">
-                                        <label>
-                                            Email address *
-                                            <input type="email" name="Email" required>
-                                        </label>
-                                        <label>
-                                            Phone *
-                                            <input type="tel" name="Phone" required>
-                                        </label>
-                                    </div>
-                                    <div class="two-cols">
-                                        <label>
-                                            Registered State
-                                            <input type="text" name="Citizenship">
-                                        </label>
-                                        <label>
-                                            Registered City
-                                            <input type="text" name="City">
-                                        </label>
-                                    </div>
-                                    <label>
-                                        Company URL
-                                        <input type="text" name="Address">
-                                    </label>
-                                    <div class="two-cols">
-
-                                        <label>
-                                            Industry *
-                                            <input type="text" name="Industry" required>
-                                        </label>
-                                        <label>
-                                            Sector *
-                                            <input type="text" name="Sector" required>
-                                        </label>
-                                    </div>
-                                    <label>
-                                        Services *
-                                        <input type="text" name="Services" required>
-                                    </label>
-                                    <label>
-                                        MSME Certificate Number
-                                        <input type="text" name="Certificate">
-                                    </label>
-                                    <label>
-                                        Profile Picture
-                                        <input type="file" name="Photo" accept=".jpg, .jpeg">
-                                    </label>
-
-                                    <div class="two-cols">
-                                        <label for="cars">Is this Company logo</label>
-                                        <select name="logo" id="cars">
-                                            <option value="no">No</option>
-                                            <option value="yes">Yes</option>
+                                        <div class="two-cols">
+                                            <label for="cars">Is this Company logo</label>
+                                            <select name="logo" id="cars">
+                                                <option value="no">No</option>
+                                                <option value="yes">Yes</option>
+                                            </select>
+                                            <label for="cars">Stage of Startup *</label>
+                                            <select name="Stage" id="cars" required>
+                                                <option value="ideation">ideation</option>
+                                                <option value="validation">validation</option>
+                                                <option value="early traction">Early Traction</option>
+                                                <option value="Scaling">Scaling</option>
+                                            </select>
+                                        </div>
+                                        <label for="cars">Nature Of the Entity</label>
+                                        <select name="Nature of Entity" id="cars">
+                                            <option value="no">Private Limited Company</option>
+                                            <option value="yes">Limited Liability Partnership</option>
+                                            <option value="yes">Registered Partnership</option>
                                         </select>
-                                        <label for="cars">Stage of Startup *</label>
-                                        <select name="Stage" id="cars" required>
-                                            <option value="ideation">ideation</option>
-                                            <option value="validation">validation</option>
-                                            <option value="early traction">Early Traction</option>
-                                            <option value="Scaling">Scaling</option>
+                                        <label for="cars">Funded / Bootstrapped</label>
+                                        <select name="Money Source" id="cars">
+                                            <option value="funded">Funded</option>
+                                            <option value="bootstrapped">Bootstrapped</option>
                                         </select>
-                                    </div>
-                                    <label for="cars">Nature Of the Entity</label>
-                                    <select name="Nature of Entity" id="cars">
-                                        <option value="no">Private Limited Company</option>
-                                        <option value="yes">Limited Liability Partnership</option>
-                                        <option value="yes">Registered Partnership</option>
-                                    </select>
-                                    <label for="cars">Funded / Bootstrapped</label>
-                                    <select name="Money Source" id="cars">
-                                        <option value="funded">Funded</option>
-                                        <option value="bootstrapped">Bootstrapped</option>
-                                    </select>
-                                    <div class="two-cols">
+                                        <div class="two-cols">
 
+                                            <label>
+                                                CIN
+                                                <input type="text" name="CIN">
+                                            </label>
+                                            <label>
+                                                PAN
+                                                <input type="text" name="PAN">
+                                            </label>
+                                        </div>
                                         <label>
-                                            CIN
-                                            <input type="text" name="CIN">
+                                            Brief about Startup *
+                                            <input type="text" name="Brief" required>
                                         </label>
-                                        <label>
-                                            PAN
-                                            <input type="text" name="PAN">
-                                        </label>
+                                        <label for="cars">You Are Intrested In * </label>
+                                        <select name="Interests" id="cars" required>
+                                            <option value="All">All</option>
+                                            <option value="Mentors">Mentors</option>
+                                            <option value="Incubators">Incubators</option>
+                                            <option value="Accelerators">Accelerators</option>
+                                            <option value="Investors">Investors</option>
+                                        </select>
+
+                                    </fieldset>
+
+                                    <div class="btns">
+                                        <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
+                                        <input type="submit" value="Submit application">
                                     </div>
-                                    <label>
-                                        Brief about Startup *
-                                        <input type="text" name="Brief" required>
-                                    </label>
-                                    <label for="cars">You Are Intrested In * </label>
-                                    <select name="Interests" id="cars" required>
-                                        <option value="All">All</option>
-                                        <option value="Mentors">Mentors</option>
-                                        <option value="Incubators">Incubators</option>
-                                        <option value="Accelerators">Accelerators</option>
-                                        <option value="Investors">Investors</option>
-                                    </select>
-
-                                </fieldset>
-
-                                <div class="btns">
-                                    <input type="text" name="_gotcha" value="" style="display:none;">
-                                    <input type="submit" value="Submit application">
                                 </div>
-                            </div> -->
 
 
-                            <!-- </form> -->
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -552,7 +551,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script type="module" src="js/Registration.js/Registration.js"></script>
+    <script type="module" src="js/Registration.js/Mentor.js"></script>
+    <script type="module" src="js/Registration.js/Startup.js"></script>
     <script>
 
     </script>
