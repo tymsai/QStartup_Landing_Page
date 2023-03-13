@@ -3,7 +3,7 @@ console.log('js connected')
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, updateProfile } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, updateProfile, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 
 
@@ -47,25 +47,43 @@ document.getElementById('form').onsubmit = (event) => {
             const user = result.user;
             console.log('user', user);
             localStorage.setItem('email', user.email)
-            //   2. Update Name
+            const auth = getAuth();
 
+            //   2. Update Name
             updateProfile(auth.currentUser, {
                 displayName: username,
 
             })
 
-            // saveUserToDatabase
-            fetch(`http://localhost:5000/signup`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(createdUser)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                })
+            sendEmailVerification(auth.currentUser)
+                .then((e) => {
+                    console.log('mail sent', e)
+                    // Email verification sent! emailVerified
+                    if (user.emailVerified === false) {
+                        return alert('check your email and verify it')
+                    }
+                    if (user.emailVerified === true) {
+
+                        // saveUserToDatabase
+                        fetch(`http://localhost:5000/signup`, {
+                            method: 'PUT',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(createdUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                            })
+                    }
+
+                });
+
+
+
+
+
             form.reset()
             // window.location.href = '/index.html'
         })

@@ -145,60 +145,64 @@
                                 <div class="card-body p-5">
 
 
-                                    <form>
-                                        <div class="form-floating mb-2">
-                                            <input name="name" type="text" class="form-control" id="name"
-                                                placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
+                                    <form id="loginForm">
+
                                         <div class="form-floating mb-2">
                                             <input name="email" type="email" class="form-control" id="email"
-                                                placeholder="Your Name">
+                                                placeholder="Your Name" required>
                                             <label for="email">Your Email</label>
                                         </div>
                                         <div class="form-floating mb-2">
                                             <input name="password" type="password" class="form-control" id="password"
-                                                placeholder="Your Password">
-                                            <label for="name">Your Password</label>
+                                                placeholder="Your Password" required>
+                                            <label for="password">Your Password</label>
                                         </div>
-
-                                        <a href="" class="text-decoration-underline">
-                                            Forget Password
-                                        </a>
+                                        <!-- <div id="resetPass" class="cursor-pointer">
+                                            <a class="text-decoration-underline ">
+                                                Forget Password
+                                            </a>
+                                        </div> -->
+                                        <button id="resetPass" class="btn btn-link btn-outline-none">
+                                            <a class="text-decoration-underline cursor-pointer">
+                                                Forget Password
+                                            </a>
+                                        </button>
 
                                         <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-primary btn-block  btn-lg mt-2 w-100"
-                                                id="login-btn">Login</button>
+                                            <button type="submit" class="btn btn-primary btn-block  btn-lg mt-2 w-100"
+                                                id="login-btn">
+                                                Login
+                                            </button>
                                         </div>
+                                    </form>
+                                    <p class="text-center  mt-2 mb-0">
+                                        Don't Have an acount?
+                                        <a href="#!" class="fw-bold  text-primary">
+                                            <u>SingUp here</u>
+                                        </a>
+                                    </p>
 
-                                        <p class="text-center  mt-2 mb-0">
-                                            Don't Have an acount?
-                                            <a href="#!" class="fw-bold  text-primary">
-                                                <u>SingUp here</u>
-                                            </a>
-                                        </p>
 
+                                    <div class="d-flex align-items-center my-2 ">
+                                        <hr
+                                            style="height:2px; width:100%; border-width:0; color:rgb(85, 79, 79); background-color:rgb(85, 79, 79)">
+                                        <h5>OR</h5>
+                                        <hr
+                                            style="height:2px; width:100%; border-width:0; color:rgb(85, 79, 79); background-color:rgb(85, 79, 79)">
+                                    </div>
 
-                                        <div class="d-flex align-items-center my-2 ">
-                                            <hr
-                                                style="height:2px; width:100%; border-width:0; color:rgb(85, 79, 79); background-color:rgb(85, 79, 79)">
-                                            <h5>OR</h5>
-                                            <hr
-                                                style="height:2px; width:100%; border-width:0; color:rgb(85, 79, 79); background-color:rgb(85, 79, 79)">
-                                        </div>
-
-                                        <button
-                                            class="btn btn-primary w-100 text-center d-flex align-items-center justify-content-center  ">
-                                            <i style="background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+                                    <button id="googleButton"
+                                        class="btn btn-primary w-100 text-center d-flex align-items-center justify-content-center  ">
+                                        <i style="background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
                                                                             -webkit-background-clip: text;
                                                                             background-clip: text;
                                                                             color: transparent;
                                                                             -webkit-text-fill-color: transparent;"
-                                                class="fab fa-google fa-2x">
-                                            </i>
-                                            <span class="mx-3">Login With Google</span>
-                                        </button>
-                                    </form>
+                                            class="fab fa-google fa-2x">
+                                        </i>
+                                        <span class="mx-3">Login With Google</span>
+                                    </button>
+
 
                                 </div>
                             </div>
@@ -297,6 +301,9 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- login js -->
+    <script type="module" src="js/loginJs/login.js"></script>
 </body>
 
 </html>
