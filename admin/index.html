@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Area</title>
+    <!-- google fonts link here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- css file link here -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- font awesome link here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- toggle area start here -->
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <!-- toggle area end here -->
+    <nav class="navbar-side">
+       
+        <div class="navigation">
+            
+            <div class="user-profile">
+                <div class="user-area">
+                    <img src="/img/admin profile.jpg" alt="">
+                    <h1>Company</h1>
+                </div>
+            </div>
+            
+            <!-- service part start here -->
+            <div class="service-part">
+                <ul class="links">
+                    <li>
+                        <i class="fa-sharp fa-solid fa-user red"></i>
+                        <a href="./index.html">General</a>
+                    </li>
+
+                   
+                    <li>
+                        <i class="fa-solid fa-list-ul green"></i>
+                        <a href="./startup.html">Startup</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-q brown"></i>
+                        <a href="#">Account</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-user-group blue"></i>
+                        <a href="./mentor.html">Mentor List</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- service part end here -->
+
+            <!-- user log out btn -->
+            <div class="log-out">
+                <ul class="user-logout">
+                    <li>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- header part start here  -->
+    <header class="wrapper">
+    
+        <div class="inner-width">
+    
+            <div class="profile">
+    
+                <div class="user-profilee">
+    
+                    <i class="fa-solid fa-camera"></i>
+                    
+                </div>
+                
+                <div class="user-name">
+                    
+                    <h2>Your name</h2> &nbsp;  &nbsp;
+                    
+                    <i class="fa-solid fa-pencil"></i>
+    
+                </div>
+    
+            </div>
+
+            <div class="work-space">
+                <div class="work-heading">
+                    <h2>Workspace admin</h2>
+                </div>
+                <div class="card-wrap">
+                    <div class="card">
+                        <div class="dp-part">
+                            <img src="/admin/img/admin profile.jpg" alt="">
+                            <div class="text-part">
+                                <p>Name Username</p>
+                                <p>CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="dp-part">
+                            <img src="/admin/img/admin profile.jpg" alt="">
+                            <div class="text-part">
+                                <p>Name Username</p>
+                                <p>Design Lead</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="font-icon">
+                            <i class="fa-solid fa-plus"></i>
+                            <p>Add admin</p>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+    </header>
+    <!-- header part end here  -->
+</body>
+</html>
