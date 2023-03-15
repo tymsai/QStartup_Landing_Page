@@ -1,20 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mentor</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .heading{
-            border-radius: 10px;
-            border: 2px solid rgb(126, 122, 122);
-        }
-    </style>
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
 <body>
+    <!-- POP UP -->
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Startup Name</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form action="" id="ft-form" class="responsive_fix">
+
+                    <fieldset>
+                        <div class="two-cols">
+
+                            <label>
+                                Startup Name *
+                                <input type="text" name="startup name" required>
+                            </label>
+                            <label>
+                                Company URL
+                                <input type="text" name="Address">
+                            </label>
+                        </div>
+                        <div class="two-cols">
+                            <label>
+                                Email address *
+                                <input type="email" name="Email" required>
+                            </label>
+                            <label>
+                                Phone *
+                                <input type="tel" name="Phone" required>
+                            </label>
+                        </div>
+                        <div class="two-cols">
+                            <label>
+                                Registered State
+                                <input type="text" name="Citizenship">
+                            </label>
+                            <label>
+                                Registered City
+                                <input type="text" name="City">
+                            </label>
+                        </div>
+                        <div class="two-cols">
+
+                            <label>
+                                Industry *
+                                <input type="text" name="Industry" required>
+                            </label>
+                            <label>
+                                Sector *
+                                <input type="text" name="Sector" required>
+                            </label>
+                        </div>
+                        <div class="two-cols">
+
+                            <label>
+                                Services *
+                                <input type="text" name="Services" required>
+                            </label>
+                            <label>
+                                MSME Certificate Number
+                                <input type="text" name="Certificate">
+                            </label>
+                        </div>
+                        <div class="two-cols">
+
+                            <label>
+                                Profile Picture
+                                <input type="file" name="Photo" accept=".jpg, .jpeg">
+                            </label>
+                            <label>
+                                Brief about Startup *
+                                <input type="text" name="Brief" required>
+                            </label>
+
+                        </div>
+                        <div class="two-cols">
+                            <label for="cars">Is this Company logo</label>
+                            <select name="logo" id="cars">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                            <label for="cars">Stage of Startup *</label>
+                            <select name="Stage" id="cars" required>
+                                <option value="ideation">ideation</option>
+                                <option value="validation">validation</option>
+                                <option value="early traction">Early Traction</option>
+                                <option value="Scaling">Scaling</option>
+                            </select>
+                        </div>
+                        <div class="two-cols">
+
+                            <label for="cars">Nature Of the Entity</label>
+                            <select name="Nature of Entity" id="cars">
+                                <option value="no">Private Limited Company</option>
+                                <option value="yes">Limited Liability Partnership</option>
+                                <option value="yes">Registered Partnership</option>
+                            </select>
+                            <label for="cars">Funded / Bootstrapped</label>
+                            <select name="Money Source" id="cars">
+                                <option value="funded">Funded</option>
+                                <option value="bootstrapped">Bootstrapped</option>
+                            </select>
+                        </div>
+                        <div class="two-cols">
+
+                            <label>
+                                CIN
+                                <input type="text" name="CIN">
+                            </label>
+                            <label>
+                                PAN
+                                <input type="text" name="PAN">
+                            </label>
+                        </div>
+                        <div class="two-cols">
+
+                            <label for="cars">You Are Intrested In * </label>
+                            <select name="Interests" id="cars" required>
+                                <option value="All">All</option>
+                                <option value="Mentors">Mentors</option>
+                                <option value="Incubators">Incubators</option>
+                                <option value="Accelerators">Accelerators</option>
+                                <option value="Investors">Investors</option>
+                            </select>
+                            <div class="btns">
+                                <input type="text" name="_gotcha" value="" style="display:none;">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- toggle area start here -->
     <input type="checkbox" id="check">
     <label for="check">
@@ -24,16 +160,16 @@
     <!-- toggle area end here -->
 
     <nav class="navbar-side">
-       
+
         <div class="navigation">
-            
+
             <div class="user-profile">
                 <div class="user-area">
                     <img src="/img/admin profile.jpg" alt="">
                     <h1>Company</h1>
                 </div>
             </div>
-            
+
             <!-- service part start here -->
             <div class="service-part">
                 <ul class="links">
@@ -42,7 +178,7 @@
                         <a href="./index.html">General</a>
                     </li>
 
-                   
+
                     <li>
                         <i class="fa-solid fa-list-ul green"></i>
                         <a href="./startup.html">Startup</a>
@@ -75,10 +211,10 @@
         </div>
     </nav>
     <!-- navbar end -->
-   
+
     <!-- mentor start here  -->
     <div class="total-wrapper">
-         <div class="three-cards">
+        <div class="three-cards">
             <div class="three">
                 <h1>12</h1>
                 <h3>Mentors Available</h3>
@@ -91,7 +227,7 @@
                 <h1>0</h1>
                 <h3>On Hold</h3>
             </div>
-         </div>
+        </div>
     </div>
     <!-- mentor end here  -->
 
@@ -107,49 +243,49 @@
             -->
         </div>
     </div>
-     <!-- search end here  -->
+    <!-- search end here  -->
 
-     <!-- dropdown menu -->
-     <div class="drop-toggle">
-             <div class="inner">
-                <div class="all">
-                    <select name="pets" id="pet-select">
-                        <option value="">All</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
-                    </select>
-                </div>   
-                <div class="department">
-                    <select name="pets" id="pet-select">
-                        <option value="">All Department</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
-                    </select>
-                </div> 
+    <!-- dropdown menu -->
+    <div class="drop-toggle">
+        <div class="inner">
+            <div class="all">
+                <select name="pets" id="pet-select">
+                    <option value="">All</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                </select>
+            </div>
+            <div class="department">
+                <select name="pets" id="pet-select">
+                    <option value="">All Department</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                </select>
+            </div>
 
-                <div class="dustbin">
-                    <i class="fa fa-solid fa-trash-can"><a href="#"></a></i>
-                </div>
-                <!--
+            <div class="dustbin">
+                <i class="fa fa-solid fa-trash-can"><a href="#"></a></i>
+            </div>
+            <!--
 
                     <div class="user-ad">
                         <i class="fa fa-user" aria-hidden="true"><a href="#"></a></i>
                     </div>
                 -->
-             </div>  
-     </div>
-     <!-- dropdown end menu -->
+        </div>
+    </div>
+    <!-- dropdown end menu -->
 
-     <!-- details start here  -->
-     <div class="detail">
+    <!-- details start here  -->
+    <div class="detail">
         <div class="tabel">
             <div class="heading">
                 <div class="userr info">
@@ -170,9 +306,9 @@
                 <div class="info">
                     <p>Activity</p>
                 </div>
-                
+
             </div>
-            
+
             <div class="heading">
                 <div class="userr info">
                     <input type="checkbox">
@@ -180,7 +316,7 @@
 
                         <img src="./img/face.jpg" alt="" width="50px">
                     -->
-                    
+
                     <p> Startup Name</h4>
                 </div>
                 <div class="info">
@@ -195,9 +331,13 @@
                 <div class="info">
                     <p>mentor Name</p>
                 </div>
-                <div class="info dot3">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
+
+
             </div>
 
             <div class="heading">
@@ -221,11 +361,13 @@
                 <div class="info">
                     <p>mentor Name</p>
                 </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="heading">
                 <div class="userr info">
                     <input type="checkbox">
@@ -247,11 +389,13 @@
                 <div class="info">
                     <p>mentor Name</p>
                 </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="heading">
                 <div class="userr info">
                     <input type="checkbox">
@@ -273,11 +417,13 @@
                 <div class="info">
                     <p>mentor Name</p>
                 </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="heading">
                 <div class="userr info">
                     <input type="checkbox">
@@ -299,8 +445,10 @@
                 <div class="info">
                     <p>mentor Name</p>
                 </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
             </div>
 
@@ -325,11 +473,13 @@
                 <div class="info">
                     <p>mentor Name</p>
                 </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="heading">
                 <div class="userr info">
                     <input type="checkbox">
@@ -351,16 +501,19 @@
                 <div class="info">
                     <p>mentor name</p>
                 </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                <div class="info dot3 box" href="#popup1">
+                    <a href="#popup1">
+                        <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> </i>
+                    </a>
                 </div>
             </div>
-            
+
         </div>
     </div>
-     <!-- details end here  -->
-   
-    
-       
+    <!-- details end here  -->
+
+
+
 </body>
+
 </html>
