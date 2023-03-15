@@ -573,6 +573,14 @@ h6,
 }
 
 @media (min-width: 992px) {
+
+    .trianglee img{
+       
+    }
+    .trianglee{
+        display:none !important;
+    }
+
     .navbar-light {
         position: absolute;
         width: 100%;
@@ -691,16 +699,16 @@ h6,
 }
 .trianglee img{
     width: 100px;
-    opacity: .5;
+    opacity: 0.2;
     animation: trianglee 17s linear infinite;
     display: flex;
-    margin-top: 380px !important;
+    margin-top:230px !important;
     margin: 0 auto;
 }
 .trianglee{
     position: absolute;
     top:30px;
-    right:30px;
+    right:47px;
 }
 
 @keyframes trianglee {
@@ -805,7 +813,7 @@ h6,
 }
 
 .service-item:hover {
-    background: var(--primary);
+    background:#8cc5de;
 }
 
 .service-item .service-icon {
@@ -1002,7 +1010,7 @@ h6,
 }
 
 .team-item:hover::after {
-    background: var(--primary);
+    background:#8cc5de;
 }
 
 .team-item h5,
