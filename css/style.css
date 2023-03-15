@@ -813,7 +813,7 @@ h6,
 }
 
 .service-item:hover {
-    background: var(--primary);
+    background:#8cc5de;
 }
 
 .service-item .service-icon {
@@ -1010,7 +1010,7 @@ h6,
 }
 
 .team-item:hover::after {
-    background: var(--primary);
+    background:#8cc5de;
 }
 
 .team-item h5,
