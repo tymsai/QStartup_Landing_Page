@@ -7,6 +7,18 @@
     <title>mentor</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tabel links -->
+      <!-- TABLE LINKS -->
+        <!---------- CHECK ASSETS ONCE IT has JS files MAY include Backend ALSO --------------->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="table/assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+        <link href="table/assets/css/demo.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
     <style>
         .heading{
             border-radius: 10px;
@@ -77,288 +89,407 @@
     <!-- navbar end -->
    
     <!-- mentor start here  -->
-    <div class="total-wrapper">
-         <div class="three-cards">
-            <div class="three">
-                <h1>12</h1>
-                <h3>Mentors Available</h3>
-            </div>
-            <div class="three">
-                <h1>5</h1>
-                <h3>Startups Registered</h3>
-            </div>
-            <div class="three">
-                <h1>0</h1>
-                <h3>On Hold</h3>
-            </div>
-         </div>
-    </div>
-    <!-- mentor end here  -->
-
-    <!-- search start here  -->
-    <div class="search-wrap">
-        <div class="search">
-            <!-- input button here -->
-            <input type="text" placeholder="Search" class="search-input">
-            <button class="search-btn"><a href="#">Search</a></button>
-            <!--
-
-                <i class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-            -->
-        </div>
-    </div>
-     <!-- search end here  -->
-
-     <!-- dropdown menu -->
-     <div class="drop-toggle">
-             <div class="inner">
-                <div class="all">
-                    <select name="pets" id="pet-select">
-                        <option value="">All</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
-                    </select>
-                </div>   
-                <div class="department">
-                    <select name="pets" id="pet-select">
-                        <option value="">All Department</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
-                    </select>
-                </div> 
-
-                <div class="dustbin">
-                    <i class="fa fa-solid fa-trash-can"><a href="#"></a></i>
-                </div>
+    <div class="wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="description">
+                <h2>Startup List</h2>
+              </div>
+    
+              <div class="fresh-table full-color-azure">
                 <!--
-
-                    <div class="user-ad">
-                        <i class="fa fa-user" aria-hidden="true"><a href="#"></a></i>
-                    </div>
-                -->
-             </div>  
-     </div>
-     <!-- dropdown end menu -->
-
-     <!-- details start here  -->
-     <div class="detail">
-        <div class="tabel">
-            <div class="heading">
-                <div class="userr info">
-                    <label for="user">User</label>
+              Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
+              Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
+            -->
+                <div class="toolbar">
+                  <button id="alertBtn" class="btn btn-default">Alert</button>
                 </div>
-                <div class="info">
-                    <p>Status</p>
-                </div>
-                <div class="info">
-                    <p>Phone Number</p>
-                </div>
-                <div class="info">
-                    <p>Email</p>
-                </div>
-                <div class="info">
-                    <p>Startup</p>
-                </div>
-                <div class="info">
-                    <p>Activity</p>
-                </div>
-                
+    
+                <table id="fresh-table" class="table">
+                  <thead>
+                    <th data-field="id" data-sortable="true">ID</th>
+                    <th data-field="name" data-sortable="true">StarName</th>
+                    <th data-field="salary" data-sortable="true">Status</th>
+                    <th data-field="contact" data-sortable="true">Phone</th>
+                    <th data-field="email">Email</th>
+                    <th data-field="mentor name">mentor name</th>
+                    <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Dakota Rice</td>
+                      <td>Active</td>
+                      <td>98765321</td>
+                      <td>cake@gmail.com</td>
+                      <td>Oud-Turnhout</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>Deactive</td>
+                      <td>Curaçao</td>
+                      <td>Sinaai-Waas</td>
+                      <td>Sinaai-Waas</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Sage Rodriguez</td>
+                      <td>Active</td>
+                      <td>Netherlands</td>
+                      <td>Baileux</td>
+                      <td>Baileux</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Philip Chaney</td>
+                      <td>$38,735</td>
+                      <td>Korea, South</td>
+                      <td>Overland Park</td>
+                      <td>Overland Park</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Doris Greene</td>
+                      <td>$63,542</td>
+                      <td>Malawi</td>
+                      <td>Feldkirchen in Kärnten</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Mason Porter</td>
+                      <td>$78,615</td>
+                      <td>Chile</td>
+                      <td>Gloucester</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Alden Chen</td>
+                      <td>$63,929</td>
+                      <td>Finland</td>
+                      <td>Gary</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Colton Hodges</td>
+                      <td>$93,961</td>
+                      <td>Nicaragua</td>
+                      <td>Delft</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Illana Nelson</td>
+                      <td>$56,142</td>
+                      <td>Heard Island</td>
+                      <td>Montone</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>Nicole Lane</td>
+                      <td>$93,148</td>
+                      <td>Cayman Islands</td>
+                      <td>Cottbus</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>11</td>
+                      <td>Chaim Saunders</td>
+                      <td>$5,502</td>
+                      <td>Romania</td>
+                      <td>New Quay</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>12</td>
+                      <td>Josiah Simon</td>
+                      <td>$50,265</td>
+                      <td>Christmas Island</td>
+                      <td>Sint-Jans-Molenbeek</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>13</td>
+                      <td>Ila Poole</td>
+                      <td>$67,413</td>
+                      <td>Montenegro</td>
+                      <td>Pontevedra</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>14</td>
+                      <td>Shana Mejia</td>
+                      <td>$58,566</td>
+                      <td>Afghanistan</td>
+                      <td>Ballarat</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>15</td>
+                      <td>Lana Ryan</td>
+                      <td>$64,151</td>
+                      <td>Martinique</td>
+                      <td>Portobuffolè</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>16</td>
+                      <td>Daquan Bender</td>
+                      <td>$91,906</td>
+                      <td>Sao Tome and Principe</td>
+                      <td>Walhain-Saint-Paul</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>17</td>
+                      <td>Connor Wagner</td>
+                      <td>$86,537</td>
+                      <td>Germany</td>
+                      <td>Solihull</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>18</td>
+                      <td>Boris Horton</td>
+                      <td>$35,094</td>
+                      <td>Laos</td>
+                      <td>Saint-Mard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>19</td>
+                      <td>Winifred Ryan</td>
+                      <td>$64,436</td>
+                      <td>Ireland</td>
+                      <td>Ronciglione</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>20</td>
+                      <td>Tanisha Hayes</td>
+                      <td>$43,670</td>
+                      <td>Argentina</td>
+                      <td>Lint</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td>Knox Morris</td>
+                      <td>$58,474</td>
+                      <td>Norway</td>
+                      <td>Melle</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>22</td>
+                      <td>Idola Stephenson</td>
+                      <td>$25,236</td>
+                      <td>Saint Barthélemy</td>
+                      <td>Joncret</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>23</td>
+                      <td>Abra Keller</td>
+                      <td>$28,272</td>
+                      <td>Switzerland</td>
+                      <td>Thame</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>24</td>
+                      <td>Teagan Mcgowan</td>
+                      <td>$51,059</td>
+                      <td>Sudan</td>
+                      <td>Stalowa Wola</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>25</td>
+                      <td>Leandra Kirby</td>
+                      <td>$89,270</td>
+                      <td>Western Sahara</td>
+                      <td>Oristano</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>26</td>
+                      <td>Quentin Swanson</td>
+                      <td>$64,782</td>
+                      <td>Saint Vincent</td>
+                      <td>Poznań</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>27</td>
+                      <td>Naida Oneil</td>
+                      <td>$52,070</td>
+                      <td>Panama</td>
+                      <td>Floriffoux</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>28</td>
+                      <td>Martina Kent</td>
+                      <td>$70,020</td>
+                      <td>Paraguay</td>
+                      <td>Leffinge</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>88</td>
+                      <td>Florence Tillman</td>
+                      <td>$79,225</td>
+                      <td>Cayman Islands</td>
+                      <td>S�lange</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>100</td>
+                      <td>Vielka Norton</td>
+                      <td>$44,584</td>
+                      <td>Spain</td>
+                      <td>Thane</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            
-            <div class="heading">
-                <div class="userr info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="./img/face.jpg" alt="" width="50px">
-                    -->
-                    
-                    <p> Mentor Name</h4>
-                </div>
-                <div class="info">
-                    <p>Active</p>
-                </div>
-                <div class="info">
-                    <p>9302466990</p>
-                </div>
-                <div class="info">
-                    <p>xyz@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup Name</p>
-                </div>
-                <div class="info dot3">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-
-            <div class="heading">
-                <div class="userr  info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="/img/profile.jpg" alt="" width="50px">
-                    -->
-                    <p>Mentor Name</p>
-                </div>
-                <div class="info">
-                    <p>Deactive</p>
-                </div>
-                <div class="info">
-                    <p>9302466990</p>
-                </div>
-                <div class="info">
-                    <p>xyz@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup Name</p>
-                </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-            
-            <div class="heading">
-                <div class="userr info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="./img/pexels-darina-belonogova-7897404.jpg" alt="" width="50px">
-                    -->
-                    <p>Mentor Name</p>
-                </div>
-                <div class="info info">
-                    <p>Status</p>
-                </div>
-                <div class="info">
-                    <p>9302466990</p>
-                </div>
-                <div class="info">
-                    <p>xyz@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup Name</p>
-                </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-            
-            <div class="heading">
-                <div class="userr info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="/img/profile.jpg" alt="" width="50px">
-                    -->
-                    <p>Mentor Name</p>
-                </div>
-                <div class="info">
-                    <p>Status</p>
-                </div>
-                <div class="info">
-                    <p>9302466990</p>
-                </div>
-                <div class="info">
-                    <p>xyz@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup Name</p>
-                </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-            
-            <div class="heading">
-                <div class="userr info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="./img/face.jpg" alt="" width="50px">
-                    -->
-                    <p>Mentor Name</p>
-                </div>
-                <div class="info">
-                    <p>Status</p>
-                </div>
-                <div class="info">
-                    <p>9302466990</p>
-                </div>
-                <div class="info">
-                    <p>xyz@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup Name</p>
-                </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-
-            <div class="heading">
-                <div class="userr info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="/img/profile.jpg" alt="" width="50px">
-                    -->
-                    <p>Mentor Name</p>
-                </div>
-                <div class="info">
-                    <p>Status</p>
-                </div>
-                <div class="info">
-                    <p>9302466990</p>
-                </div>
-                <div class="info">
-                    <p>xyz@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup Name</p>
-                </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-            
-            <div class="heading">
-                <div class="userr info">
-                    <input type="checkbox">
-                    <!--
-
-                        <img src="./img/pexels-darina-belonogova-7897404.jpg" alt="" width="50px">
-                    -->
-                    <p>Mentor Name</p>
-                </div>
-                <div class="info">
-                    <p>Status</p>
-                </div>
-                <div class="info">
-                    <p>9876543210</p>
-                </div>
-                <div class="info">
-                    <p>123@gmail.com</p>
-                </div>
-                <div class="info">
-                    <p>Startup name</p>
-                </div>
-                <div class="info">
-                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
-                </div>
-            </div>
-            
+          </div>
         </div>
-    </div>
-     <!-- details end here  -->
+      </div>
+    
+    
+    <script type="text/javascript">
+      var $table = $('#fresh-table')
+      var $alertBtn = $('#alertBtn')
+    
+      window.operateEvents = {
+        'click .like': function (e, value, row, index) {
+          alert('You click like icon, row: ' + JSON.stringify(row))
+          console.log(value, row, index)
+        },
+        'click .edit': function (e, value, row, index) {
+          alert('You click edit icon, row: ' + JSON.stringify(row))
+          console.log(value, row, index)
+        },
+        'click .remove': function (e, value, row, index) {
+          $table.bootstrapTable('remove', {
+            field: 'id',
+            values: [row.id]
+          })
+        }
+      }
+    
+      function operateFormatter(value, row, index) {
+        return [
+          '<a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">',
+          '<i class="fa fa-heart"></i>',
+          '</a>',
+          '<a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">',
+          '<i class="fa fa-edit"></i>',
+          '</a>',
+          '<a rel="tooltip" title="Remove" class="table-action remove" href="javascript:void(0)" title="Remove">',
+          '<i class="fa fa-remove"></i>',
+          '</a>'
+        ].join('')
+      }
+    
+      $(function () {
+        $table.bootstrapTable({
+          classes: 'table table-hover table-striped',
+          toolbar: '.toolbar',
+    
+          search: true,
+          showRefresh: true,
+          showToggle: true,
+          showColumns: true,
+          pagination: true,
+          striped: true,
+          sortable: true,
+          pageSize: 8,
+          pageList: [8, 10, 25, 50, 100],
+    
+          formatShowingRows: function (pageFrom, pageTo, totalRows) {
+            return ''
+          },
+          formatRecordsPerPage: function (pageNumber) {
+            return pageNumber + ' rows visible'
+          }
+        })
+    
+        $alertBtn.click(function () {
+          alert('You pressed on Alert')
+        })
+      })
+    
+      $('#sharrreTitle').sharrre({
+        share: {
+          twitter: true,
+          facebook: true
+        },
+        template: '',
+        enableHover: false,
+        enableTracking: true,
+        render: function (api, options) {
+          $("#sharrreTitle").html('Thank you for ' + options.total + ' shares!')
+        },
+        enableTracking: true,
+        url: location.href
+      })
+    
+      $('#twitter').sharrre({
+        share: {
+          twitter: true
+        },
+        enableHover: false,
+        enableTracking: true,
+        buttons: { twitter: { via: 'CreativeTim' } },
+        click: function (api, options) {
+          api.simulateClick()
+          api.openPopup('twitter')
+        },
+        template: '<i class="fa fa-twitter"></i> {total}',
+        url: location.href
+      })
+    
+      $('#facebook').sharrre({
+        share: {
+          facebook: true
+        },
+        enableHover: false,
+        enableTracking: true,
+        click: function (api, options) {
+          api.simulateClick()
+          api.openPopup('facebook')
+        },
+        template: '<i class="fa fa-facebook-square"></i> {total}',
+        url: location.href
+      })
+    </script>
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga')
+    
+      ga('create', 'UA-46172202-1', 'auto')
+      ga('send', 'pageview')
+    
+    </script>
    
     
        
