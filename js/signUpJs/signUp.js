@@ -35,58 +35,82 @@ document.getElementById('form').onsubmit = (event) => {
     const confirmpassword = form.confirmPassword.value;
 
     const createdUser = {
-        username, email
+        username, email, password, confirmpassword
     }
 
+    console.log(createdUser)
 
 
-    // Sign Up with email and password
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-
-            const user = result.user;
-            console.log('user', user);
-            localStorage.setItem('email', user.email)
-            const auth = getAuth();
-
-            //   2. Update Name
-            updateProfile(auth.currentUser, {
-                displayName: username,
-
-            })
-
-            sendEmailVerification(auth.currentUser)
-                .then((e) => {
-                    console.log('mail sent', e)
-                    // Email verification sent! emailVerified
-                    if (user.emailVerified === false) {
-                        return alert('check your email and verify it')
-                    }
-                    if (user.emailVerified === true) {
-
-                        // saveUserToDatabase
-                        fetch(`http://localhost:5000/signup`, {
-                            method: 'PUT',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(createdUser)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                            })
-                    }
-
-                });
-
-
-
-
-
-            form.reset()
-            // window.location.href = '/index.html'
+    // saveUserToDatabase
+    fetch(`http://localhost:3000/signup`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(createdUser)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.token) {
+                localStorage.setItem('currentUser', JSON.stringify(data))
+                form.reset()
+                window.location.href = '/'
+            }
         })
+
+        // // Sign Up with email and password
+        // createUserWithEmailAndPassword(auth, email, password)
+        //     .then((result) => {
+
+        //         const user = result.user;
+        //         console.log('user', user);
+        //         localStorage.setItem('email', user.email)
+        //         const auth = getAuth();
+
+        //         //   2. Update Name
+        //         updateProfile(auth.currentUser, {
+        //             displayName: username,
+
+        //         }).then(() => { })
+        //             .catch(err => {
+        //                 console.log(err)
+        //             })
+
+
+        //         // saveUserToDatabase
+        //         fetch(`http://localhost:5000/signup`, {
+        //             method: 'PUT',
+        //             headers: {
+        //                 'content-type': 'application/json'
+        //             },
+        //             body: JSON.stringify(createdUser)
+        //         })
+        //             .then(res => res.json())
+        //             .then(data => {
+        //                 console.log(data)
+        //             })
+
+        //         sendEmailVerification(auth.currentUser)
+        //             .then((e) => {
+        //                 console.log('mail sent', e)
+        //                 // Email verification sent! emailVerified
+        //                 if (user.emailVerified === false) {
+        //                     return alert('check your email and verify it')
+        //                 }
+        //                 if (user.emailVerified === true) {
+
+        //                 }
+
+        //             });
+
+
+
+
+
+        //         form.reset()
+        //         // window.location.href = '/index.html'
+        //     })
         .catch((error) => {
 
             console.log(error)
@@ -121,7 +145,7 @@ const handleLogout = () => {
 }
 
 // conditional rendering of login and logout button
-if (LocalCurrentUser?.uid) {
+if (LocalCurrentUser?.token) {
     logoutBtn.innerHTML = `<a  class="nav-item nav-link cursor-pointer" id="login">Logout</a>`
 
 } else {

@@ -1,7 +1,16 @@
+
 console.log('registration js connected')
 const form = document.querySelector('.form');
 const imgbbKey = 'a95a8e5bfa79deda8fe4df67e21b4f26';
 const fileInput = document.querySelector('input[type="file"]');
+
+
+const user = JSON.parse(localStorage.getItem('currentUser'));
+console.log(user)
+
+// set default value of mentor name and email;
+document.getElementById('mentorEmail').value = user.email
+document.getElementById('username').value = user.username;
 
 let imageurl;
 console.log(imageurl)
@@ -12,12 +21,21 @@ form.addEventListener('submit', (event) => {
     const formData = new FormData(form)
     formData.delete('Photo');
     const payload = Object.fromEntries(formData)
-    const mentor = { ...payload, imageurl }
-
+    const mentor = { ...payload, imageurl, role: "mentor" }
 
     console.log(imageurl, mentor)
 
-
+    fetch(`http://localhost:5000/mentor`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(mentor)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
 
 
 });
@@ -33,12 +51,12 @@ fileInput.addEventListener('change', () => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            // handle response data here
+
             imageurl = data.data.url;
         })
         .catch(error => {
             console.error(error);
-            // handle error here
+
         });
 });
 // ----------------------------------------------
