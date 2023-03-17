@@ -35,58 +35,30 @@ document.getElementById('form').onsubmit = (event) => {
     const confirmpassword = form.confirmPassword.value;
 
     const createdUser = {
-        username, email
+        username, email, password, confirmpassword
     }
 
+    console.log(createdUser)
 
 
-    // Sign Up with email and password
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-
-            const user = result.user;
-            console.log('user', user);
-            localStorage.setItem('email', user.email)
-            const auth = getAuth();
-
-            //   2. Update Name
-            updateProfile(auth.currentUser, {
-                displayName: username,
-
-            })
-
-            sendEmailVerification(auth.currentUser)
-                .then((e) => {
-                    console.log('mail sent', e)
-                    // Email verification sent! emailVerified
-                    if (user.emailVerified === false) {
-                        return alert('check your email and verify it')
-                    }
-                    if (user.emailVerified === true) {
-
-                        // saveUserToDatabase
-                        fetch(`http://localhost:5000/signup`, {
-                            method: 'PUT',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(createdUser)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                            })
-                    }
-
-                });
-
-
-
-
-
-            form.reset()
-            // window.location.href = '/index.html'
+    // saveUserToDatabase
+    fetch(`http://localhost:5000/signup`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(createdUser)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.token) {
+                localStorage.setItem('currentUser', JSON.stringify(data))
+                form.reset()
+                window.location.href = '/'
+            }
         })
+
         .catch((error) => {
 
             console.log(error)
@@ -121,7 +93,7 @@ const handleLogout = () => {
 }
 
 // conditional rendering of login and logout button
-if (LocalCurrentUser?.uid) {
+if (LocalCurrentUser?.token) {
     logoutBtn.innerHTML = `<a  class="nav-item nav-link cursor-pointer" id="login">Logout</a>`
 
 } else {
@@ -136,42 +108,42 @@ const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 console.log('currentUser', currentUser)
 
 // set current user to local strorage
-const unsubscribe = auth.onAuthStateChanged(currentUser => {
-    console.log(currentUser);
-    if (currentUser?.uid) {
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    }
-});
-() => unsubscribe();
+// const unsubscribe = auth.onAuthStateChanged(currentUser => {
+//     console.log(currentUser);
+//     if (currentUser?.uid) {
+//         localStorage.setItem('currentUser', JSON.stringify(currentUser));
+//     }
+// });
+// () => unsubscribe();
 
 
 //user login by google
-const googleButton = document.getElementById('googleButton')
+// const googleButton = document.getElementById('googleButton')
 
-const loginWithEmail = () => {
-    signInWithPopup(auth, googleProvider)
-        .then(result => {
-            const user = result.user
-            const currentUser = {
-                username: user.displayName,
-                email: user.email
-            }
-            if (user) {
-                fetch(`http://localhost:5000/signup`, {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                    })
-            }
+// const loginWithEmail = () => {
+//     signInWithPopup(auth, googleProvider)
+//         .then(result => {
+//             const user = result.user
+//             const currentUser = {
+//                 username: user.displayName,
+//                 email: user.email
+//             }
+//             if (user) {
+//                 fetch(`http://localhost:5000/signup`, {
+//                     method: 'PUT',
+//                     headers: {
+//                         'content-type': 'application/json'
+//                     },
+//                     body: JSON.stringify(currentUser)
+//                 })
+//                     .then(res => res.json())
+//                     .then(data => {
+//                         console.log(data)
+//                     })
+//             }
 
-        })
-        .catch(error => { console.log(error) })
+//         })
+//         .catch(error => { console.log(error) })
 
-}
-googleButton.addEventListener('click', loginWithEmail)
+// }
+// googleButton.addEventListener('click', loginWithEmail)
