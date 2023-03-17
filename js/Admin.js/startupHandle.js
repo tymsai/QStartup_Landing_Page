@@ -19,17 +19,47 @@ const disPlayStartUp = (startUpData) => {
     tbody.innerHTML = ``;
     // console.log(startUpData)
     startUpData.forEach((startUp, index) => {
-        console.log(startUp.data.Address)
-        let row = tbody.insertRow();
-        let serial = row.insertCell();
-        let startUpName = row.insertCell();
-        let phone = row.insertCell();
-        let email = row.insertCell();
-        let Industry = row.insertCell();
-        let city = row.insertCell();
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+                  <td >${index}</td>
+                  <td>${startUp.data.startupName}</td>
+                  <td>${startUp.data.sturtupPhone}</td>
+                  <td>${startUp.username}</td>
+                  <td>${startUp.data.sturtupPhone}</td>
+                  <td>${startUp.data.sturtupPhone}</td>
+                  <td class=''> 
+                    <a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">
+                         <i class="fa fa-heart"></i>
+                    </a>
+                    <a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">
+                          <i class="fa fa-edit"></i>
+                    </a>
+                    <a rel="tooltip" title="Remove" class="table-action remove" href="javascript:void(0)" title="Remove">
+                           <i class="fa fa-remove"></i>
+                     </a>
+                 </td>
+        `
+        tbody.appendChild(row)
+
+        // console.log(startUp.data.Address)
+        // let row = tbody.insertRow();
         // let serial = row.insertCell();
-        startUpName.innerHTML = `${startUp.data.startupName}`
-        serial.innerHTML = `${index}`
+        // let startUpName = row.insertCell();
+        // let seria = row.insertCell();
+        // let phone = row.insertCell();
+        // let email = row.insertCell();
+        // let usernametd = row.insertCell();
+        // let Industry = row.insertCell();
+        // let city = row.insertCell();
+        // // let serial = row.insertCell();
+        // serial.innerHTML = `${index}`
+        // startUpName.innerHTML = `${startUp.data.startupName}`
+        // phone.innerHTML = `${startUp.data.sturtupPhone}`
+        // email.innerHTML = `${startUp.data.email}`
+        // usernametd.innerHTML = `${startUp.username}`
+
+
     })
     console.log(startUpData)
 
