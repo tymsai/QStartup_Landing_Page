@@ -15,6 +15,7 @@ const firebaseConfig = {
     appId: "1:943287081104:web:52a231d94931978cc76015",
     measurementId: "G-H7LJWC49HQ"
 };
+
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider()
@@ -27,23 +28,42 @@ document.getElementById('loginForm').onsubmit = ((event) => {
     const form = event.target
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password)
-    if (!email) {
-        return
+    const user = {
+        email, password
     }
-    // login with email and password
-    signInWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-            // Signed in 
-            const user = result.user;
-            console.log(user)
+    console.log(email, password)
 
-            localStorage.setItem('currentUser', JSON.stringify(user));
 
+
+    fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem('currentUser', JSON.stringify(data))
+            console.log(data)
+            form.reset()
         })
-        .catch((error) => {
-            console.log(error)
-        });
+        .catch(error => { console.log(error) })
+
+
+    // login with email and password
+    // signInWithEmailAndPassword(auth, email, password)
+    //     .then((result) => {
+    //         // Signed in 
+    //         const user = result.user;
+    //         console.log(user)
+
+    //         localStorage.setItem('currentUser', JSON.stringify(user));
+
+    //     })
+    //     .catch((error) => {
+    //         console.log(error)
+    //     });
 
 
 
@@ -53,58 +73,78 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 // onsubmit end.
 
 // login with gmail start
-const loginWithEmail = () => {
-    signInWithPopup(auth, googleProvider)
-        .then(result => {
-            const user = result.user
-            const currentUser = {
-                username: user.displayName,
-                email: user.email
-            }
-            if (user) {
-                fetch(`http://localhost:5000/signup`, {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                    })
-            }
+// const loginWithEmail = () => {
+//     signInWithPopup(auth, googleProvider)
+//         .then(result => {
+//             const user = result.user
+//             const currentUser = {
+//                 username: user.displayName,
+//                 email: user.email
+//             }
+//             if (user) {
+//                 fetch(`http://localhost:5000/signup`, {
+//                     method: 'PUT',
+//                     headers: {
+//                         'content-type': 'application/json'
+//                     },
+//                     body: JSON.stringify(currentUser)
+//                 })
+//                     .then(res => res.json())
+//                     .then(data => {
+//                         console.log(data)
+//                         alert(data)
+//                     })
+//             }
 
-        })
-        .catch(error => { console.log(error) })
+//         })
+//         .catch(error => { console.log(error) })
 
-}
-const googleButton = document.getElementById('googleButton')
-googleButton.addEventListener('click', loginWithEmail)
+// }
+// const googleButton = document.getElementById('googleButton')
+// googleButton.addEventListener('click', loginWithEmail)
 // login with gmail end
 
-// forget password function emplement
-const handleResetPassword = () => {
-    const email = document.getElementById('email').value;
-    if (!email) {
-        alert('please enter email')
-        return
-    } else if (email) {
-        console.log('reset clicked')
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
+// // forget password function emplement
+// const handleResetPassword = () => {
+//     const email = document.getElementById('email').value;
+//     if (!email) {
+//         alert('please enter email')
+//         return
+//     } else if (email) {
+//         console.log('reset clicked')
 
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
 
-            });
-    }
 
-}
-// forget password button and eventlistener
-const resetbtn = document.getElementById('resetPass')
+//         fetch("http://localhost:5000/sendResetLinkEmail", {
+//             method: "POST",
+//             headers: {
+//                 'content-type': 'application/json'
+//             },
+//             body: JSON.stringify(email)
+//         })
+//             .then(res => res.json())
+//             .then(data => {
+//                 console.log(data)
+//             })
+//             .catch(error => { console.log(error) })
 
-resetbtn.addEventListener('click', handleResetPassword)
-console.log('login clicked')
+
+//     }
+
+// }
+// // forget password button and eventlistener
+// const resetbtn = document.getElementById('resetPass')
+
+// resetbtn.addEventListener('click', handleResetPassword)
+// console.log('login clicked')
+
+// set current user to local strorage
+// const unsubscribe = auth.onAuthStateChanged(currentUser => {
+//     console.log(currentUser);
+//     if (currentUser?.uid) {
+//         localStorage.setItem('currentUser', JSON.stringify(currentUser));
+//     }
+// });
+// () => unsubscribe();
+const user = JSON.parse(localStorage.getItem('currentUser'));
+console.log(user)
