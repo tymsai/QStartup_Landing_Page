@@ -21,11 +21,11 @@ const disPlayStartUp = (startUpData) => {
     startUpData.forEach((startUp, index) => {
 
         const row = document.createElement('tr');
+        row.setAttribute('data-id', startUp._id)
         row.innerHTML = `
                   <td >${index}</td>
                   <td>${startUp.data.startupName}</td>
                  
-                  <td></td>
                   <td>${startUp.username}</td>
                   <td>${startUp.data.email}</td>
                   <td>${startUp.username}</td>
@@ -34,9 +34,9 @@ const disPlayStartUp = (startUpData) => {
                     <a  class="">
                           <i class="fa fa-edit"></i>
                     </a>
-                    <div  class=" " id="delete" onclick="handleDelete('${startUp._id}')" >
+                    <span  class="" id="delete"  onclick="handleDelete('${startUp._id}')" >
                            <i class="fa fa-remove"></i>
-                     </div>
+                     </span>
                  </td>
         `
         tbody.appendChild(row)
@@ -51,8 +51,24 @@ const deleteButton = document.querySelector("#delete");
 console.log(deleteButton)
 const handleDelete = (id) => {
     console.log('delete clicked', id)
+    fetch(`http://localhost:5000/userDelete/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        },
+
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            const deletedRow = document.querySelector(`tr[data-id="${id}"]`)
+            if (deletedRow) {
+                deletedRow.remove()
+            }
+
+        })
 }
-// deleteButton.addEventListener('click', handleDelete)
+
 
 // calling the loadStartUp function.
 loadStartUp()
