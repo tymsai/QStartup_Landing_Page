@@ -24,40 +24,22 @@ const disPlayStartUp = (startUpData) => {
         row.innerHTML = `
                   <td >${index}</td>
                   <td>${startUp.data.startupName}</td>
-                  <td>${startUp.data.sturtupPhone}</td>
+                 
+                  <td></td>
                   <td>${startUp.username}</td>
-                  <td>${startUp.data.sturtupPhone}</td>
-                  <td>${startUp.data.sturtupPhone}</td>
-                  <td class=''> 
-                    <a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">
-                         <i class="fa fa-heart"></i>
-                    </a>
-                    <a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">
+                  <td>${startUp.data.email}</td>
+                  <td>${startUp.username}</td>
+                  <td class='text-center'> 
+                   
+                    <a  class="">
                           <i class="fa fa-edit"></i>
                     </a>
-                    <a rel="tooltip" title="Remove" class="table-action remove" href="javascript:void(0)" title="Remove">
+                    <div  class=" " id="delete" onclick="handleDelete('${startUp._id}')" >
                            <i class="fa fa-remove"></i>
-                     </a>
+                     </div>
                  </td>
         `
         tbody.appendChild(row)
-
-        // console.log(startUp.data.Address)
-        // let row = tbody.insertRow();
-        // let serial = row.insertCell();
-        // let startUpName = row.insertCell();
-        // let seria = row.insertCell();
-        // let phone = row.insertCell();
-        // let email = row.insertCell();
-        // let usernametd = row.insertCell();
-        // let Industry = row.insertCell();
-        // let city = row.insertCell();
-        // // let serial = row.insertCell();
-        // serial.innerHTML = `${index}`
-        // startUpName.innerHTML = `${startUp.data.startupName}`
-        // phone.innerHTML = `${startUp.data.sturtupPhone}`
-        // email.innerHTML = `${startUp.data.email}`
-        // usernametd.innerHTML = `${startUp.username}`
 
 
     })
@@ -65,6 +47,13 @@ const disPlayStartUp = (startUpData) => {
 
 
 }
+const deleteButton = document.querySelector("#delete");
+console.log(deleteButton)
+const handleDelete = (id) => {
+    console.log('delete clicked', id)
+}
+// deleteButton.addEventListener('click', handleDelete)
+
 // calling the loadStartUp function.
 loadStartUp()
 
