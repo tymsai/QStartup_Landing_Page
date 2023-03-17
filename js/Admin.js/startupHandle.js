@@ -12,14 +12,31 @@ const loadStartUp = () => {
         })
 
 }
-// calling the loadStartUp function.
-loadStartUp()
+
 
 const disPlayStartUp = (startUpData) => {
+    const tbody = document.querySelector('#tbody')
+    tbody.innerHTML = ``;
+    // console.log(startUpData)
+    startUpData.forEach((startUp, index) => {
+        console.log(startUp.data.Address)
+        let row = tbody.insertRow();
+        let serial = row.insertCell();
+        let startUpName = row.insertCell();
+        let phone = row.insertCell();
+        let email = row.insertCell();
+        let Industry = row.insertCell();
+        let city = row.insertCell();
+        // let serial = row.insertCell();
+        startUpName.innerHTML = `${startUp.data.startupName}`
+        serial.innerHTML = `${index}`
+    })
     console.log(startUpData)
 
 
 }
+// calling the loadStartUp function.
+loadStartUp()
 
 var $table = $('#fresh-table')
 var $alertBtn = $('#alertBtn')
