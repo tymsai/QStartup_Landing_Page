@@ -42,7 +42,7 @@ document.getElementById('form').onsubmit = (event) => {
 
 
     // saveUserToDatabase
-    fetch(`http://localhost:3000/signup`, {
+    fetch(`http://localhost:5000/signup`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -59,58 +59,6 @@ document.getElementById('form').onsubmit = (event) => {
             }
         })
 
-        // // Sign Up with email and password
-        // createUserWithEmailAndPassword(auth, email, password)
-        //     .then((result) => {
-
-        //         const user = result.user;
-        //         console.log('user', user);
-        //         localStorage.setItem('email', user.email)
-        //         const auth = getAuth();
-
-        //         //   2. Update Name
-        //         updateProfile(auth.currentUser, {
-        //             displayName: username,
-
-        //         }).then(() => { })
-        //             .catch(err => {
-        //                 console.log(err)
-        //             })
-
-
-        //         // saveUserToDatabase
-        //         fetch(`http://localhost:5000/signup`, {
-        //             method: 'PUT',
-        //             headers: {
-        //                 'content-type': 'application/json'
-        //             },
-        //             body: JSON.stringify(createdUser)
-        //         })
-        //             .then(res => res.json())
-        //             .then(data => {
-        //                 console.log(data)
-        //             })
-
-        //         sendEmailVerification(auth.currentUser)
-        //             .then((e) => {
-        //                 console.log('mail sent', e)
-        //                 // Email verification sent! emailVerified
-        //                 if (user.emailVerified === false) {
-        //                     return alert('check your email and verify it')
-        //                 }
-        //                 if (user.emailVerified === true) {
-
-        //                 }
-
-        //             });
-
-
-
-
-
-        //         form.reset()
-        //         // window.location.href = '/index.html'
-        //     })
         .catch((error) => {
 
             console.log(error)
@@ -160,42 +108,42 @@ const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 console.log('currentUser', currentUser)
 
 // set current user to local strorage
-const unsubscribe = auth.onAuthStateChanged(currentUser => {
-    console.log(currentUser);
-    if (currentUser?.uid) {
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    }
-});
-() => unsubscribe();
+// const unsubscribe = auth.onAuthStateChanged(currentUser => {
+//     console.log(currentUser);
+//     if (currentUser?.uid) {
+//         localStorage.setItem('currentUser', JSON.stringify(currentUser));
+//     }
+// });
+// () => unsubscribe();
 
 
 //user login by google
-const googleButton = document.getElementById('googleButton')
+// const googleButton = document.getElementById('googleButton')
 
-const loginWithEmail = () => {
-    signInWithPopup(auth, googleProvider)
-        .then(result => {
-            const user = result.user
-            const currentUser = {
-                username: user.displayName,
-                email: user.email
-            }
-            if (user) {
-                fetch(`http://localhost:5000/signup`, {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                    })
-            }
+// const loginWithEmail = () => {
+//     signInWithPopup(auth, googleProvider)
+//         .then(result => {
+//             const user = result.user
+//             const currentUser = {
+//                 username: user.displayName,
+//                 email: user.email
+//             }
+//             if (user) {
+//                 fetch(`http://localhost:5000/signup`, {
+//                     method: 'PUT',
+//                     headers: {
+//                         'content-type': 'application/json'
+//                     },
+//                     body: JSON.stringify(currentUser)
+//                 })
+//                     .then(res => res.json())
+//                     .then(data => {
+//                         console.log(data)
+//                     })
+//             }
 
-        })
-        .catch(error => { console.log(error) })
+//         })
+//         .catch(error => { console.log(error) })
 
-}
-googleButton.addEventListener('click', loginWithEmail)
+// }
+// googleButton.addEventListener('click', loginWithEmail)
