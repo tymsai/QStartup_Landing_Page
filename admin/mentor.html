@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mentor</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .heading{
+            border-radius: 10px;
+            border: 2px solid rgb(126, 122, 122);
+        }
+    </style>
+</head>
+<body>
+    <!-- toggle area start here -->
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <!-- toggle area end here -->
+
+    <nav class="navbar-side">
+       
+        <div class="navigation">
+            
+            <div class="user-profile">
+                <div class="user-area">
+                    <img src="/img/admin profile.jpg" alt="">
+                    <h1>Company</h1>
+                </div>
+            </div>
+            
+            <!-- service part start here -->
+            <div class="service-part">
+                <ul class="links">
+                    <li>
+                        <i class="fa-sharp fa-solid fa-user red"></i>
+                        <a href="./index.html">General</a>
+                    </li>
+
+                   
+                    <li>
+                        <i class="fa-solid fa-list-ul green"></i>
+                        <a href="./startup.html">Startup</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-q brown"></i>
+                        <a href="">Settings</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-user-group blue"></i>
+                        <a href="./mentor.html">Mentor List</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- service part end here -->
+
+            <!-- user log out btn -->
+            <div class="log-out">
+                <ul class="user-logout">
+                    <li>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- navbar end -->
+   
+    <!-- mentor start here  -->
+    <div class="total-wrapper">
+         <div class="three-cards">
+            <div class="three">
+                <h1>12</h1>
+                <h3>Mentors Available</h3>
+            </div>
+            <div class="three">
+                <h1>5</h1>
+                <h3>Startups Registered</h3>
+            </div>
+            <div class="three">
+                <h1>0</h1>
+                <h3>On Hold</h3>
+            </div>
+         </div>
+    </div>
+    <!-- mentor end here  -->
+
+    <!-- search start here  -->
+    <div class="search-wrap">
+        <div class="search">
+            <!-- input button here -->
+            <input type="text" placeholder="Search" class="search-input">
+            <button class="search-btn"><a href="#">Search</a></button>
+            <!--
+
+                <i class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+            -->
+        </div>
+    </div>
+     <!-- search end here  -->
+
+     <!-- dropdown menu -->
+     <div class="drop-toggle">
+             <div class="inner">
+                <div class="all">
+                    <select name="pets" id="pet-select">
+                        <option value="">All</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="parrot">Parrot</option>
+                        <option value="spider">Spider</option>
+                        <option value="goldfish">Goldfish</option>
+                    </select>
+                </div>   
+                <div class="department">
+                    <select name="pets" id="pet-select">
+                        <option value="">All Department</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="parrot">Parrot</option>
+                        <option value="spider">Spider</option>
+                        <option value="goldfish">Goldfish</option>
+                    </select>
+                </div> 
+
+                <div class="dustbin">
+                    <i class="fa fa-solid fa-trash-can"><a href="#"></a></i>
+                </div>
+                <!--
+
+                    <div class="user-ad">
+                        <i class="fa fa-user" aria-hidden="true"><a href="#"></a></i>
+                    </div>
+                -->
+             </div>  
+     </div>
+     <!-- dropdown end menu -->
+
+     <!-- details start here  -->
+     <div class="detail">
+        <div class="tabel">
+            <div class="heading">
+                <div class="userr info">
+                    <label for="user">User</label>
+                </div>
+                <div class="info">
+                    <p>Status</p>
+                </div>
+                <div class="info">
+                    <p>Phone Number</p>
+                </div>
+                <div class="info">
+                    <p>Email</p>
+                </div>
+                <div class="info">
+                    <p>Startup</p>
+                </div>
+                <div class="info">
+                    <p>Activity</p>
+                </div>
+                
+            </div>
+            
+            <div class="heading">
+                <div class="userr info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="./img/face.jpg" alt="" width="50px">
+                    -->
+                    
+                    <p> Mentor Name</h4>
+                </div>
+                <div class="info">
+                    <p>Active</p>
+                </div>
+                <div class="info">
+                    <p>9302466990</p>
+                </div>
+                <div class="info">
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup Name</p>
+                </div>
+                <div class="info dot3">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+
+            <div class="heading">
+                <div class="userr  info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="/img/profile.jpg" alt="" width="50px">
+                    -->
+                    <p>Mentor Name</p>
+                </div>
+                <div class="info">
+                    <p>Deactive</p>
+                </div>
+                <div class="info">
+                    <p>9302466990</p>
+                </div>
+                <div class="info">
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup Name</p>
+                </div>
+                <div class="info">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+            
+            <div class="heading">
+                <div class="userr info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="./img/pexels-darina-belonogova-7897404.jpg" alt="" width="50px">
+                    -->
+                    <p>Mentor Name</p>
+                </div>
+                <div class="info info">
+                    <p>Status</p>
+                </div>
+                <div class="info">
+                    <p>9302466990</p>
+                </div>
+                <div class="info">
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup Name</p>
+                </div>
+                <div class="info">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+            
+            <div class="heading">
+                <div class="userr info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="/img/profile.jpg" alt="" width="50px">
+                    -->
+                    <p>Mentor Name</p>
+                </div>
+                <div class="info">
+                    <p>Status</p>
+                </div>
+                <div class="info">
+                    <p>9302466990</p>
+                </div>
+                <div class="info">
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup Name</p>
+                </div>
+                <div class="info">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+            
+            <div class="heading">
+                <div class="userr info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="./img/face.jpg" alt="" width="50px">
+                    -->
+                    <p>Mentor Name</p>
+                </div>
+                <div class="info">
+                    <p>Status</p>
+                </div>
+                <div class="info">
+                    <p>9302466990</p>
+                </div>
+                <div class="info">
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup Name</p>
+                </div>
+                <div class="info">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+
+            <div class="heading">
+                <div class="userr info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="/img/profile.jpg" alt="" width="50px">
+                    -->
+                    <p>Mentor Name</p>
+                </div>
+                <div class="info">
+                    <p>Status</p>
+                </div>
+                <div class="info">
+                    <p>9302466990</p>
+                </div>
+                <div class="info">
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup Name</p>
+                </div>
+                <div class="info">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+            
+            <div class="heading">
+                <div class="userr info">
+                    <input type="checkbox">
+                    <!--
+
+                        <img src="./img/pexels-darina-belonogova-7897404.jpg" alt="" width="50px">
+                    -->
+                    <p>Mentor Name</p>
+                </div>
+                <div class="info">
+                    <p>Status</p>
+                </div>
+                <div class="info">
+                    <p>9876543210</p>
+                </div>
+                <div class="info">
+                    <p>123@gmail.com</p>
+                </div>
+                <div class="info">
+                    <p>Startup name</p>
+                </div>
+                <div class="info">
+                    <i style="margin-left: 1rem;" class="fa fa-ellipsis-v dots"> <a href="#"></a> </i>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+     <!-- details end here  -->
+   
+    
+       
+</body>
+</html>
