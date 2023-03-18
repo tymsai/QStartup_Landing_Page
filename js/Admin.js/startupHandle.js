@@ -31,10 +31,10 @@ const disPlayStartUp = (startUpData) => {
                   <td>${startUp.username}</td>
                   <td class='text-center'> 
                    
-                    <a  class="">
+                    <a id="editButton" onClick="handleEdit('${startUp._id}')"  class="">
                           <i class="fa fa-edit"></i>
                     </a>
-                    <span  class="" id="delete"  onclick="handleDelete('${startUp._id}')" >
+                    <span  class="text-danger" id="delete"  onclick="handleDelete('${startUp._id}')" >
                            <i class="fa fa-remove"></i>
                      </span>
                  </td>
@@ -47,6 +47,8 @@ const disPlayStartUp = (startUpData) => {
 
 
 }
+
+// delete functionality here
 const deleteButton = document.querySelector("#delete");
 console.log(deleteButton)
 const handleDelete = (id) => {
@@ -72,6 +74,13 @@ const handleDelete = (id) => {
 
 // calling the loadStartUp function.
 loadStartUp()
+
+// edit functionality here
+
+const handleEdit = (id) => {
+    console.log('edit clicked', id)
+    window.location.href = "Edit.html?id=" + id
+}
 
 var $table = $('#fresh-table')
 var $alertBtn = $('#alertBtn')
