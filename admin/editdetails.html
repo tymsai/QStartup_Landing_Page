@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Details</title>
-     
-    <!-- Favicon -->
+        <!-- Favicon -->
      <link href="./img/favicon.ico" rel="icon">
     
      <!-- Google Web Fonts -->
@@ -29,6 +28,10 @@
 
      <!-- Template Stylesheet -->
      <link href="../css/style.css" rel="stylesheet">
+     <link rel="stylesheet" href="./css/style.css">
+
+     <!-- font awesome link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <style>
          .box {
              display: none;
@@ -48,6 +51,74 @@
          });</script>
 </head>
 <body>
+
+
+    <!-- navbar start -->
+    <!-- toggle area start here -->
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <!-- toggle area end here -->
+    <nav class="navbar-side">
+       
+        <div class="navigation">
+            
+            <div class="user-profile">
+                <div class="user-area">
+                    <img src="/img/admin profile.jpg" alt="">
+                    <h1>Company</h1>
+                </div>
+            </div>
+            
+            <!-- service part start here -->
+            <div class="service-part">
+                <ul class="links">
+                    <li>
+                        <i class="fa-sharp fa-solid fa-user red"></i>
+                        <a href="./index.html">General</a>
+                    </li>
+
+                   
+                    <li>
+                        <i class="fa-solid fa-list-ul green"></i>
+                        <a href="./startup.html">Startup</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-q brown"></i>
+                        <a href="#">Account</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-user-group blue"></i>
+                        <a href="./mentor.html">Mentor List</a>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-info-circle coral" aria-hidden="true"></i>
+                        <a href="./editdetails.html">Details</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- service part end here -->
+
+            <!-- user log out btn -->
+            <div class="log-out">
+                <ul class="user-logout">
+                    <li>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- navbar end -->
+
 
     <div class="container-xxl p-3 w-100">
          <!-- Spinner Start -->
