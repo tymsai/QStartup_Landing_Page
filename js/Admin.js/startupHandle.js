@@ -1,86 +1,121 @@
-console.log('startupHandle.js')
+// console.log('startupHandle.js')
 
 
-const loadStartUp = () => {
+// const loadStartUp = () => {
 
 
-    fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
-        .then(res => res.json())
-        .then(data => {
-            disPlayStartUp(data)
-            console.log(data)
-        })
+//     fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
+//         .then(res => res.json())
+//         .then(data => {
+//             disPlayStartUp(data)
+//             console.log(data)
+//         })
 
-}
-
-
-const disPlayStartUp = (startUpData) => {
-    const tbody = document.querySelector('#tbody')
-    tbody.innerHTML = ``;
-    // console.log(startUpData)
-    startUpData.forEach((startUp, index) => {
-
-        const row = document.createElement('tr');
-        row.setAttribute('data-id', startUp._id)
-        row.innerHTML = `
-                  <td >${index}</td>
-                  <td>${startUp.data.startupName}</td>
-                 
-                  <td>${startUp.username}</td>
-                  <td>${startUp.data.email}</td>
-                  <td>${startUp.username}</td>
-                  <td class='text-center'> 
-                   
-                    <a id="editButton" onClick="handleEdit('${startUp._id}')"  class="">
-                          <i class="fa fa-edit"></i>
-                    </a>
-                    <span  class="text-danger" id="delete"  onclick="handleDelete('${startUp._id}')" >
-                           <i class="fa fa-remove"></i>
-                     </span>
-                 </td>
-        `
-        tbody.appendChild(row)
+// }
 
 
-    })
-    console.log(startUpData)
+// const disPlayStartUp = (startUpData) => {
+//     const tbody = document.querySelector('#tbody')
+//     tbody.innerHTML = ``;
+//     // console.log(startUpData)
+//     startUpData.forEach((startUp, index) => {
+
+//         const row = document.createElement('tr');
+//         row.setAttribute('data-id', startUp._id)
+//         row.innerHTML = `
+//                   <td >${index}</td>
+//                   <td style="width: 50px">${startUp.data.startupName}</td>
+
+//                   <td>${startUp.data.sturtupPhone}</td>
+//                   <td data-searchable="true">${startUp.data.email}</td>
+//                   <td>${startUp.username}</td>
+//                   <td class='text-center'>
+
+//                     <a id="editButton" onClick="handleEdit('${startUp._id}')"  class="">
+//                           <i class="fa fa-edit"></i>
+//                     </a>
+//                     <span  class="text-danger" id="delete"  onclick="handleDelete('${startUp._id}')" >
+//                            <i class="fa fa-remove"></i>
+//                      </span>
+//                  </td>
+//         `
+//         tbody.appendChild(row)
 
 
-}
-
-// delete functionality here
-const deleteButton = document.querySelector("#delete");
-console.log(deleteButton)
-const handleDelete = (id) => {
-    console.log('delete clicked', id)
-    fetch(`http://localhost:5000/userDelete/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'content-type': 'application/json'
-        },
-
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            const deletedRow = document.querySelector(`tr[data-id="${id}"]`)
-            if (deletedRow) {
-                deletedRow.remove()
-            }
-
-        })
-}
+//     })
+//     console.log(startUpData)
 
 
-// calling the loadStartUp function.
-loadStartUp()
+// }
 
-// edit functionality here
+// // delete functionality here
+// const deleteButton = document.querySelector("#delete");
+// console.log(deleteButton)
+// const handleDelete = (id) => {
+//     console.log('delete clicked', id)
+//     fetch(`http://localhost:5000/userDelete/${id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'content-type': 'application/json'
+//         },
 
-const handleEdit = (id) => {
-    console.log('edit clicked', id)
-    window.location.href = "Edit.html?id=" + id
-}
+//     })
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data)
+//             const deletedRow = document.querySelector(`tr[data-id="${id}"]`)
+//             if (deletedRow) {
+//                 deletedRow.remove()
+//             }
+
+//         })
+// }
+
+
+// // calling the loadStartUp function.
+// loadStartUp()
+
+// // edit functionality here
+
+// const handleEdit = (id) => {
+//     console.log('edit clicked', id)
+//     window.location.href = "Edit.html?id=" + id
+// }
+
+
+
+
+
+
+// // _________sort by name____________
+
+// // Function to handle sorting by startup name
+// const handleNameSort = () => {
+//     const nameHeader = freshTable.querySelector('[data-field="startupName"]');
+//     nameHeader.addEventListener('click', () => {
+//         const sortedData = startupData.sort((a, b) => {
+//             const aName = a.data.startupName.toLowerCase();
+//             const bName = b.data.startupName.toLowerCase();
+//             return aName.localeCompare(bName);
+//         });
+//         disPlayStartUp(sortedData);
+//     });
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// $(document).ready(function () {
+//     $('#fresh-table').DataTable();
+// });
 
 var $table = $('#fresh-table')
 var $alertBtn = $('#alertBtn')
@@ -144,46 +179,3 @@ $(function () {
     })
 })
 
-$('#sharrreTitle').sharrre({
-    share: {
-        twitter: true,
-        facebook: true
-    },
-    template: '',
-    enableHover: false,
-    enableTracking: true,
-    render: function (api, options) {
-        $("#sharrreTitle").html('Thank you for ' + options.total + ' shares!')
-    },
-    enableTracking: true,
-    url: location.href
-})
-
-$('#twitter').sharrre({
-    share: {
-        twitter: true
-    },
-    enableHover: false,
-    enableTracking: true,
-    buttons: { twitter: { via: 'CreativeTim' } },
-    click: function (api, options) {
-        api.simulateClick()
-        api.openPopup('twitter')
-    },
-    template: '<i class="fa fa-twitter"></i> {total}',
-    url: location.href
-})
-
-$('#facebook').sharrre({
-    share: {
-        facebook: true
-    },
-    enableHover: false,
-    enableTracking: true,
-    click: function (api, options) {
-        api.simulateClick()
-        api.openPopup('facebook')
-    },
-    template: '<i class="fa fa-facebook-square"></i> {total}',
-    url: location.href
-})
