@@ -21,6 +21,7 @@ console.log(user)
 // collect image url 
 let imageurl;
 
+let pdfUrl;
 // submit handler
 careerForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -28,8 +29,9 @@ careerForm.addEventListener('submit', (event) => {
     const formData = new FormData(careerForm)
     formData.delete('Photo');
     const payload = Object.fromEntries(formData)
+
     console.log(payload)
-    // const startupData = { role: 'startUp', ...payload, imageurl }
+
 
 
     fetch(`http://localhost:5000/career`, {
@@ -47,24 +49,3 @@ careerForm.addEventListener('submit', (event) => {
 
 });
 
-// image upload by onchange set the url to let imageurl; at the top of submithandler
-// fileInput.addEventListener('change', () => {
-//     const file = fileInput.files[0];
-//     const formData = new FormData();
-//     formData.append('image', file);
-
-//     fetch(`https://api.imgbb.com/1/upload?key=${imgbbKey}`, {
-//         method: 'POST',
-//         body: formData
-//     })
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data)
-//             // image url set to top of onsubmit handler
-//             imageurl = data.data.url;
-//         })
-//         .catch(error => {
-//             console.error(error);
-
-//         });
-// });

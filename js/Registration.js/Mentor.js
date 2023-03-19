@@ -13,6 +13,7 @@ document.getElementById('mentorEmail').value = user.email
 document.getElementById('username').value = user.username;
 
 let imageurl;
+
 console.log(imageurl)
 
 form.addEventListener('submit', (event) => {
@@ -39,6 +40,7 @@ form.addEventListener('submit', (event) => {
 
 
 });
+
 fileInput.addEventListener('change', () => {
     const file = fileInput.files[0];
     const formData = new FormData();
