@@ -96,6 +96,7 @@ body{
 .user-profile h1{
     display: inline;
     font-size: 38px;
+    color:gray;
 }
 
 
@@ -130,6 +131,10 @@ list-style: none;
 }
 .service-part .blue{
     color:blue;
+}
+
+.service-part .coral{
+    color:coral;
 }
 
 .service-part .green{
