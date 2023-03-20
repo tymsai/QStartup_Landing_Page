@@ -150,9 +150,10 @@
                             <form id="searchForm" class="form-inline d-flex p-2 d-flex justify-content-center">
                                 <div class="form-group mx-sm-3 mb-2">
                                     <label for="searchField" class="sr-only">User Name:</label>
-                                    <input type="email" pattern="[a-zA-Z]+[0-9]+" id="searchField"
-                                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                        class="form-control" placeholder=" searchBy@email">
+                                    <!-- pattern="[a-zA-Z]+[0-9]+"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" -->
+                                    <input type="email" name="searchEmil" id="searchField" class="form-control"
+                                        placeholder=" searchBy@email">
                                 </div>
                                 <div class="centerr">
                                     <button type="submit" class="btn btn-primary mb-2" id="backend-data">Search</button>

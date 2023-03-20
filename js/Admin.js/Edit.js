@@ -5,9 +5,17 @@ let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString)
 let email = urlParams.get('email')
 
+
+
 // get search form
-// const searchForm = document.querySelector('#searchForm')
-// console.log(searchForm)
+const searchForm = document.querySelector('#searchForm')
+searchForm.addEventListener('submit', (event) => {
+
+    event.preventDefault()
+    const searchEmil = event.target.searchEmil.value;
+    console.log(searchEmil)
+    loadMentorOrStartup(searchEmil)
+})
 
 
 const startupName = document.querySelector('#startupName')
@@ -15,19 +23,19 @@ const startupForm = document.querySelector('.startupForm')
 const mentorform = document.querySelector('.Mentorform')
 console.log(email)
 const loadMentorOrStartup = (email) => {
-    console.log(email)
+    console.log('function run', email)
     fetch(`http://localhost:5000/user?email=${email}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data[0].data.startupName)
-            if (data[0].data.role === 'startUp') {
+            console.log(data[0]?.data?.startupName)
+            if (data[0]?.data?.role === 'startUp') {
                 // mentorform.remove()
                 startupForm.style.display = 'block'
 
-                startupName.value = data[0].data.startupName
+                startupName.value = data[0]?.data?.startupName
 
 
-            } else if (data[0].data.role === 'mentor') {
+            } else if (data[0]?.data?.role === 'mentor') {
                 // startupForm.remove()
                 mentorform.style.display = 'block'
             }
@@ -37,7 +45,11 @@ const loadMentorOrStartup = (email) => {
         })
         .catch(error => console.log(error))
 }
-loadMentorOrStartup(email)
+
+if (email) {
+
+    loadMentorOrStartup(email)
+}
 
 // Get a reference to the radio buttons
 var redRadio = document.querySelector('input[value="red"]');
