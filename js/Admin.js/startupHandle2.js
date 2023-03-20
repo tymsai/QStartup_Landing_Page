@@ -11,7 +11,7 @@ fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
         data.forEach((startUp, index) => {
             // Create new row element
             const row = document.createElement('tr');
-            row.setAttribute('data-id', startUp._id);
+            row.setAttribute('data-id', startUp?._id);
 
             // Create and append cells to the row
             const indexCell = document.createElement('td');
@@ -119,10 +119,10 @@ window.operateEvents = {
 
 function operateFormatter(value, row, index) {
     return [
-        ` <a id="editButton"  onClick="handleEdit('${row.id}')" >
+        ` <a id="editButton"  onClick="handleEdit('${row.email}')" >
               <i class="fa fa-edit"></i>
            </a>
-           <span class="text-danger" id="delete" onclick="handleDelete('${row.id}')" >
+           <span class="text-danger" id="delete" onclick="handleDelete('${row?.id}')" >
               <i class="fa fa-remove"></i>
            </span>`
     ].join('')
@@ -130,8 +130,9 @@ function operateFormatter(value, row, index) {
 
 
 
-const handleEdit = (id) => {
-    window.location.href = `/admin/Edit.html?id=${id}`
+const handleEdit = (email) => {
+    console.log(email)
+    window.location.href = `/admin/Edit.html?email=${email}`
 }
 
 
