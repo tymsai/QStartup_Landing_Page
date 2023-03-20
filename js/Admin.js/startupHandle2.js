@@ -130,8 +130,8 @@ function operateFormatter(value, row, index) {
 
 
 
-const handleEdit = (value) => {
-    console.log(value)
+const handleEdit = (id) => {
+    window.location.href = `/admin/Edit.html?id=${id}`
 }
 
 
