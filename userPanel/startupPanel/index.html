@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dashboard Builder</title>
+    <title>Q Startups Pvt Ltd</title>
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css">
@@ -35,11 +35,11 @@
             padding: 0.5rem 1rem 0.5rem 1rem;
             margin-left: 10px;
         }
-        .btnChangeCard:hover {
+        .navbar-brand:hover, .btnChangeCard:hover {
             letter-spacing: 0.2rem;
             transition: 0.3s;
             color: #ffffff;
-            background-color: black;
+            background-color: #8cc5de;
             border-radius: 20px;
             border-left: 1px solid rgba(106, 103, 103, 0.704);
         }
@@ -55,10 +55,22 @@
             margin-left: 1rem;
             padding: 1rem;
         }
+        .Dashboard, .Inbox, .Settings, .AddDocuments, .Services, .ScheduleMeeting, .MentorList, .Message{
+            -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
+            filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
+        }
         .navbar_css{
             border-radius: 20px;
+            margin: 1rem 2rem 1rem 2rem;
             background-color: white;
-            margin: 1rem 2rem 2rem 2rem;
+            -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
+            filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
+        }
+
+        .navbar-brand{
+            border-radius: 20px;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            border: 1px solid rgb(118, 116, 116);
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -111,6 +123,9 @@
                     </li>
                     <li class="nav-item">
                         <input class="btnChangeCard" type="reset" name="colorRadio" value="MentorList">
+                    </li>
+                    <li class="nav-item">
+                        <input class="btnChangeCard" type="reset" name="colorRadio" value="Message">
                     </li>
                     <li class="nav-item">
                         <input class="btnChangeCard" type="button" name="colorRadio" value="Logout">
