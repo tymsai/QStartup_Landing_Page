@@ -1,20 +1,18 @@
 
 console.log('registration js connected')
 const form = document.querySelector('.form');
-const imgbbKey = 'a95a8e5bfa79deda8fe4df67e21b4f26';
-const fileInput = document.querySelector('input[type="file"]');
 
 
-const user = JSON.parse(localStorage.getItem('currentUser'));
-console.log(user)
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 // set default value of mentor name and email;
-document.getElementById('mentorEmail').value = user.email
-document.getElementById('username').value = user.username;
+document.getElementById('mentorEmail').value = currentUser.email
+document.getElementById('username').value = currentUser.username;
 
-let imageurl;
+let photUrl;
 
-console.log(imageurl)
+
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -22,11 +20,11 @@ form.addEventListener('submit', (event) => {
     const formData = new FormData(form)
     formData.delete('Photo');
     const payload = Object.fromEntries(formData)
-    const mentor = { ...payload, imageurl, role: "mentor" }
+    const mentor = { ...payload, imageurl: photUrl, role: "mentor" }
 
-    console.log(imageurl, mentor)
 
-    fetch(`http://localhost:5000/mentor`, {
+
+    fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -41,8 +39,14 @@ form.addEventListener('submit', (event) => {
 
 });
 
-fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
+const imageFile = document.querySelector('input[type="file"]');
+
+imageFile.addEventListener('change', () => {
+
+    const imgbbKey = 'a95a8e5bfa79deda8fe4df67e21b4f26';
+
+
+    const file = imageFile.files[0];
     const formData = new FormData();
     formData.append('image', file);
 

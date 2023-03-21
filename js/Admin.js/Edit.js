@@ -6,6 +6,7 @@ console.log('Admins edit connected')
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString)
 let email = urlParams.get('email')
+console.log(email)
 
 
 
@@ -21,10 +22,13 @@ searchForm.addEventListener('submit', (event) => {
 })
 
 
+
+
 const startupName = document.querySelector('#startupName')
 const startupForm = document.querySelector('.startupForm')
-const mentorform = document.querySelector('.Mentorform')
-console.log(email)
+const mentorform = document.querySelector('.form')
+
+
 // loading user data by email
 const loadMentorOrStartup = (email) => {
     console.log('function run', email)
@@ -32,26 +36,35 @@ const loadMentorOrStartup = (email) => {
         .then(res => res.json())
         .then(data => {
             console.log(data[0]?.data)
+
             if (data[0]?.data?.role === 'startUp') {
 
                 startupForm.style.display = 'block'
-                // startupName.value = data[0]?.data?.startupName
+
                 for (const prop in data[0].data) {
-                    // const formField = document.querySelector(`#${prop}`);
+
                     const formField = document.getElementsByName(prop)[0];
-                    // const formField = document.querySelector(`input[name="${prop}"]`);
+
                     console.log(formField, prop)
                     if (formField) {
                         formField.value = data[0].data[prop];
                     }
                 }
 
-                const email = document.querySelector(`input[name="email"]`);
-                email.value = 'email'
+
 
             } else if (data[0]?.data?.role === 'mentor') {
 
                 mentorform.style.display = 'block'
+                for (const prop in data[0].data) {
+
+                    const formField = document.getElementsByName(prop)[0];
+
+                    console.log(formField, prop)
+                    if (formField) {
+                        formField.value = data[0].data[prop];
+                    }
+                }
             }
 
         })
@@ -61,7 +74,6 @@ const loadMentorOrStartup = (email) => {
 
 // calling the function if email available in query
 if (email) {
-
     loadMentorOrStartup(email)
 }
 

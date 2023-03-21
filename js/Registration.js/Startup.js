@@ -25,10 +25,13 @@ startupForm.addEventListener('submit', (event) => {
     const formData = new FormData(startupForm)
     formData.delete('Photo');
     const payload = Object.fromEntries(formData)
+    console.log(payload)
+
+
     const startupData = { role: 'startUp', ...payload, imageurl }
 
     console.log(imageurl, startupData)
-    fetch(`http://localhost:5000/mentor`, {
+    fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
