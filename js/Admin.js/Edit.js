@@ -32,7 +32,7 @@ const mentorform = document.querySelector('.form')
 // loading user data by email
 const loadMentorOrStartup = (email) => {
     console.log('function run', email)
-    fetch(`http://localhost:5000/user?email=${email}`)
+    fetch(`https://qstartup-server.vercel.app/user?email=${email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data[0]?.data)

@@ -15,7 +15,7 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
 
 
 
-    fetch("http://localhost:5000/sendResetLinkEmail", {
+    fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -54,7 +54,7 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
 
 
 
-//         fetch("http://localhost:5000/sendResetLinkEmail", {
+//         fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'

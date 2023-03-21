@@ -1,6 +1,6 @@
 
 // Fetch data from backend
-fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
+fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
     .then(response => response.json())
     .then(data => {
         // Get table body element
@@ -138,7 +138,7 @@ const handleEdit = (email) => {
 
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`http://localhost:5000/userDelete/${id}`, {
+    fetch(`https://qstartup-server.vercel.app/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
