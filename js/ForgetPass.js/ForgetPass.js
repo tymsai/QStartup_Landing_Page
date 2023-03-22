@@ -10,12 +10,12 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
     const form = event.target
     const email = form.email.value;
 
+    console.log(email)
 
 
 
 
-
-    fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
+    fetch("http://localhost:5000/sendResetLinkEmail", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
