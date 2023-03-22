@@ -35,7 +35,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-    fetch("https://qstartup-server.vercel.app/login", {
+    fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
             'content-type': 'application/json'

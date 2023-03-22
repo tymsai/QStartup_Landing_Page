@@ -20,11 +20,11 @@ form.addEventListener('submit', (event) => {
     const formData = new FormData(form)
     formData.delete('Photo');
     const payload = Object.fromEntries(formData)
-    const mentor = { ...payload, imageurl: photUrl, role: "mentor" }
+    const mentor = { ...payload, 'imageurl': photUrl, role: "mentor" }
 
 
 
-    fetch(`https://qstartup-server.vercel.app/registration`, {
+    fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -34,6 +34,7 @@ form.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            // localStorage.setItem('currentUser', JSON.stringify(data))
         })
 
 

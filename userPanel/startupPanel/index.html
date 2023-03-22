@@ -35,7 +35,9 @@
             padding: 0.5rem 1rem 0.5rem 1rem;
             margin-left: 10px;
         }
-        .navbar-brand:hover, .btnChangeCard:hover {
+
+        .navbar-brand:hover,
+        .btnChangeCard:hover {
             letter-spacing: 0.2rem;
             transition: 0.3s;
             color: #ffffff;
@@ -55,19 +57,28 @@
             margin-left: 1rem;
             padding: 1rem;
         }
-        .Dashboard, .Inbox, .Settings, .AddDetails, .Services, .ScheduleMeeting, .MentorList, .Message{
-            -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
-            filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
-        }
-        .navbar_css{
-            border-radius: 20px;
-            margin: 1rem 2rem 1rem 2rem;
-            background-color: white;
-            -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
+
+        .Dashboard,
+        .Inbox,
+        .Settings,
+        .AddDetails,
+        .Services,
+        .ScheduleMeeting,
+        .MentorList,
+        .Message {
+            -webkit-filter: drop-shadow(5px 5px 5px rgba(56, 53, 53, 0.72));
             filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
         }
 
-        .navbar-brand{
+        .navbar_css {
+            border-radius: 20px;
+            margin: 1rem 2rem 1rem 2rem;
+            background-color: white;
+            -webkit-filter: drop-shadow(5px 5px 5px rgba(56, 53, 53, 0.72));
+            filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
+        }
+
+        .navbar-brand {
             border-radius: 20px;
             padding: 0.5rem 1rem 0.5rem 1rem;
             border: 1px solid rgb(118, 116, 116);
@@ -129,7 +140,7 @@
                     </li>
                     <li class="nav-item">
                         <input class="btnChangeCard" type="button" value="Logout">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </li>
                 </ul>
             </div>
@@ -155,8 +166,8 @@
                         voluptas.
                     </p>
                     <hr class="horizontal gray-light my-4">
-                    <ul class="list-group">
-                        <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
+                    <ul id="startupInfoList" class="list-group">
+                        <!-- <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
                                 Unique ID:</strong> &nbsp; S0001</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
                             &nbsp; 987654321</li>
@@ -175,7 +186,7 @@
                             <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -1217,6 +1228,8 @@
             };
         </script>
         <script src="./assets/js/loopple/loopple.js"></script>
+        <script src="../../js/UserPannel.js/StartupPannel.js/startUpsUserPannel.js"></script>
+
 </body>
 
 </html>

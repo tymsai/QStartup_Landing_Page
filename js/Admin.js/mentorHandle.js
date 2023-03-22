@@ -20,28 +20,22 @@ fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
             indexCell.textContent = index + 1;
             row.appendChild(indexCell);
             const idCell = document.createElement('td');
-            idCell.textContent = startUp?._id;
+            idCell.textContent = startUp?.id;
             row.appendChild(idCell);
 
             const nameCell = document.createElement('td');
-            nameCell.textContent = startUp?.title;
+            nameCell.textContent = startUp?.data.username;
             row.appendChild(nameCell);
 
             const phoneCell = document.createElement('td');
-            phoneCell.textContent = startUp?.phone;
+            phoneCell.textContent = startUp?.data.Phone_Mentor;
             row.appendChild(phoneCell);
-
-            const contactCell = document.createElement('td');
-            contactCell.textContent = startUp?.contact;
-            row.appendChild(contactCell);
 
             const emailCell = document.createElement('td');
             emailCell.textContent = startUp?.email;
             row.appendChild(emailCell);
 
-            const mentorCell = document.createElement('td');
-            mentorCell.textContent = startUp?.mentor_name;
-            row.appendChild(mentorCell);
+
 
             // Create the actions cell
             const actionsCell = document.createElement('td');

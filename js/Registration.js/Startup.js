@@ -31,7 +31,7 @@ startupForm.addEventListener('submit', (event) => {
     const startupData = { role: 'startUp', ...payload, imageurl }
 
     console.log(imageurl, startupData)
-    fetch(`https://qstartup-server.vercel.app/registration`, {
+    fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
