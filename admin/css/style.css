@@ -5,6 +5,7 @@ body{
     padding-bottom: 10px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    background: #e0e0e0;
 }
 
 /* toggel area start here  */
@@ -55,7 +56,7 @@ body{
 
 .navbar-side{
     margin-top:0px;
-    background-color: rgb(232, 245, 255);
+    background: #e0e0e0;
     width:250px;
     height:100vh;
     display: flex;
@@ -117,6 +118,19 @@ body{
 margin-top: 10px;
 padding: 10px;
 list-style: none;
+border-radius: 30px;
+background: #e0e0e0;
+box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+margin-top: 30px;
+transition: .2s all;
+}
+
+.service-part ul li:hover{
+    background-color: rgb(91, 91, 252);
+box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+margin-top: 30px;
+letter-spacing: 1px;
+
 }
 
 .service-part ul li a{
@@ -126,13 +140,8 @@ list-style: none;
     position: relative;
     left:10px;
 }
-
 .service-part ul li a:hover{
-    background-color: rgb(91, 91, 252);
-    padding: 10px;
     color: white;
-    border-radius: 10px;
-    
 }
 
 .service-part .red{
@@ -168,8 +177,18 @@ list-style: none;
 .log-out ul li{
     list-style: none;
     position: relative;
-    top: 150px;
-   
+    top: 40px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+    padding: 10px;
+    transition: .4s all;
+ 
+}
+
+.log-out ul li:hover{
+    background-color: rgb(91, 91, 252);
+    letter-spacing: 1px;
 }
 .log-out ul li a{
     text-decoration: none;
@@ -177,13 +196,10 @@ list-style: none;
     transition: .2s all;
     margin-left: 10px;
 }
-
 .log-out ul li a:hover{
-    background-color: rgb(91, 91, 252);
-    padding: 10px;
     color: white;
-    border-radius: 10px;
 }
+
 
 
 /* header start here  */
@@ -217,7 +233,11 @@ header{
     align-items: center;
     border-radius: 50%;
     font-size: 50px;
-    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2); */
+    border-radius: 50%;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+    margin-left: 10px;
 }
 
 .user-name{
@@ -258,21 +278,25 @@ header{
     justify-content: center;
 }
 .card{
-    width: 200px;
-    height:200px;
-    background-color: white;
+    width: 190px;
+    height: 254px;
+    /* background-color: white; */
     border-radius: 10px;
     margin: 20px;
     display: flex;
     justify-content: center;
     padding: 10px;
-    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2); */
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
    
 }
 
 .card:nth-child(3){
-    background-color:transparent;
-    border-radius: 15px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
 }
 .dp-part{
     width:100px;
