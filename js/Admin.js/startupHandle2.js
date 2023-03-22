@@ -1,8 +1,6 @@
-console.log("mentor handle js connected")
-
 
 // Fetch data from backend
-fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
+fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
     .then(response => response.json())
     .then(data => {
         // Get table body element

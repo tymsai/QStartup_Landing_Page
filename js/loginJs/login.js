@@ -35,7 +35,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-    fetch("http://localhost:5000/login", {
+    fetch("https://qstartup-server.vercel.app/login", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -82,7 +82,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 //                 email: user.email
 //             }
 //             if (user) {
-//                 fetch(`http://localhost:5000/signup`, {
+//                 fetch(`https://qstartup-server.vercel.app/signup`, {
 //                     method: 'PUT',
 //                     headers: {
 //                         'content-type': 'application/json'
@@ -115,7 +115,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-//         fetch("http://localhost:5000/sendResetLinkEmail", {
+//         fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'

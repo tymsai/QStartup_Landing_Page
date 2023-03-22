@@ -34,7 +34,7 @@ careerForm.addEventListener('submit', (event) => {
 
 
 
-    fetch(`http://localhost:5000/career`, {
+    fetch(`https://qstartup-server.vercel.app/career`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

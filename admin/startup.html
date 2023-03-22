@@ -116,11 +116,12 @@
             <table id="fresh-table" class="table" data-search="true" data-sortable="true">
 
               <thead class="text-center ">
+                <th data-field="index" data-sortable="true">serial</th>
                 <th data-field="id" data-sortable="true">ID</th>
                 <th data-field="name" data-sortable="true">StartUpName</th>
                 <th data-field="sturtupPhone" data-sortable="true">phone</th>
                 <th data-field="contact" data-sortable="true">Phone</th>
-                <th data-field="email">Email</th>
+                <th data-field="email" data-sortable="true">Email</th>
                 <th data-field="mentor name">User Name</th>
                 <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
               </thead>
@@ -137,9 +138,9 @@
 
 
 
-  <script>
+  <!-- <script>
     // Fetch data from backend
-    fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
+    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
       .then(response => response.json())
       .then(data => {
         // Get table body element
@@ -225,8 +226,10 @@
         });
       })
       .catch(error => console.error(error));
-  </script>
+  </script> -->
 
+
+  <script src="../js/Admin.js/startupHandle2.js"></script>
 </body>
 
 </html>

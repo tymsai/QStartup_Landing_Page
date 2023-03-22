@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Details</title>
-        <!-- Favicon -->
-     <link href="./img/favicon.ico" rel="icon">
-    
-     <!-- Google Web Fonts -->
+    <!-- Favicon -->
+    <link href="./img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
-       
-        <!-- Icon Font Stylesheet -->
+
+    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-   
+
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -61,6 +62,7 @@
              });
          });</script>
 </head>
+
 <body>
 
 
@@ -73,16 +75,16 @@
     </label>
     <!-- toggle area end here -->
     <nav class="navbar-side">
-       
+
         <div class="navigation">
-            
+
             <div class="user-profile">
                 <div class="user-area">
                     <img src="/img/admin profile.jpg" alt="">
                     <h1>Company</h1>
                 </div>
             </div>
-            
+
             <!-- service part start here -->
             <div class="service-part">
                 <ul class="links">
@@ -91,7 +93,7 @@
                         <a href="./index.html">General</a>
                     </li>
 
-                   
+
                     <li>
                         <i class="fa-solid fa-list-ul green"></i>
                         <a href="./startup.html">Startup</a>
@@ -132,29 +134,29 @@
 
 
     <div class="container-xxl p-3 w-100">
-         <!-- Spinner Start -->
-         <div id="spinner"
-         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-             <span class="sr-only">Loading...</span>
-         </div>
-     </div>
-     <!-- Spinner End -->
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
 
-      <!-- Contact Start -->
-      <div class="container-xxl py-5">
-        <div class="container px-lg-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp"
-                        data-wow-delay="0.1s">
-                        <h6 class="position-relative d-inline text-primary ps-4">Edit Detail</h6>
-                        <h2 class="mt-2">Edit Information</h2>
-                    </div>
-                    <div class="two-cols justify-content-center d-flex">
-                        <input class="metorORstartup_btn" type="reset" name="colorRadio" value="Mentor">
-                        <input class="metorORstartup_btn" type="reset" name="colorRadio" value="Startup">
-                    </div>
+        <!-- Contact Start -->
+        <div class="container-xxl py-5">
+            <div class="container px-lg-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp"
+                            data-wow-delay="0.1s">
+                            <h6 class="position-relative d-inline text-primary ps-4">Edit Detail</h6>
+                            <h2 class="mt-2">Edit Information</h2>
+                        </div>
+                        <div class="two-cols justify-content-center d-flex">
+                          <input class="metorORstartup_btn" type="reset" name="colorRadio" value="Mentor">
+                          <input class="metorORstartup_btn" type="reset" name="colorRadio" value="Startup">
+                        </div>
                     <div class="wow fadeInUp" data-wow-delay="0.3s">
                         <form class="form-inline d-flex p-2 d-flex justify-content-center">
                             <div class="form-group mx-sm-3 mb-2">
@@ -184,105 +186,104 @@
                                             <input type="tel" name="Phone" required>
                                         </label>
                                     </div>
-                                    <div class="two-cols">
-                                        <label>
-                                            State
-                                            <input type="text" name="Citizenship">
-                                        </label>
-                                        <label>
-                                            City
-                                            <input type="text" name="City">
-                                        </label>
-                                    </div>
-                                    <div class="two-cols">
+                                        <div class="two-cols">
+                                            <label>
+                                                State
+                                                <input type="text" name="Citizenship">
+                                            </label>
+                                            <label>
+                                                City
+                                                <input type="text" name="City">
+                                            </label>
+                                        </div>
+                                        <div class="two-cols">
 
+                                            <label>
+                                                Linkedin URL *
+                                                <input type="text" name="Linkedin URL" required>
+                                            </label>
+                                            <label>
+                                                Number of active Months *
+                                                <input type="tel" name="activeMonths" required>
+                                            </label>
+                                        </div>
                                         <label>
-                                            Linkedin URL *
-                                            <input type="text" name="Linkedin URL" required>
+                                            Brief about you*
+                                            <input type="text" name="Brief" required>
                                         </label>
-                                        <label>
-                                            Number of active Months *
-                                            <input type="tel" name="activeMonths" required>
-                                        </label>
-                                    </div>
-                                    <label>
-                                        Brief about you*
-                                        <input type="text" name="Brief" required>
-                                    </label>
-                                    <div class="two-cols">
+                                        <div class="two-cols">
 
+                                            <label>
+                                                Industry *
+                                                <input type="text" name="industry" required>
+                                            </label>
+                                            <label>
+                                                Sector *
+                                                <input type="text" name="Sector" required>
+                                            </label>
+                                        </div>
                                         <label>
-                                            Industry *
-                                            <input type="text" name="industry" required>
+                                            Interests *
+                                            <input type="text" name="interests" required>
                                         </label>
                                         <label>
-                                            Sector *
-                                            <input type="text" name="Sector" required>
+                                            Profile Picture
+                                            <input type="file" name="Photo" accept=".jpeg, .jpg">
                                         </label>
-                                    </div>
-                                    <label>
-                                        Interests *
-                                        <input type="text" name="interests" required>
-                                    </label>
-                                    <label>
-                                        Profile Picture
-                                        <input type="file" name="Photo" accept=".jpeg, .jpg">
-                                    </label>
-                                    <div class="two-cols">
-                                        <label for="compnyLogo">Is this Company logo</label>
-                                        <select name="compnyLogo" id="compnyLogo">
-                                            <option value="no">No</option>
-                                            <option value="yes">Yes</option>
+                                        <div class="two-cols">
+                                            <label for="compnyLogo">Is this Company logo</label>
+                                            <select name="compnyLogo" id="compnyLogo">
+                                                <option value="no">No</option>
+                                                <option value="yes">Yes</option>
+                                            </select>
+                                            <label for="startupStage">Stage of Startup *</label>
+                                            <select name="startupStage" id="startupStage" required>
+                                                <option value="ideation">ideation</option>
+                                                <option value="validation">validation</option>
+                                                <option value="early traction">Early Traction</option>
+                                                <option value="Scaling">Scaling</option>
+                                            </select>
+                                        </div>
+                                        <label for="network">Select your Network *</label>
+                                        <select name="network" id="network" required>
+                                            <option value="tie">TIE</option>
+                                            <option value="others">Others</option>
                                         </select>
-                                        <label for="startupStage">Stage of Startup *</label>
-                                        <select name="startupStage" id="startupStage" required>
-                                            <option value="ideation">ideation</option>
-                                            <option value="validation">validation</option>
-                                            <option value="early traction">Early Traction</option>
-                                            <option value="Scaling">Scaling</option>
-                                        </select>
-                                    </div>
-                                    <label for="network">Select your Network *</label>
-                                    <select name="network" id="network" required>
-                                        <option value="tie">TIE</option>
-                                        <option value="others">Others</option>
-                                    </select>
-                                    <div class="two-cols">
-                                        <label>
-                                            TIE Email address
-                                            <input type="email" name="tieEmail">
-                                        </label>
-                                        <label>
-                                            TIE Password
-                                            <input type="text" name="tiePassword">
-                                        </label>
-                                    </div>
-                                    <label> Success Stories (if any) </label>
-                                    <div class="two-cols">
+                                        <div class="two-cols">
+                                            <label>
+                                                TIE Email address
+                                                <input type="email" name="tieEmail">
+                                            </label>
+                                            <label>
+                                                TIE Password
+                                                <input type="text" name="tiePassword">
+                                            </label>
+                                        </div>
+                                        <label> Success Stories (if any) </label>
+                                        <div class="two-cols">
 
+                                            <label>
+                                                Startup Name
+                                                <input type="text" name="startup Name">
+                                            </label>
+                                            <label>
+                                                Startup URL
+                                                <input type="text" name="startup URL">
+                                            </label>
+                                        </div>
                                         <label>
-                                            Startup Name
-                                            <input type="text" name="startup Name">
+                                            Brief / Tagline
+                                            <input type="text" name="briefTagline">
                                         </label>
-                                        <label>
-                                            Startup URL
-                                            <input type="text" name="startup URL">
-                                        </label>
-                                    </div>
-                                    <label>
-                                        Brief / Tagline
-                                        <input type="text" name="briefTagline">
-                                    </label>
 
-                                </fieldset>
-                                <div class="btns">
-                                    <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
-                                    <input type="submit" value="Submit application">
+                                    </fieldset>
+                                    <div class="btns">
+                                        <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
+                                        <input type="submit" value="Submit application">
+                                    </div>
                                 </div>
-                            </div>
 
-                        </form>
-
+                            </form>
 
 
 
@@ -292,134 +293,135 @@
 
 
 
-                        <!--__________________________  sturtup form start______________________________________ -->
+
+
+                            <!--__________________________  sturtup form start______________________________________ -->
 
                         <form id="ft-form" class="startupForm">
                             <div class="Startup box">
-
-                                <fieldset>
-                                    <label>
-                                        Startup Name *
-                                        <input type="text" name="startupName" required>
-                                    </label>
-
-                                    <div class="two-cols">
+                                    <fieldset>
                                         <label>
-                                            StartUp Email address * [can't change]
-                                            <input type="email" name="email" id="startupUserEmail" required>
+                                            Startup Name *
+                                            <input type="text" name="startupName" required>
                                         </label>
 
-                                        <label>
-                                            Phone *
-                                            <input type="tel" name="sturtupPhone" required>
-                                        </label>
-                                    </div>
-                                    <div class="two-cols">
-                                        <label>
-                                            Registered State
-                                            <input type="text" name="Citizenship">
-                                        </label>
-                                        <label>
-                                            Registered City
-                                            <input type="text" name="City">
-                                        </label>
-                                    </div>
-                                    <label>
-                                        Company URL
-                                        <input type="text" name="Address">
-                                    </label>
-                                    <div class="two-cols">
+                                        <div class="two-cols">
+                                            <label>
+                                                StartUp Email address * [can't change]
+                                                <input type="email" name="email" id="startupUserEmail" required>
+                                            </label>
 
+                                            <label>
+                                                Phone *
+                                                <input type="tel" name="sturtupPhone" required>
+                                            </label>
+                                        </div>
+                                        <div class="two-cols">
+                                            <label>
+                                                Registered State
+                                                <input type="text" name="Citizenship">
+                                            </label>
+                                            <label>
+                                                Registered City
+                                                <input type="text" name="City">
+                                            </label>
+                                        </div>
                                         <label>
-                                            Industry *
-                                            <input type="text" name="Industry" required>
+                                            Company URL
+                                            <input type="text" name="Address">
                                         </label>
-                                        <label>
-                                            Sector *
-                                            <input type="text" name="Sector" required>
-                                        </label>
-                                    </div>
-                                    <label>
-                                        Services *
-                                        <input type="text" name="Services" required>
-                                    </label>
-                                    <label>
-                                        MSME Certificate Number
-                                        <input type="text" name="Certificate">
-                                    </label>
-                                    <label>
-                                        Profile Picture
-                                        <input type="file" name="Photo" accept=".jpg, .jpeg" id="sturtupFile">
-                                    </label>
+                                        <div class="two-cols">
 
-                                    <div class="two-cols">
-                                        <label for="cars">Is this Company logo</label>
-                                        <select name="logo" id="cars">
-                                            <option value="no">No</option>
-                                            <option value="yes">Yes</option>
+                                            <label>
+                                                Industry *
+                                                <input type="text" name="Industry" required>
+                                            </label>
+                                            <label>
+                                                Sector *
+                                                <input type="text" name="Sector" required>
+                                            </label>
+                                        </div>
+                                        <label>
+                                            Services *
+                                            <input type="text" name="Services" required>
+                                        </label>
+                                        <label>
+                                            MSME Certificate Number
+                                            <input type="text" name="Certificate">
+                                        </label>
+                                        <label>
+                                            Profile Picture
+                                            <input type="file" name="Photo" accept=".jpg, .jpeg" id="sturtupFile">
+                                        </label>
+
+                                        <div class="two-cols">
+                                            <label for="cars">Is this Company logo</label>
+                                            <select name="logo" id="cars">
+                                                <option value="no">No</option>
+                                                <option value="yes">Yes</option>
+                                            </select>
+                                            <label for="cars">Stage of Startup *</label>
+                                            <select name="Stage" id="cars" required>
+                                                <option value="ideation">ideation</option>
+                                                <option value="validation">validation</option>
+                                                <option value="early traction">Early Traction</option>
+                                                <option value="Scaling">Scaling</option>
+                                            </select>
+                                        </div>
+                                        <label for="cars">Nature Of the Entity</label>
+                                        <select name="NatureOfEntity" id="cars">
+                                            <option value="no">Private Limited Company</option>
+                                            <option value="yes">Limited Liability Partnership</option>
+                                            <option value="yes">Registered Partnership</option>
                                         </select>
-                                        <label for="cars">Stage of Startup *</label>
-                                        <select name="Stage" id="cars" required>
-                                            <option value="ideation">ideation</option>
-                                            <option value="validation">validation</option>
-                                            <option value="early traction">Early Traction</option>
-                                            <option value="Scaling">Scaling</option>
+                                        <label for="cars">Funded / Bootstrapped</label>
+                                        <select name="Money Source" id="cars">
+                                            <option value="funded">Funded</option>
+                                            <option value="bootstrapped">Bootstrapped</option>
                                         </select>
-                                    </div>
-                                    <label for="cars">Nature Of the Entity</label>
-                                    <select name="NatureOfEntity" id="cars">
-                                        <option value="no">Private Limited Company</option>
-                                        <option value="yes">Limited Liability Partnership</option>
-                                        <option value="yes">Registered Partnership</option>
-                                    </select>
-                                    <label for="cars">Funded / Bootstrapped</label>
-                                    <select name="Money Source" id="cars">
-                                        <option value="funded">Funded</option>
-                                        <option value="bootstrapped">Bootstrapped</option>
-                                    </select>
-                                    <div class="two-cols">
+                                        <div class="two-cols">
 
+                                            <label>
+                                                CIN
+                                                <input type="text" name="CIN">
+                                            </label>
+                                            <label>
+                                                PAN
+                                                <input type="text" name="PAN">
+                                            </label>
+                                        </div>
                                         <label>
-                                            CIN
-                                            <input type="text" name="CIN">
+                                            Brief about Startup *
+                                            <input type="text" name="Brief" required>
                                         </label>
-                                        <label>
-                                            PAN
-                                            <input type="text" name="PAN">
-                                        </label>
+                                        <label for="cars">You Are Intrested In * </label>
+                                        <select name="Interests" id="cars" required>
+                                            <option value="All">All</option>
+                                            <option value="Mentors">Mentors</option>
+                                            <option value="Incubators">Incubators</option>
+                                            <option value="Accelerators">Accelerators</option>
+                                            <option value="Investors">Investors</option>
+                                        </select>
+
+                                    </fieldset>
+
+                                    <div class="btns">
+                                        <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
+                                        <input type="submit" value="Submit application">
                                     </div>
-                                    <label>
-                                        Brief about Startup *
-                                        <input type="text" name="Brief" required>
-                                    </label>
-                                    <label for="cars">You Are Intrested In * </label>
-                                    <select name="Interests" id="cars" required>
-                                        <option value="All">All</option>
-                                        <option value="Mentors">Mentors</option>
-                                        <option value="Incubators">Incubators</option>
-                                        <option value="Accelerators">Accelerators</option>
-                                        <option value="Investors">Investors</option>
-                                    </select>
-
-                                </fieldset>
-
-                                <div class="btns">
-                                    <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
-                                    <input type="submit" value="Submit application">
                                 </div>
-                            </div>
 
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Contact End -->
+        <!-- Contact End -->
     </div>
 
-    
+
 
 
 
@@ -435,10 +437,13 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
-    <script type="module" src="../Registration.html"></script>
-    <script type="module" src="../js/Registration.js/Startup.js"></script>
+    <!-- <script type="module" src="../Registration.html"></script>
+    <script type="module" src="../js/Registration.js/Startup.js"></script> -->
     <script>
 
     </script>
+    <!-- edit js connection -->
+    <script src="../js/Admin.js/Edit.js"></script>
 </body>
+
 </html>
