@@ -11,8 +11,8 @@
     <link rel="stylesheet"
         href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/soft-ui-dashboard.min.css?v=1.0.2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <link rel="stylesheet" href="./assets/css/theme.css">
-    <link rel="stylesheet" href="./assets/css/loopple/loopple.css">
+    <link rel="stylesheet" href="../startupPanel/assets/css/theme.css">
+    <link rel="stylesheet" href="../startupPanel/assets/css/loopple/loopple.css">
     <!-- NAVBAR Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -55,7 +55,7 @@
             margin-left: 1rem;
             padding: 1rem;
         }
-        .Dashboard, .Inbox, .Settings, .AddDetails, .Services, .ScheduleMeeting, .MentorList, .Message{
+        .Dashboard, .Inbox, .Settings, .AddDetails, .Services, .ScheduleMeeting, .StartupList, .Message{
             -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
             filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
         }
@@ -122,7 +122,7 @@
                         <input class="btnChangeCard" type="reset" name="colorRadio" value="ScheduleMeeting">
                     </li>
                     <li class="nav-item">
-                        <input class="btnChangeCard" type="reset" name="colorRadio" value="MentorList">
+                        <input class="btnChangeCard" type="reset" name="colorRadio" value="StartupList">
                     </li>
                     <li class="nav-item">
                         <input class="btnChangeCard" type="reset" name="colorRadio" value="Message">
@@ -142,7 +142,7 @@
                 <div class="card-header pb-0 p-3">
                     <div class="row">
                         <div class="col-md-8 d-flex align-items-center">
-                            <h6 class="mb-0">Startup Information/Brief</h6>
+                            <h6 class="mb-0">Mentor Information/Brief</h6>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                     <hr class="horizontal gray-light my-4">
                     <ul class="list-group">
                         <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
-                                Unique ID:</strong> &nbsp; S0001</li>
+                                Unique ID:</strong> &nbsp; M0001</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
                             &nbsp; 987654321</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong>
@@ -194,7 +194,7 @@
                                     alt="kal" class="border-radius-lg shadow">
                             </div>
                             <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Mentor Name</h6>
+                                <h6 class="mb-0 text-sm">Startup Name</h6>
                                 <p class="text-xxs">Unique ID</p>
                                 <p class="mb-0 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Ratione, iste voluptatibus error quasi architecto cumque voluptates sint fugiat nemo
@@ -228,7 +228,7 @@
                                     alt="kal" class="border-radius-lg shadow">
                             </div>
                             <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Other Mentor Name</h6>
+                                <h6 class="mb-0 text-sm">Other Startup Name</h6>
                                 <p class="text-xxs">Unique ID</p>
                                 <p class="mb-0 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
                                     rerum fugiat repudiandae voluptates commodi placeat, eius doloremque quisquam eos
@@ -260,7 +260,7 @@
                             <div class="form-check form-switch ps-0">
                                 <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
                                 <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                    for="flexSwitchCheckDefault1">Available to recieve Mentorship </label>
+                                    for="flexSwitchCheckDefault1">Available to provide Mentorship</label>
                             </div>
                         </li>
                         <li class="list-group-item border-0 px-0">
@@ -532,14 +532,14 @@
                 </div>
                 <div class="card-body">
                     <form>
-                        <h6 class="heading-small text-muted mb-4">Startup information</h6>
+                        <h6 class="heading-small text-muted mb-4">Mentor information</h6>
                         <div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-Startname">Startup Name</label>
-                                        <input type="text" id="input-Startname" class="form-control"
-                                            placeholder="Start Name" value="">
+                                        <label class="form-control-label" for="input-Mentorname">Mentor Name</label>
+                                        <input type="text" id="input-Mentorname" class="form-control"
+                                            placeholder="Mentor Name" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -551,18 +551,36 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-phone">Phone</label>
                                         <input type="text" id="input-phone" class="form-control" placeholder="+91"
                                             value="">
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-profile_photo">Profile
                                             Photo</label>
                                         <input type="file" id="input-profile_photo" class="form-control" placeholder=""
+                                            value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+
+                                    <label for="stage">Is this company logo *</label>
+                                    <br>
+                                    <select class="selectBox stage" name="stage" id="cars" required>
+                                        <option value="no">NO</option>
+                                        <option value="yes">YES</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-active_months">
+                                            Active Months</label>
+                                        <input type="text" id="input-active_months" class="form-control" placeholder=""
                                             value="">
                                     </div>
                                 </div>
@@ -629,19 +647,10 @@
                         <div class="row">
                             <div class="col-lg-6">
 
-                                <label for="nature">Nature Of the Entity</label>
-                                <select class="selectBox" name="NatureOfEntity" id="nature">
-                                    <option value="no">Private Limited Company</option>
-                                    <option value="yes">Limited Liability Partnership</option>
-                                    <option value="yes">Registered Partnership</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-
-                                <label for="cars">Funded / Bootstrapped</label>
-                                <select class="selectBox" name="Money Source" id="cars">
-                                    <option value="funded">Funded</option>
-                                    <option value="bootstrapped">Bootstrapped</option>
+                                <label for="nw">Select your Network</label>
+                                <select class="selectBox" name="nw" id="nw">
+                                    <option value="tie">TIE</option>
+                                    <option value="others">Others</option>
                                 </select>
                             </div>
                         </div>
@@ -650,8 +659,8 @@
                             <div class="col-lg-6">
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-msme">MSME Certificate Number</label>
-                                    <input type="text" id="input-msme" class="form-control" placeholder="MSME number"
+                                    <label class="form-control-label" for="input-Tagline">Tagline</label>
+                                    <input type="text" id="input-Tagline" class="form-control" placeholder="Tagline"
                                         value="">
                                 </div>
                             </div>
@@ -684,32 +693,32 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-Services">Services</label>
-                                    <input type="text" id="input-Services" class="form-control" placeholder="Services">
+                                    <label class="form-control-label" for="input-Interests">Interests</label>
+                                    <input type="text" id="input-Interests" class="form-control" placeholder="Services">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-cin">CIN</label>
-                                    <input type="text" id="input-cin" class="form-control" placeholder="CIN number"
+                                    <label class="form-control-label" for="input-tieMail">TIE Email ID *</label>
+                                    <input required type="text" id="input-tieMail" class="form-control" placeholder="TIE Email ID"
                                         value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-pan">PAN</label>
-                                    <input type="" id="input-pan" class="form-control" placeholder="PAN number"
+                                    <label class="form-control-label" for="input-tiePassword">TIE Password *</label>
+                                    <input required type="" id="input-tiePassword" class="form-control" placeholder="TIE PAssword"
                                         value="">
                                 </div>
                             </div>
                         </div>
                         <div">
                             <div class="form-group">
-                                <label class="form-control-label">Brief about Startup</label>
+                                <label class="form-control-label">Brief about Mentor</label>
                                 <textarea rows="4" class="form-control"
-                                    placeholder="A few words about startup ..."></textarea>
+                                    placeholder="A few words about mentor ..."></textarea>
                             </div>
                             <label for="interest">You Are Intrested In * </label>
                             <select class="selectBox" name="Interests" id="interest" required>
@@ -728,12 +737,12 @@
 
             </div>
 
-            <div class="wrapper MentorList box">
+            <div class="wrapper StartupList box">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="description">
-                                <h2>Mentor List</h2>
+                                <h2>Startup List</h2>
                             </div>
 
                             <div class="fresh-table full-color-azure">
@@ -745,14 +754,14 @@
                                 <table id="fresh-table" class="table">
                                     <thead>
                                         <th data-field="id" data-sortable="true">ID</th>
-                                        <th data-field="name" data-sortable="true">Mentor Name</th>
+                                        <th data-field="name" data-sortable="true">Startup Name</th>
                                         <th data-field="salary" data-sortable="true">Status</th>
                                         <th data-field="contact" data-sortable="true">Phone</th>
                                         <th data-field="email">Email</th>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>M0001</td>
+                                            <td>S0001</td>
                                             <td>Dakota Rice</td>
                                             <td>Available</td>
                                             <td>98765321</td>
@@ -760,7 +769,7 @@
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <td>M0002</td>
+                                            <td>S0002</td>
                                             <td>Minerva Hooper</td>
                                             <td>Not Available</td>
                                             <td>987654321</td>
@@ -1216,7 +1225,7 @@
                 });
             };
         </script>
-        <script src="./assets/js/loopple/loopple.js"></script>
+        <script src="../assets/js/loopple/loopple.js"></script>
 </body>
 
 </html>

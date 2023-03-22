@@ -63,11 +63,20 @@ body{
     align-items: center;
     flex-wrap: wrap;
     position:fixed;
-    left:-250px;
+    left:0;
     transition: .4s all;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.483);
     z-index:999;
     top:0;
+}
+
+@media screen and (max-width:1120px) {
+    .navbar-side{
+        left:-250px;
+    }
+    .inner-width{
+        margin-left: 0;
+    }
 }
 
 
@@ -188,7 +197,7 @@ header{
     width: 80%;
     height:auto;
     margin-top: 50px;
-    /* margin-left: 250px; */
+    margin-left: 250px; 
 }
 .profile{
     height:auto;
