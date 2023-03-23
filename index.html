@@ -563,6 +563,8 @@
 
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-4">Visitors</h5>
+
+                        <div id="google_translate_element"></div>
                         <!--
                         <div class="row g-2">
                             <div class="col-4">
@@ -660,6 +662,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
         const options = {
             bottom: '64px', // default: '32px'
@@ -688,6 +691,15 @@
             document.querySelector('#logout').style.display = 'block'
         } else {
             document.querySelector('#login').style.display = 'block'
+        }
+    </script>
+
+    <script>
+        function googleTranslateElementInit(){
+           new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+           );
         }
     </script>
 </body>
