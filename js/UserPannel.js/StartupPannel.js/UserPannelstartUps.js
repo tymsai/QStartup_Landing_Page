@@ -96,6 +96,7 @@ const displyStartUpsInformation = (data) => {
 
 socialMediaForm.addEventListener('submit', (event) => {
     event.preventDefault()
+
     const formData = new FormData(socialMediaForm)
     formData.delete('bussinesDoucument');
     const payload = Object.fromEntries(formData)
@@ -157,3 +158,18 @@ const displayAllMentor = (mentors) => {
 
 
 }
+
+
+// Save the users startup edit details
+
+const userStartupEditForm = document.querySelector('#userStartupEditForm')
+
+userStartupEditForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const formData = new FormData(userStartupEditForm)
+    formData.delete('bussinesDoucument');
+    const payload = Object.fromEntries(formData)
+    console.log(payload)
+
+    console.log(userStartupEditForm)
+})
