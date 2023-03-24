@@ -172,4 +172,17 @@ userStartupEditForm.addEventListener('submit', (event) => {
     console.log(payload)
 
     console.log(userStartupEditForm)
+
+    fetch('http://localhost:5000/registration', {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+
 })
