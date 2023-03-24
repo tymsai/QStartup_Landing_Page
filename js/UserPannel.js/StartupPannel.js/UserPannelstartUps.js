@@ -70,6 +70,25 @@ const displyStartUpsInformation = (data) => {
         }
     }
     console.log(data)
+
+
+    // set default value of userStartupEditForm
+
+    for (const prop in data.data) {
+
+        const userStartupEditInput = document.getElementsByName(prop)[0];
+        console.log(userStartupEditInput, prop)
+        if (userStartupEditInput) {
+            userStartupEditInput.value = data.data[prop]
+        }
+
+
+    }
+
+
+
+
+
 }
 
 
@@ -101,3 +120,40 @@ socialMediaForm.addEventListener('submit', (event) => {
 
 })
 loadCurrentUser(id)
+
+
+
+// load all mentor
+const loadAllmentor = () => {
+    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            displayAllMentor(data)
+        })
+}
+loadAllmentor()
+
+// display mentor list 
+
+const displayAllMentor = (mentors) => {
+    const mentorTbody = document.querySelector('#tbody')
+    console.log(mentorTbody)
+
+    mentors.forEach(mentor => {
+        const row = document.createElement('tr');
+        row.innerHTML = ` 
+                                            <td>${mentor.id}</td>
+                                            <td> ${mentor.username}</td>
+                                            <td> ${`status`}</td>
+                                            <td> ${mentor.data.Phone_Mentor}</td>
+                                            <td> ${mentor.data.email_Mentor}</td>
+                                         
+                                      
+
+`
+        mentorTbody.appendChild(row)
+    });
+
+
+}
