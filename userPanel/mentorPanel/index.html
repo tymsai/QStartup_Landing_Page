@@ -166,8 +166,8 @@
                         voluptas.
                     </p>
                     <hr class="horizontal gray-light my-4">
-                    <ul class="list-group">
-                        <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
+                    <ul class="list-group" id="mentorInfoList">
+                        <!-- <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
                                 Unique ID:</strong> &nbsp; M0001</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
                             &nbsp; 987654321</li>
@@ -186,7 +186,7 @@
                             <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -487,35 +487,36 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form id="socialMediaForm">
                         <h6 class="heading-small text-muted mb-4">Social Media information</h6>
 
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-twitter">Twitter</label>
-                                    <input type="text" id="input-twitter" class="form-control" placeholder="https://"
-                                        value="">
+                                    <input type="text" name="twitter" id="input-twitter" class="form-control"
+                                        placeholder="https://" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-linkedin">Linkedin</label>
-                                    <input type="text" id="input-linkedin" class="form-control" placeholder="https://"
-                                        value="">
+                                    <input name="linkedin" type="text" id="input-linkedin" class="form-control"
+                                        placeholder="https://" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Instagram">Instagram</label>
-                                    <input type="email" id="input-Instagram" class="form-control"
+                                    <input type="text" name="instagram" id="input-Instagram" class="form-control"
                                         placeholder="https://">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Facebook">Facebook</label>
-                                    <input type="email" id="input-Facebook" class="form-control" placeholder="https://">
+                                    <input type="text" name="facebook" id="input-Facebook" class="form-control"
+                                        placeholder="https://">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -528,7 +529,7 @@
                             </div>
                         </div>
                         <button type="reset" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                        <button type="submit" class="btn bg-gradient-primary">Save changes</button>
 
                     </form>
                 </div>
@@ -779,238 +780,7 @@
                                             <td>cake@gmail.com</td>
                                             <td></td>
                                         </tr>
-                                        <tr>
-                                            <td>S0002</td>
-                                            <td>Minerva Hooper</td>
-                                            <td>Not Available</td>
-                                            <td>987654321</td>
-                                            <td>Sinaai-Waas</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sage Rodriguez</td>
-                                            <td>Available</td>
-                                            <td>Netherlands</td>
-                                            <td>Baileux</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Philip Chaney</td>
-                                            <td>$38,735</td>
-                                            <td>Korea, South</td>
-                                            <td>Overland Park</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Doris Greene</td>
-                                            <td>$63,542</td>
-                                            <td>Malawi</td>
-                                            <td>Feldkirchen in Kärnten</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Mason Porter</td>
-                                            <td>$78,615</td>
-                                            <td>Chile</td>
-                                            <td>Gloucester</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Alden Chen</td>
-                                            <td>$63,929</td>
-                                            <td>Finland</td>
-                                            <td>Gary</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Colton Hodges</td>
-                                            <td>$93,961</td>
-                                            <td>Nicaragua</td>
-                                            <td>Delft</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Illana Nelson</td>
-                                            <td>$56,142</td>
-                                            <td>Heard Island</td>
-                                            <td>Montone</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Nicole Lane</td>
-                                            <td>$93,148</td>
-                                            <td>Cayman Islands</td>
-                                            <td>Cottbus</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td>Chaim Saunders</td>
-                                            <td>$5,502</td>
-                                            <td>Romania</td>
-                                            <td>New Quay</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12</td>
-                                            <td>Josiah Simon</td>
-                                            <td>$50,265</td>
-                                            <td>Christmas Island</td>
-                                            <td>Sint-Jans-Molenbeek</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>13</td>
-                                            <td>Ila Poole</td>
-                                            <td>$67,413</td>
-                                            <td>Montenegro</td>
-                                            <td>Pontevedra</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>14</td>
-                                            <td>Shana Mejia</td>
-                                            <td>$58,566</td>
-                                            <td>Afghanistan</td>
-                                            <td>Ballarat</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>15</td>
-                                            <td>Lana Ryan</td>
-                                            <td>$64,151</td>
-                                            <td>Martinique</td>
-                                            <td>Portobuffolè</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>16</td>
-                                            <td>Daquan Bender</td>
-                                            <td>$91,906</td>
-                                            <td>Sao Tome and Principe</td>
-                                            <td>Walhain-Saint-Paul</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>17</td>
-                                            <td>Connor Wagner</td>
-                                            <td>$86,537</td>
-                                            <td>Germany</td>
-                                            <td>Solihull</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>18</td>
-                                            <td>Boris Horton</td>
-                                            <td>$35,094</td>
-                                            <td>Laos</td>
-                                            <td>Saint-Mard</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>19</td>
-                                            <td>Winifred Ryan</td>
-                                            <td>$64,436</td>
-                                            <td>Ireland</td>
-                                            <td>Ronciglione</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>20</td>
-                                            <td>Tanisha Hayes</td>
-                                            <td>$43,670</td>
-                                            <td>Argentina</td>
-                                            <td>Lint</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>Knox Morris</td>
-                                            <td>$58,474</td>
-                                            <td>Norway</td>
-                                            <td>Melle</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>22</td>
-                                            <td>Idola Stephenson</td>
-                                            <td>$25,236</td>
-                                            <td>Saint Barthélemy</td>
-                                            <td>Joncret</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>23</td>
-                                            <td>Abra Keller</td>
-                                            <td>$28,272</td>
-                                            <td>Switzerland</td>
-                                            <td>Thame</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>24</td>
-                                            <td>Teagan Mcgowan</td>
-                                            <td>$51,059</td>
-                                            <td>Sudan</td>
-                                            <td>Stalowa Wola</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>25</td>
-                                            <td>Leandra Kirby</td>
-                                            <td>$89,270</td>
-                                            <td>Western Sahara</td>
-                                            <td>Oristano</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>26</td>
-                                            <td>Quentin Swanson</td>
-                                            <td>$64,782</td>
-                                            <td>Saint Vincent</td>
-                                            <td>Poznań</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>27</td>
-                                            <td>Naida Oneil</td>
-                                            <td>$52,070</td>
-                                            <td>Panama</td>
-                                            <td>Floriffoux</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>28</td>
-                                            <td>Martina Kent</td>
-                                            <td>$70,020</td>
-                                            <td>Paraguay</td>
-                                            <td>Leffinge</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>88</td>
-                                            <td>Florence Tillman</td>
-                                            <td>$79,225</td>
-                                            <td>Cayman Islands</td>
-                                            <td>S�lange</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>100</td>
-                                            <td>Vielka Norton</td>
-                                            <td>$44,584</td>
-                                            <td>Spain</td>
-                                            <td>Thane</td>
-                                            <td></td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -1057,12 +827,13 @@
                 </form>
             </div>
         </div>
-        <div class="loopple-alert loopple-alert-gradient-dark loopple-alert-dismissible loopple-fade loopple-position-fixed loopple-z-index-9999 loopple-bottom-2 loopple-mx-auto loopple-text-center loopple-right-0 loopple-left-0 loopple-w-50"
+        <!-- <div class="loopple-alert loopple-alert-gradient-dark loopple-alert-dismissible loopple-fade loopple-position-fixed loopple-z-index-9999 loopple-bottom-2 loopple-mx-auto loopple-text-center loopple-right-0 loopple-left-0 loopple-w-50"
             role="alert"><strong>View and edit your project online</strong><a
                 class="loopple-btn loopple-btn-white loopple-ml-2"
                 href="https://www.loopple.com/builder/project-pfHAk8NtEKpWxMlIfCcAS5wYbLRA1K6s3L1"
                 target="_blank">Editor</a><button type="button" class="close" data-dismiss="alert"
-                aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div> -->
         <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/core/popper.min.js"></script>
         <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/core/bootstrap.min.js"></script>
         <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/plugins/chartjs.min.js"></script>
@@ -1237,6 +1008,7 @@
             };
         </script>
         <script src="../assets/js/loopple/loopple.js"></script>
+        <script src="../../js/UserPannel.js/mentorPannel.js/UsersMentorPannel.js"></script>
 </body>
 
 </html>

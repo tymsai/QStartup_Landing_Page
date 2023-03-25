@@ -31,13 +31,13 @@ const mentorform = document.querySelector('.form')
 
 // loading user data by email
 const loadMentorOrStartup = (email) => {
-    console.log('function run', email)
-    fetch(`https://qstartup-server.vercel.app/user?email=${email}`)
+    console.log('function run and email', email)
+    fetch(`http://localhost:5000/user?email=${email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data[0]?.data)
 
-            if (data[0]?.data?.role === 'startUp') {
+            if (data[0]?.role === 'startUp') {
 
                 startupForm.style.display = 'block'
 
@@ -53,7 +53,7 @@ const loadMentorOrStartup = (email) => {
 
 
 
-            } else if (data[0]?.data?.role === 'mentor') {
+            } else if (data[0]?.role === 'mentor') {
 
                 mentorform.style.display = 'block'
                 for (const prop in data[0].data) {
