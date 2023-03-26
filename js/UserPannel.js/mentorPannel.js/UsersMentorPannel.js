@@ -25,7 +25,7 @@ const loadCurrentUser = (id) => {
 
 
 const displyStartUpsInformation = (data) => {
-//     console.log('disply data', data)
+    //     console.log('disply data', data)
     const mentorInfo = document.querySelector('#mentorInfoList')
     mentorInfo.innerHTML = `
      <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
@@ -71,18 +71,18 @@ const displyStartUpsInformation = (data) => {
     console.log(data)
 
 
-//     // set default value of userStartupEditForm
+    // set default value of userStartupEditForm
 
-//     for (const prop in data.data) {
+    for (const prop in data.data) {
 
-//         const userStartupEditInput = document.getElementsByName(prop)[0];
-//         console.log(userStartupEditInput, prop)
-//         if (userStartupEditInput) {
-//             userStartupEditInput.value = data.data[prop]
-//         }
+        const userStartupEditInput = document.getElementsByName(prop)[0];
+        console.log(userStartupEditInput, prop)
+        if (userStartupEditInput) {
+            userStartupEditInput.value = data.data[prop]
+        }
 
 
-//     }
+    }
 
 
 
@@ -99,7 +99,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     const formData = new FormData(socialMediaForm)
     formData.delete('bussinesDoucument');
     const payload = Object.fromEntries(formData)
-  console.log(payload)
+    console.log(payload)
 
     fetch(`http://localhost:5000/socialMedia?id=${id}`, {
         method: 'PUT',
@@ -123,65 +123,67 @@ loadCurrentUser(id)
 
 
 
-// // load all mentor
-// const loadAllmentor = () => {
-//     fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
-//         .then(res => res.json())
-//         .then(data => {
-//             console.log(data)
-//             displayAllMentor(data)
-//         })
-// }
-// loadAllmentor()
+// load all mentor
+const loadAllmentor = () => {
+    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            displayAllMentor(data)
+        })
+}
+loadAllmentor()
 
-// // display mentor list 
+// display mentor list 
 
-// const displayAllMentor = (mentors) => {
-//     const mentorTbody = document.querySelector('#tbody')
-//     console.log(mentorTbody)
+const displayAllMentor = (mentors) => {
+    const mentorTbody = document.querySelector('#tbody')
+    console.log(mentorTbody)
 
-//     mentors.forEach(mentor => {
-//         const row = document.createElement('tr');
-//         row.innerHTML = ` 
-//                                             <td>${mentor.id}</td>
-//                                             <td> ${mentor.username}</td>
-//                                             <td> ${`status`}</td>
-//                                             <td> ${mentor.data.Phone_Mentor}</td>
-//                                             <td> ${mentor.data.email_Mentor}</td>
-                                         
-                                      
-
-// `
-//         mentorTbody.appendChild(row)
-//     });
+    mentors.forEach(mentor => {
+        const row = document.createElement('tr');
+        row.innerHTML = ` 
+                                            <td>${mentor.id}</td>
+                                            <td> ${mentor.username}</td>
+                                            <td> ${`status`}</td>
+                                            <td> ${mentor.data.Phone_StartUp}</td>
+                                            <td> ${mentor.data.email_StartUp}</td>
 
 
-// }
+
+`
+        mentorTbody.appendChild(row)
+    });
 
 
-// // Save the users startup edit details
+}
 
-// const userStartupEditForm = document.querySelector('#userStartupEditForm')
 
-// userStartupEditForm.addEventListener('submit', (event) => {
-//     event.preventDefault()
-//     const formData = new FormData(userStartupEditForm)
-//     formData.delete('bussinesDoucument');
-//     const payload = Object.fromEntries(formData)
-//     console.log(payload)
+// Save the users mentor edit details
 
-//     console.log(userStartupEditForm)
+const usersMentorEditForm = document.querySelector('#usersMentorEditForm')
 
-//     fetch('http://localhost:5000/registration', {
-//         method: 'PUT',
-//         headers: {
-//             'content-type': 'application/json'
-//         },
-//         body: JSON.stringify(payload)
-//     })
-//         .then(res => res.json())
-//         .then(data => {
-//             console.log(data)
-//         })
 
-// })
+usersMentorEditForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    console.log('clicked')
+    const formData = new FormData(usersMentorEditForm)
+    formData.delete('Photo');
+    const payload = Object.fromEntries(formData)
+    console.log('payload', payload)
+
+    console.log(usersMentorEditForm)
+
+    fetch('http://localhost:5000/registration', {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+
+})
