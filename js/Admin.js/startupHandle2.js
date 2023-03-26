@@ -11,7 +11,7 @@ fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
         data.forEach((startUp, index) => {
             // Create new row element
             const row = document.createElement('tr');
-            row.setAttribute('data-id', startUp?._id);
+            row.setAttribute('data-id', startUp?.id);
 
             // Create and append cells to the row
             const indexCell = document.createElement('td');
@@ -135,7 +135,7 @@ const handleEdit = (email) => {
 
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`https://qstartup-server.vercel.app/userDelete/${id}`, {
+    fetch(`http://localhost:5000/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
