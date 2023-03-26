@@ -3,6 +3,7 @@ console.log('startups user pannet added')
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 const id = currentUser._id
+console.log('id', id)
 console.log('current user', currentUser)
 
 
@@ -15,13 +16,13 @@ const loadCurrentUser = (id) => {
     fetch(`http://localhost:5000/user?id=${id}`)
         .then(res => res.json())
         .then(data => {
-            displyStartUpsInformation(data[0])
             console.log('in function', data)
+            displyStartUpsInformation(data[0])
         })
     console.log('load called')
 }
 
-
+loadCurrentUser(id)
 
 const displyStartUpsInformation = (data) => {
     console.log('disply data', data)
@@ -41,16 +42,16 @@ const displyStartUpsInformation = (data) => {
 
                         <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.facebook}">
+                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.facebook}">
                                 <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.twitter}">
+                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.twitter}">
                                 <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.instagram}">
+                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.instagram}">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.linkdIn}">
+                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.linkdIn}">
     <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
 </a>
                         </li>
@@ -112,15 +113,15 @@ socialMediaForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            document.querySelector('.btn-facebook').href = payload.facebook;
-            document.querySelector('.btn-twitter').href = payload.twitter;
-            document.querySelector('.btn-linkedin').href = payload.linkdIn;
-            document.querySelector('.btn-instagram').href = payload.instagram;
+            document.querySelector('.btn-facebook').href = payload?.facebook;
+            document.querySelector('.btn-twitter').href = payload?.twitter;
+            document.querySelector('.btn-linkedin').href = payload?.linkdIn;
+            document.querySelector('.btn-instagram').href = payload?.instagram;
 
         })
 
 })
-loadCurrentUser(id)
+
 
 
 

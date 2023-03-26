@@ -13,7 +13,7 @@ fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
         data.forEach((startUp, index) => {
             // Create new row element
             const row = document.createElement('tr');
-            row.setAttribute('data-id', startUp?._id);
+            row.setAttribute('data-id', startUp?.id);
 
             // Create and append cells to the row
             const indexCell = document.createElement('td');
@@ -45,7 +45,7 @@ fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
     <a id="editButton" onClick="handleEdit('${startUp?._id}')" class="">
         <i class="fa fa-edit"></i>
     </a>
-    <span class="text-danger" id="delete" onclick="handleDelete('${startUp?._id}')">
+    <span class="text-danger" id="delete" onclick="handleDelete('${startUp?.id}')">
         <i class="fa fa-remove"></i>
     </span>
 `;
