@@ -42,16 +42,16 @@ const displyStartUpsInformation = (data) => {
 
                         <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.facebook}">
+                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.facebook}">
                                 <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.twitter}">
+                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.twitter}">
                                 <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.instagram}">
+                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.instagram}">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink?.linkdIn}">
+                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.linkdIn}">
     <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
 </a>
                         </li>
