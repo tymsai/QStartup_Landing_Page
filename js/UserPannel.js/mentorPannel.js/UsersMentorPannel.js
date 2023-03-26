@@ -129,25 +129,26 @@ const loadAllmentor = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            displayAllMentor(data)
+            displayAllStartUp(data)
         })
 }
 loadAllmentor()
 
 // display mentor list 
+const mentorTbody = document.querySelector('#tbody')
+console.log(mentorTbody)
 
-const displayAllMentor = (mentors) => {
-    const mentorTbody = document.querySelector('#tbody')
-    console.log(mentorTbody)
+const displayAllStartUp = (startUps) => {
 
-    mentors.forEach(mentor => {
+    startUps.forEach(startUp => {
+        console.log(startUp)
         const row = document.createElement('tr');
         row.innerHTML = ` 
-                                            <td>${mentor.id}</td>
-                                            <td> ${mentor.username}</td>
+                                            <td>${startUp.id}</td>
+                                            <td> ${startUp.username}</td>
                                             <td> ${`status`}</td>
-                                            <td> ${mentor.data.Phone_StartUp}</td>
-                                            <td> ${mentor.data.email_StartUp}</td>
+                                            <td> ${startUp.data.phone_StartUp}</td>
+                                            <td> ${startUp.data.email_StartUp}</td>
 
 
 
