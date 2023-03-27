@@ -6,8 +6,9 @@ body{
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     background: #e0e0e0;
-    overflow:hidden;
+    /*overflow:hidden;*/
     position: relative;
+    overflow-x: hidden;
    
 }
 
