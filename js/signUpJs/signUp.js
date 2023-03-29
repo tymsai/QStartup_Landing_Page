@@ -30,12 +30,30 @@ document.getElementById('form').onsubmit = (event) => {
             console.log(data)
 
             if (!data.token) {
-                return alert(data.message)
+                Toastify({
+                    text: data.message,
+                    className: "info",
+                    position: 'center',
+                    style: {
+                        background: "linear-gradient(to right, #FF0000, #FF0000)",
+                        font: 'bold'
+
+
+                    },
+
+                }).showToast();
             }
             if (data.token) {
                 localStorage.setItem('currentUser', JSON.stringify(data))
-
-                // form.reset()
+                Toastify({
+                    text: data.message + '  ' + 'as' + "  " + data.username,
+                    className: "info",
+                    position: 'center',
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                }).showToast();
+                form.reset()
                 window.location.href = '/'
             }
         })

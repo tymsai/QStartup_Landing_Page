@@ -47,6 +47,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
             localStorage.setItem('currentUser', JSON.stringify(data))
             console.log(data)
             form.reset()
+            window.location.href = '/'
         })
         .catch(error => { console.log(error) })
 

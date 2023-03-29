@@ -31,6 +31,8 @@ startupForm.addEventListener('submit', (event) => {
     const startupData = { role: 'startUp', ...payload, imageurl }
 
     console.log(imageurl, startupData)
+
+    // data save to database
     fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
@@ -41,6 +43,14 @@ startupForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            // Toastify({
+            //     text: data,
+            //     className: "info",
+            //     position: 'center',
+            //     style: {
+            //         background: "linear-gradient(to right, #00b09b, #96c93d)",
+            //     },
+            // }).showToast();
         })
 
 
