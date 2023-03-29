@@ -581,6 +581,9 @@ progress {
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
     margin-top: calc(var(--bs-gutter-y) * -1);
     margin-right: calc(var(--bs-gutter-x) * -0.5);
     margin-left: calc(var(--bs-gutter-x) * -0.5);
