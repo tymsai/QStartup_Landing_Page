@@ -34,6 +34,16 @@ form.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            Toastify({
+                text: data.message
+                ,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+            }).showToast();
+
             // localStorage.setItem('currentUser', JSON.stringify(data))
         })
 

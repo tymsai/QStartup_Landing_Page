@@ -18,7 +18,7 @@ document.getElementById('form').onsubmit = (event) => {
 
 
     // saveUserToDatabase
-    fetch(`https://qstartup-server.vercel.app/signup`, {
+    fetch(`http://localhost:5000/signup`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
