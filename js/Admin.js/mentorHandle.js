@@ -115,7 +115,7 @@ window.operateEvents = {
 
 function operateFormatter(value, row, index) {
     return [
-        ` <a id="editButton"  onClick="handleEdit('${row.email}')" >
+        ` <a id="editButton"  onClick="handleEdit('${row.id}')" >
               <i class="fa fa-edit"></i>
            </a>
            <span class="text-danger" id="delete" onclick="handleDelete('${row?.id}')" >
@@ -126,14 +126,14 @@ function operateFormatter(value, row, index) {
 
 
 
-const handleEdit = (email) => {
-    console.log(email)
-    window.location.href = `/admin/Edit.html?email=${email}`
+const handleEdit = (id) => {
+    console.log(id)
+    window.location.href = `/admin/Edit.html?id=${id}`
 }
 
 
 const handleDelete = (id) => {
-    return console.log('delete clicked', id)
+    console.log('delete clicked', id)
     fetch(`https://qstartupserver.onrender.com/userDelete/${id}`, {
         method: 'DELETE',
         headers: {

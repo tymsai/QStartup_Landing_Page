@@ -11,7 +11,7 @@ console.log('current user', currentUser)
 const socialMediaForm = document.querySelector('#socialMediaForm')
 console.log(socialMediaForm)
 
-const loadCurrentUser = (id) => {
+const loadCurrentUser = (_id) => {
     console.log(id)
     fetch(`https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=mentor`)
         .then(res => res.json())
