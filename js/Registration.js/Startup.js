@@ -34,6 +34,7 @@ startupForm.addEventListener('submit', (event) => {
 
     // data save to database
     fetch(`https://qstartupserver.onrender.com/registration`, {
+
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -45,7 +46,15 @@ startupForm.addEventListener('submit', (event) => {
             console.log(data)
 
             if (data.status === 200) {
-                localStorage.setItem('currentUser', JSON.stringify(data.data))
+                console.log(data.data.id)
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+
+                let newCurrentUser = { ...currentUser, id: data.data.id }
+
+
+                localStorage.setItem('currentUser', JSON.stringify(newCurrentUser));
+
 
             }
             Toastify({
