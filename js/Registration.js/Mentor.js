@@ -43,7 +43,7 @@ form.addEventListener('submit', (event) => {
                     background: "linear-gradient(to right, #00b09b, #96c93d)",
                 },
             }).showToast();
-
+            form.reset()
             // localStorage.setItem('currentUser', JSON.stringify(data))
         })
 

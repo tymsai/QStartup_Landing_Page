@@ -133,7 +133,7 @@ const handleEdit = (email) => {
 
 
 const handleDelete = (id) => {
-    console.log('delete clicked', id)
+    return console.log('delete clicked', id)
     fetch(`https://qstartupserver.onrender.com/userDelete/${id}`, {
         method: 'DELETE',
         headers: {

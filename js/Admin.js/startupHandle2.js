@@ -46,7 +46,7 @@ fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
     <a id="editButton" onClick="handleEdit('${startUp?._id}')" class="">
         <i class="fa fa-edit"></i>
     </a>
-    <span class="text-danger" id="delete" onclick="handleDelete('${startUp?._id}')">
+    <span class="text-danger" id="delete" onclick="handleDelete('${startUp?.id}')">
         <i class="fa fa-remove"></i>
     </span>
 `;
