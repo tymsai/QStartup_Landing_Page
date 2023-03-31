@@ -32,8 +32,8 @@ const mentorform = document.querySelector('.form')
 // loading user data by id
 const loadMentorOrStartup = (id) => {
     console.log('function run and id', id)
-    // fetch(`https://qstartupserver.onrender.com/user?id=${id}`)
-    fetch(`http://localhost:5000/user?id=${id}`)
+    fetch(`https://qstartupserver.onrender.com/user?id=${id}`)
+        // fetch(`https://qstartupserver.onrender.com/user?id=${id}`)
         .then(res => res.json())
         .then(data => {
             console.log(data[0]?.data)
@@ -108,7 +108,7 @@ startupForm.addEventListener('submit', (event) => {
     console.log(imageurl, startupData)
 
     // data save to database
-    fetch(`http://localhost:5000/EditUser?id=${id}`, {
+    fetch(`https://qstartupserver.onrender.com/EditUser?id=${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -186,7 +186,7 @@ form.addEventListener('submit', (event) => {
 
 
 
-    fetch(`http://localhost:5000/EditUser?id=${id}`, {
+    fetch(`https://qstartupserver.onrender.com/EditUser?id=${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

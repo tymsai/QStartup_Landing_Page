@@ -24,7 +24,7 @@ form.addEventListener('submit', (event) => {
 
 
 
-    fetch(`https://qstartupserver.onrender.com/registration`, {
+    fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -34,6 +34,19 @@ form.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            if (data.status === 200) {
+                console.log(data.data.id)
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+
+                let newCurrentUser = { ...currentUser, id: data.data.id }
+
+
+                localStorage.setItem('currentUser', JSON.stringify(newCurrentUser));
+
+
+            }
+
             Toastify({
                 text: data.message
                 ,
@@ -43,7 +56,7 @@ form.addEventListener('submit', (event) => {
                     background: "linear-gradient(to right, #00b09b, #96c93d)",
                 },
             }).showToast();
-            form.reset()
+
             // localStorage.setItem('currentUser', JSON.stringify(data))
         })
 

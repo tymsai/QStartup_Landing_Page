@@ -43,6 +43,11 @@ startupForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
+            if (data.status === 200) {
+                localStorage.setItem('currentUser', JSON.stringify(data.data))
+
+            }
             Toastify({
                 text: data.message
                 ,

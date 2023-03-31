@@ -14,7 +14,7 @@ console.log(socialMediaForm)
 
 const loadCurrentUser = (id) => {
     console.log(id)
-    fetch(`http://localhost:5000/SingleUser?id=${id}&&role=startUp`) //http://localhost:5000/SingleUser?id=${id}&&role=startUp
+    fetch(`https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=startUp`) //https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=startUp
         .then(res => res.json())
         .then(data => {
             console.log('in function', data)
@@ -28,6 +28,9 @@ loadCurrentUser(id)
 const displyStartUpsInformation = (data) => {
     console.log('disply data', data)
     const startupInfo = document.querySelector('#startupInfoList')
+    const startupBrief = document.querySelector('#startupBrief')
+    startupBrief.textContent = data?.data.Brief_StartUp
+
     startupInfo.innerHTML = `
      <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
                                 Unique ID:</strong> &nbsp;${data?.id} </li>
@@ -104,7 +107,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     const payload = Object.fromEntries(formData)
     console.log(payload)
 
-    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
+    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -119,6 +122,21 @@ socialMediaForm.addEventListener('submit', (event) => {
             document.querySelector('.btn-linkedin').href = payload?.linkdIn;
             document.querySelector('.btn-instagram').href = payload?.instagram;
 
+            // show toast 
+
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.status === 200 ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #FF0000, #FF0000)",
+                    font: 'bold'
+
+
+                },
+
+            }).showToast();
+
         })
 
 })
@@ -128,7 +146,7 @@ socialMediaForm.addEventListener('submit', (event) => {
 
 // load all mentor
 const loadAllmentor = () => {
-    fetch('http://localhost:5000/admin/getAllStartUp?role=mentor')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=mentor')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -149,7 +167,7 @@ const displayAllMentor = (mentors) => {
                                             <td>${mentor?.id}</td>
                                             <td> ${mentor?.username}</td>
                                             <td> ${`status`}</td>
-                                            // <td> ${mentor?.data.Phone_Mentor}</td>
+                                           <td> ${mentor?.data.Phone_Mentor}</td>
                                             <td> ${mentor?.data.email_Mentor}</td>
                                          
                                       
@@ -175,7 +193,7 @@ userStartupEditForm.addEventListener('submit', (event) => {
 
     console.log(userStartupEditForm)
 
-    fetch(`http://localhost:5000/EditUser?id=${UniqueId}`, {
+    fetch(`https://qstartupserver.onrender.com/EditUser?id=${UniqueId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -185,6 +203,21 @@ userStartupEditForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.status === 200 ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #FF0000, #FF0000)",
+                    font: 'bold'
+
+
+                },
+
+            }).showToast();
+
+
         })
 
 })
