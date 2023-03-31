@@ -2,7 +2,7 @@ console.log("mentor handle js connected")
 
 
 // Fetch data from backend
-fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
+fetch('http://localhost:5000/admin/getAllStartUp?role=mentor')
     .then(response => response.json())
     .then(data => {
         // Get table body element
@@ -134,7 +134,7 @@ const handleEdit = (email) => {
 
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`https://qstartup-server.vercel.app/userDelete/${id}`, {
+    fetch(`http://localhost:5000/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
