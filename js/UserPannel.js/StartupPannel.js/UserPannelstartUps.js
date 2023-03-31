@@ -3,6 +3,7 @@ console.log('startups user pannet added')
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 const id = currentUser._id
+const UniqueId = currentUser.id
 console.log('id', id)
 console.log('current user', currentUser)
 
@@ -13,7 +14,7 @@ console.log(socialMediaForm)
 
 const loadCurrentUser = (id) => {
     console.log(id)
-    fetch(`https://qstartupserver.onrender.com/user?id=${id}`)
+    fetch(`http://localhost:5000/SingleUser?id=${id}&&role=startUp`) //http://localhost:5000/SingleUser?id=${id}&&role=startUp
         .then(res => res.json())
         .then(data => {
             console.log('in function', data)
@@ -103,7 +104,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     const payload = Object.fromEntries(formData)
     console.log(payload)
 
-    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
+    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -127,7 +128,7 @@ socialMediaForm.addEventListener('submit', (event) => {
 
 // load all mentor
 const loadAllmentor = () => {
-    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=mentor')
+    fetch('http://localhost:5000/admin/getAllStartUp?role=mentor')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -174,7 +175,7 @@ userStartupEditForm.addEventListener('submit', (event) => {
 
     console.log(userStartupEditForm)
 
-    fetch('https://qstartupserver.onrender.com/registration', {
+    fetch(`http://localhost:5000/EditUser?id=${UniqueId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
