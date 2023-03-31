@@ -4,6 +4,7 @@ console.log('users menetor pannel js connected')
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 const id = currentUser._id
+const UniqueId = currentUser.id
 console.log('current user', currentUser)
 
 
@@ -42,30 +43,30 @@ const displyStartUpsInformation = (data) => {
 
                         <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.facebook}">
+                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.facebook}">
                                 <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.twitter}">
+                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.twitter}">
                                 <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.instagram}">
+                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.instagram}">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data.socialMedalLink.linkedin}">
+                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.linkedin}">
     <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
 </a>
                         </li>
     `
 
     // set default valu of social media link
-    for (const prop in data.socialMedalLink) {
+    for (const prop in data.data) {
 
 
         const socialMediaForm = document.getElementsByName(prop)[0];
 
         console.log(socialMediaForm, prop)
         if (socialMediaForm) {
-            socialMediaForm.value = data.socialMedalLink[prop];
+            socialMediaForm.value = data.data[prop];
         }
     }
     console.log(data)
@@ -175,7 +176,7 @@ usersMentorEditForm.addEventListener('submit', (event) => {
 
     console.log(usersMentorEditForm)
 
-    fetch('https://qstartupserver.onrender.com/registration', {
+    fetch(`http://localhost:5000/EditUser?id=${UniqueId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

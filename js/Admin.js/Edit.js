@@ -184,6 +184,8 @@ form.addEventListener('submit', (event) => {
 
 
 
+
+
     fetch(`http://localhost:5000/EditUser?id=${id}`, {
         method: 'PUT',
         headers: {

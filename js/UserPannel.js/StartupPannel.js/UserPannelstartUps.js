@@ -29,29 +29,29 @@ const displyStartUpsInformation = (data) => {
     const startupInfo = document.querySelector('#startupInfoList')
     startupInfo.innerHTML = `
      <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
-                                Unique ID:</strong> &nbsp;${data.id} </li>
+                                Unique ID:</strong> &nbsp;${data?.id} </li>
 
                                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
-                            &nbsp; ${data.data.phone_StartUp}</li>
+                            &nbsp; ${data?.data?.phone_StartUp}</li>
 
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong>
-                            &nbsp; ${data.email}</li>
+                            &nbsp; ${data?.email}</li>
 
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong>
-                            &nbsp; ${data.data.state_StartUp} ,${data.data.City_StartUp}  </li>
+                            &nbsp; ${data?.data?.state_StartUp} ,${data?.data?.City_StartUp}  </li>
 
                         <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.facebook}">
+                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.facebook}">
                                 <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.twitter}">
+                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.twitter}">
                                 <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.instagram}">
+                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.instagram}">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data.data?.linkdIn}">
+                           <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.linkdIn}">
     <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
 </a>
                         </li>
@@ -60,14 +60,14 @@ const displyStartUpsInformation = (data) => {
 
 
     // set default valu of social media link
-    for (const prop in data.socialMedalLink) {
+    for (const prop in data?.data) {
 
 
         const socialMediaForm = document.getElementsByName(prop)[0];
 
         console.log(socialMediaForm, prop)
         if (socialMediaForm) {
-            socialMediaForm.value = data.socialMedalLink[prop];
+            socialMediaForm.value = data.data[prop];
         }
     }
     console.log(data)
@@ -75,12 +75,12 @@ const displyStartUpsInformation = (data) => {
 
     // set default value of userStartupEditForm
 
-    for (const prop in data.data) {
+    for (const prop in data?.data) {
 
         const userStartupEditInput = document.getElementsByName(prop)[0];
         console.log(userStartupEditInput, prop)
         if (userStartupEditInput) {
-            userStartupEditInput.value = data.data[prop]
+            userStartupEditInput.value = data?.data[prop]
         }
 
 
@@ -145,11 +145,11 @@ const displayAllMentor = (mentors) => {
     mentors.forEach(mentor => {
         const row = document.createElement('tr');
         row.innerHTML = ` 
-                                            <td>${mentor.id}</td>
-                                            <td> ${mentor.username}</td>
+                                            <td>${mentor?.id}</td>
+                                            <td> ${mentor?.username}</td>
                                             <td> ${`status`}</td>
-                                            <td> ${mentor.data.Phone_Mentor}</td>
-                                            <td> ${mentor.data.email_Mentor}</td>
+                                            // <td> ${mentor?.data.Phone_Mentor}</td>
+                                            <td> ${mentor?.data.email_Mentor}</td>
                                          
                                       
 
