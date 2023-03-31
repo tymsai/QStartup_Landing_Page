@@ -13,7 +13,7 @@ console.log(socialMediaForm)
 
 const loadCurrentUser = (id) => {
     console.log(id)
-    fetch(`http://localhost:5000/user?id=${id}`)
+    fetch(`https://qstartupserver.onrender.com/user?id=${id}`)
         .then(res => res.json())
         .then(data => {
             console.log('in function', data)
@@ -103,7 +103,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     const payload = Object.fromEntries(formData)
     console.log(payload)
 
-    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
+    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -127,7 +127,7 @@ socialMediaForm.addEventListener('submit', (event) => {
 
 // load all mentor
 const loadAllmentor = () => {
-    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=mentor')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=mentor')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -174,7 +174,7 @@ userStartupEditForm.addEventListener('submit', (event) => {
 
     console.log(userStartupEditForm)
 
-    fetch('http://localhost:5000/registration', {
+    fetch('https://qstartupserver.onrender.com/registration', {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

@@ -18,7 +18,7 @@ document.getElementById('form').onsubmit = (event) => {
 
 
     // saveUserToDatabase
-    fetch(`http://localhost:5000/signup`, {
+    fetch(`https://qstartupserver.onrender.com/signup`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

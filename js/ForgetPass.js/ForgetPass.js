@@ -70,7 +70,7 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
 
 
 
-//         fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
+//         fetch("https://qstartupserver.onrender.com/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'
