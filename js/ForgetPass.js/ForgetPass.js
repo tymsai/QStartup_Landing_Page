@@ -10,12 +10,12 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
     const form = event.target
     const email = form.email.value;
 
+    console.log(email)
 
 
 
 
-
-    fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
+    fetch(" https://qstartupserver.onrender.com/sendResetLinkEmail", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -25,7 +25,23 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            form.reset()
+            console.log(data.status)
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.status === 200 ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #FF0000, #FF0000)",
+                    font: 'bold'
+
+
+                },
+
+            }).showToast();
+            if (data.status === 200) {
+
+                form.reset()
+            }
         })
         .catch(error => { console.log(error) })
 
@@ -54,7 +70,7 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
 
 
 
-//         fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
+//         fetch("https://qstartupserver.onrender.com/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'

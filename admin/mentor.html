@@ -32,7 +32,9 @@
 
   <!-- ____________________ -->
 
-
+  <!--  toastify  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </head>
 
@@ -161,9 +163,7 @@
                 <th data-field="id" data-sortable="true">ID</th>
                 <th data-field="name" data-sortable="true">Mentor</th>
                 <th data-field="sturtupPhone" data-sortable="true">phone</th>
-                <th data-field="contact" data-sortable="true">Phone</th>
                 <th data-field="email" data-sortable="true">Email</th>
-                <th data-field="mentor name">User Name</th>
                 <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
               </thead>
 
@@ -171,19 +171,19 @@
 
               </tbody>
             </table>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
 
 
 
   <!-- <script>
     // Fetch data from backend
-    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
       .then(response => response.json())
       .then(data => {
         // Get table body element

@@ -23,6 +23,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <!--  toastify  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
         .box {
             display: none;
@@ -35,7 +38,9 @@
             padding: 0.5rem 1rem 0.5rem 1rem;
             margin-left: 10px;
         }
-        .navbar-brand:hover, .btnChangeCard:hover {
+
+        .navbar-brand:hover,
+        .btnChangeCard:hover {
             letter-spacing: 0.2rem;
             transition: 0.3s;
             color: #ffffff;
@@ -55,19 +60,28 @@
             margin-left: 1rem;
             padding: 1rem;
         }
-        .Dashboard, .Inbox, .Settings, .AddDetails, .Services, .ScheduleMeeting, .StartupList, .Message{
-            -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
-            filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
-        }
-        .navbar_css{
-            border-radius: 20px;
-            margin: 1rem 2rem 1rem 2rem;
-            background-color: white;
-            -webkit-filter: drop-shadow( 5px 5px 5px rgba(56, 53, 53, 0.72));
+
+        .Dashboard,
+        .Inbox,
+        .Settings,
+        .AddDetails,
+        .Services,
+        .ScheduleMeeting,
+        .StartupList,
+        .Message {
+            -webkit-filter: drop-shadow(5px 5px 5px rgba(56, 53, 53, 0.72));
             filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
         }
 
-        .navbar-brand{
+        .navbar_css {
+            border-radius: 20px;
+            margin: 1rem 2rem 1rem 2rem;
+            background-color: white;
+            -webkit-filter: drop-shadow(5px 5px 5px rgba(56, 53, 53, 0.72));
+            filter: drop-shadow(5px 5px 5px 5px rgb(59, 57, 57));
+        }
+
+        .navbar-brand {
             border-radius: 20px;
             padding: 0.5rem 1rem 0.5rem 1rem;
             border: 1px solid rgb(118, 116, 116);
@@ -132,7 +146,7 @@
                     </li>
                     <li class="nav-item">
                         <input class="btnChangeCard" type="button" value="Logout">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </li>
                 </ul>
             </div>
@@ -150,16 +164,12 @@
                     </div>
                 </div>
                 <div class="card-body p-3">
-                    <p class="text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi saepe, voluptatibus accusamus
-                        enim, accusantium est aspernatur temporibus dolorem, nobis omnis aperiam velit quo rerum aliquam
-                        maiores libero doloremque hic! Inventore facilis animi corporis molestiae dolor consequuntur nam
-                        quisquam deserunt neque quo ratione at, accusantium optio soluta praesentium aperiam sit
-                        voluptas.
+                    <p class="text-sm" id="mentorBrief">
+
                     </p>
                     <hr class="horizontal gray-light my-4">
-                    <ul class="list-group">
-                        <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
+                    <ul class="list-group" id="mentorInfoList">
+                        <!-- <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
                                 Unique ID:</strong> &nbsp; M0001</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
                             &nbsp; 987654321</li>
@@ -178,7 +188,7 @@
                             <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -378,35 +388,36 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form id="socialMediaForm">
                         <h6 class="heading-small text-muted mb-4">Social Media information</h6>
 
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-twitter">Twitter</label>
-                                    <input type="text" id="input-twitter" class="form-control" placeholder="https://"
-                                        value="">
+                                    <input type="text" name="twitter" id="input-twitter" class="form-control"
+                                        placeholder="https://" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-linkedin">Linkedin</label>
-                                    <input type="text" id="input-linkedin" class="form-control" placeholder="https://"
-                                        value="">
+                                    <input name="linkedin" type="text" id="input-linkedin" class="form-control"
+                                        placeholder="https://" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Instagram">Instagram</label>
-                                    <input type="email" id="input-Instagram" class="form-control"
+                                    <input type="text" name="instagram" id="input-Instagram" class="form-control"
                                         placeholder="https://">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Facebook">Facebook</label>
-                                    <input type="email" id="input-Facebook" class="form-control" placeholder="https://">
+                                    <input type="text" name="facebook" id="input-Facebook" class="form-control"
+                                        placeholder="https://">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -419,7 +430,7 @@
                             </div>
                         </div>
                         <button type="reset" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                        <button type="submit" class="btn bg-gradient-primary">Save changes</button>
 
                     </form>
                 </div>
@@ -433,22 +444,22 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="usersMentorEditForm">
                         <h6 class="heading-small text-muted mb-4">Mentor information</h6>
                         <div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-Mentorname">Mentor Name</label>
-                                        <input type="text" id="input-Mentorname" class="form-control"
+                                        <input name="username" type="text" id="input-Mentorname" class="form-control"
                                             placeholder="Mentor Name" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email">Email address</label>
-                                        <input type="email" id="input-email" class="form-control"
-                                            placeholder="cake@example.com">
+                                        <input type="email" name="email_Mentor" id="input-email" class="form-control"
+                                            placeholder="cake@example.com" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -456,23 +467,23 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-phone">Phone</label>
-                                        <input type="text" id="input-phone" class="form-control" placeholder="+91"
-                                            value="">
+                                        <input name="Phone_Mentor" type="text" id="input-phone" class="form-control"
+                                            placeholder="+91" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-profile_photo">Profile
                                             Photo</label>
-                                        <input type="file" id="input-profile_photo" class="form-control" placeholder=""
-                                            value="">
+                                        <input type="file" name="Photo" id="input-profile_photo" class="form-control"
+                                            placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
 
                                     <label for="stage">Is this company logo *</label>
                                     <br>
-                                    <select class="selectBox stage" name="stage" id="cars" required>
+                                    <select class="selectBox stage" name="compnyLogo_Mentor" id="cars" required>
                                         <option value="no">NO</option>
                                         <option value="yes">YES</option>
                                     </select>
@@ -482,8 +493,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-active_months">
                                             Active Months</label>
-                                        <input type="text" id="input-active_months" class="form-control" placeholder=""
-                                            value="">
+                                        <input name="ActiveMonths_Mentor" type="text" id="input-active_months"
+                                            class="form-control" placeholder="" value="">
                                     </div>
                                 </div>
                             </div>
@@ -496,24 +507,24 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-state">State</label>
-                                        <input id="input-state" class="form-control" placeholder="state" value=""
-                                            type="text">
+                                        <input id="input-state" name="state_Mentor" class="form-control"
+                                            placeholder="state" value="" type="text">
                                     </div>
 
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-url">Company URL</label>
-                                        <input id="input-url" class="form-control" placeholder="https://" value=""
-                                            type="text">
+                                        <input id="input-url" name="companyUrl_Mentor" class="form-control"
+                                            placeholder="https://" value="" type="text">
                                     </div>
 
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-District">District</label>
-                                        <input id="input-District" class="form-control" placeholder="District" value=""
-                                            type="text">
+                                        <input id="input-District" name="district_mentor" class="form-control"
+                                            placeholder="District" value="" type="text">
                                     </div>
 
                                 </div>
@@ -523,22 +534,22 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-city">City</label>
-                                        <input type="text" id="input-city" class="form-control" placeholder="City"
-                                            value="">
+                                        <input type="text" name="City_Mentor" id="input-city" class="form-control"
+                                            placeholder="City" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-country">Country</label>
-                                        <input type="text" id="input-country" class="form-control" placeholder="Country"
-                                            value="">
+                                        <input type="text" name="country_Mentor" id="input-country" class="form-control"
+                                            placeholder="Country" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-code">Postal code</label>
-                                        <input type="number" id="input-code" class="form-control"
-                                            placeholder="Postal code">
+                                        <input type="number" id="input-code" name="postalCode_Mentor"
+                                            class="form-control" placeholder="Postal code">
                                     </div>
                                 </div>
                             </div>
@@ -550,7 +561,7 @@
                             <div class="col-lg-6">
 
                                 <label for="nw">Select your Network</label>
-                                <select class="selectBox" name="nw" id="nw">
+                                <select class="selectBox" name="network_Mentor" id="nw">
                                     <option value="tie">TIE</option>
                                     <option value="others">Others</option>
                                 </select>
@@ -561,16 +572,17 @@
                             <div class="col-lg-6">
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-Tagline">Tagline</label>
-                                    <input type="text" id="input-Tagline" class="form-control" placeholder="Tagline"
-                                        value="">
+                                    <label class="form-control-label" for="input-Tagline">Brief/Tagline</label>
+                                    <input type="text" name="briefTagline_Mentor" id="input-Tagline"
+                                        class="form-control" placeholder="Tagline" value="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
 
                                 <label for="stage">Stage of Startup *</label>
                                 <br>
-                                <select class="selectBox stage" name="stage" id="cars" required>
+                                <select name="startupStage_Mentor" class="selectBox stage" name="stage" id="cars"
+                                    required>
                                     <option value="ideation">ideation</option>
                                     <option value="validation">validation</option>
                                     <option value="early traction">Early Traction</option>
@@ -582,21 +594,22 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Industry">Industry</label>
-                                    <input type="text" id="input-Industry" class="form-control"
+                                    <input name="industry_Mentor" type="text" id="input-Industry" class="form-control"
                                         placeholder="Eg : Automation" value="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Sector">Sector</label>
-                                    <input type="text" id="input-Sector" class="form-control" placeholder="Eg : Private"
-                                        value="">
+                                    <input name="Sector_Mentor" type="text" id="input-Sector" class="form-control"
+                                        placeholder="Eg : Private" value="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-Interests">Interests</label>
-                                    <input type="text" id="input-Interests" class="form-control" placeholder="Services">
+                                    <input type="text" name="interests_Mentor" id="input-Interests" class="form-control"
+                                        placeholder="Services">
                                 </div>
                             </div>
                         </div>
@@ -604,26 +617,27 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-tieMail">TIE Email ID *</label>
-                                    <input required type="text" id="input-tieMail" class="form-control" placeholder="TIE Email ID"
-                                        value="">
+                                    <input required type="text" name="tieEmail_Mentor" id="input-tieMail"
+                                        class="form-control" placeholder="TIE Email ID" value="">
                                 </div>
                             </div>
+
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-tiePassword">TIE Password *</label>
-                                    <input required type="" id="input-tiePassword" class="form-control" placeholder="TIE PAssword"
-                                        value="">
+                                    <input required type="" name="tiePassword_Mentor" id="input-tiePassword"
+                                        class="form-control" placeholder="TIE PAssword" value="">
                                 </div>
                             </div>
                         </div>
                         <div">
                             <div class="form-group">
                                 <label class="form-control-label">Brief about Mentor</label>
-                                <textarea rows="4" class="form-control"
+                                <textarea name="Brief_Mentor" rows="4" class="form-control"
                                     placeholder="A few words about mentor ..."></textarea>
                             </div>
                             <label for="interest">You Are Intrested In * </label>
-                            <select class="selectBox" name="Interests" id="interest" required>
+                            <select name="Interests_Mentor" class="selectBox" name="Interests" id="interest" required>
                                 <option value="All">All</option>
                                 <option value="Mentors">Mentors</option>
                                 <option value="Incubators">Incubators</option>
@@ -633,7 +647,7 @@
                         </div">
                         <br>
                         <button type="reset" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                        <button type="submit" class="btn bg-gradient-primary">Save changes</button>
                     </form>
                 </div>
 
@@ -661,247 +675,9 @@
                                         <th data-field="contact" data-sortable="true">Phone</th>
                                         <th data-field="email">Email</th>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>S0001</td>
-                                            <td>Dakota Rice</td>
-                                            <td>Available</td>
-                                            <td>98765321</td>
-                                            <td>cake@gmail.com</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>S0002</td>
-                                            <td>Minerva Hooper</td>
-                                            <td>Not Available</td>
-                                            <td>987654321</td>
-                                            <td>Sinaai-Waas</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sage Rodriguez</td>
-                                            <td>Available</td>
-                                            <td>Netherlands</td>
-                                            <td>Baileux</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Philip Chaney</td>
-                                            <td>$38,735</td>
-                                            <td>Korea, South</td>
-                                            <td>Overland Park</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Doris Greene</td>
-                                            <td>$63,542</td>
-                                            <td>Malawi</td>
-                                            <td>Feldkirchen in Kärnten</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Mason Porter</td>
-                                            <td>$78,615</td>
-                                            <td>Chile</td>
-                                            <td>Gloucester</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Alden Chen</td>
-                                            <td>$63,929</td>
-                                            <td>Finland</td>
-                                            <td>Gary</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Colton Hodges</td>
-                                            <td>$93,961</td>
-                                            <td>Nicaragua</td>
-                                            <td>Delft</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Illana Nelson</td>
-                                            <td>$56,142</td>
-                                            <td>Heard Island</td>
-                                            <td>Montone</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Nicole Lane</td>
-                                            <td>$93,148</td>
-                                            <td>Cayman Islands</td>
-                                            <td>Cottbus</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td>Chaim Saunders</td>
-                                            <td>$5,502</td>
-                                            <td>Romania</td>
-                                            <td>New Quay</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12</td>
-                                            <td>Josiah Simon</td>
-                                            <td>$50,265</td>
-                                            <td>Christmas Island</td>
-                                            <td>Sint-Jans-Molenbeek</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>13</td>
-                                            <td>Ila Poole</td>
-                                            <td>$67,413</td>
-                                            <td>Montenegro</td>
-                                            <td>Pontevedra</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>14</td>
-                                            <td>Shana Mejia</td>
-                                            <td>$58,566</td>
-                                            <td>Afghanistan</td>
-                                            <td>Ballarat</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>15</td>
-                                            <td>Lana Ryan</td>
-                                            <td>$64,151</td>
-                                            <td>Martinique</td>
-                                            <td>Portobuffolè</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>16</td>
-                                            <td>Daquan Bender</td>
-                                            <td>$91,906</td>
-                                            <td>Sao Tome and Principe</td>
-                                            <td>Walhain-Saint-Paul</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>17</td>
-                                            <td>Connor Wagner</td>
-                                            <td>$86,537</td>
-                                            <td>Germany</td>
-                                            <td>Solihull</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>18</td>
-                                            <td>Boris Horton</td>
-                                            <td>$35,094</td>
-                                            <td>Laos</td>
-                                            <td>Saint-Mard</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>19</td>
-                                            <td>Winifred Ryan</td>
-                                            <td>$64,436</td>
-                                            <td>Ireland</td>
-                                            <td>Ronciglione</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>20</td>
-                                            <td>Tanisha Hayes</td>
-                                            <td>$43,670</td>
-                                            <td>Argentina</td>
-                                            <td>Lint</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>Knox Morris</td>
-                                            <td>$58,474</td>
-                                            <td>Norway</td>
-                                            <td>Melle</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>22</td>
-                                            <td>Idola Stephenson</td>
-                                            <td>$25,236</td>
-                                            <td>Saint Barthélemy</td>
-                                            <td>Joncret</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>23</td>
-                                            <td>Abra Keller</td>
-                                            <td>$28,272</td>
-                                            <td>Switzerland</td>
-                                            <td>Thame</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>24</td>
-                                            <td>Teagan Mcgowan</td>
-                                            <td>$51,059</td>
-                                            <td>Sudan</td>
-                                            <td>Stalowa Wola</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>25</td>
-                                            <td>Leandra Kirby</td>
-                                            <td>$89,270</td>
-                                            <td>Western Sahara</td>
-                                            <td>Oristano</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>26</td>
-                                            <td>Quentin Swanson</td>
-                                            <td>$64,782</td>
-                                            <td>Saint Vincent</td>
-                                            <td>Poznań</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>27</td>
-                                            <td>Naida Oneil</td>
-                                            <td>$52,070</td>
-                                            <td>Panama</td>
-                                            <td>Floriffoux</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>28</td>
-                                            <td>Martina Kent</td>
-                                            <td>$70,020</td>
-                                            <td>Paraguay</td>
-                                            <td>Leffinge</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>88</td>
-                                            <td>Florence Tillman</td>
-                                            <td>$79,225</td>
-                                            <td>Cayman Islands</td>
-                                            <td>S�lange</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>100</td>
-                                            <td>Vielka Norton</td>
-                                            <td>$44,584</td>
-                                            <td>Spain</td>
-                                            <td>Thane</td>
-                                            <td></td>
-                                        </tr>
+                                    <tbody id="tbody">
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -1122,6 +898,7 @@
             };
         </script>
         <script src="../assets/js/loopple/loopple.js"></script>
+        <script src="../../js/UserPannel.js/mentorPannel.js/UsersMentorPannel.js"></script>
 </body>
 
 </html>
