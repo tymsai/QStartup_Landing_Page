@@ -34,6 +34,9 @@
      <!-- font awesome link -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <style>
+        body{
+            overflow: visible;
+        }
          .box {
              display: none;
          }
@@ -63,7 +66,7 @@
          });</script>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
 
 
     <!-- navbar start -->
@@ -73,11 +76,10 @@
         <i class="fas fa-bars" id="btn"></i>
         <i class="fas fa-times" id="cancel"></i>
     </label>
-    <!-- toggle area end here -->
     <nav class="navbar-side">
-
+       
         <div class="navigation">
-
+            
             <div class="user-profile">
                 <div class="user-area">
                     <img src="/img/admin profile.jpg" alt="">
@@ -93,7 +95,7 @@
                         <a href="./index.html">General</a>
                     </li>
 
-
+                   
                     <li>
                         <i class="fa-solid fa-list-ul green"></i>
                         <a href="./startup.html">Startup</a>
@@ -101,7 +103,7 @@
 
                     <li>
                         <i class="fa-solid fa-q brown"></i>
-                        <a href="#">Account</a>
+                        <a href="">Settings</a>
                     </li>
 
                     <li>
@@ -110,9 +112,9 @@
                     </li>
 
                     <li>
-                        <i class="fa fa-info-circle coral" aria-hidden="true"></i>
-                        <a href="./editdetails.html">Details</a>
-                    </li>
+                      <i class="fa fa-info-circle coral" aria-hidden="true"></i>
+                      <a href="./editdetails.html">Details</a>
+                  </li>
 
                 </ul>
             </div>
@@ -128,9 +130,49 @@
                 </ul>
             </div>
 
-        </div>
-    </nav>
-    <!-- navbar end -->
+          </nav>
+
+  <!-- background animation start -->
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  
+  <div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+  <!-- background animation end -->
 
 
     <div class="container-xxl p-3 w-100">
@@ -171,6 +213,7 @@
                         </form>
                         <form id="ft-form" class="form" accept-charset="UTF-8" enctype="multipart/form-data">
                             <div class="Mentor box">
+                                <div>
                                 <fieldset>
                                     <label>
                                         Mentor Name *
@@ -279,13 +322,38 @@
                                     </fieldset>
                                     <div class="btns">
                                         <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
-                                        <input type="submit" value="Submit application">
+                                        <input type="submit" value="Save">
                                     </div>
                                 </div>
 
                             </form>
+                            <div class="documents">
+                                <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
+                                    <tr style="border: 1px solid black;">
+                                      <th>Documents Available</th>
+                                      <th>View</th>
+                                    </tr>
+                                    <tr>
+                                      <td>tax info.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Payment.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
 
-
+                                    </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            
+                            
+                        </div>
 
 
 
@@ -299,6 +367,8 @@
 
                         <form id="ft-form" class="startupForm">
                             <div class="Startup box">
+                                <div>
+
                                     <fieldset>
                                         <label>
                                             Startup Name *
@@ -380,7 +450,7 @@
                                             <option value="bootstrapped">Bootstrapped</option>
                                         </select>
                                         <div class="two-cols">
-
+                                            
                                             <label>
                                                 CIN
                                                 <input type="text" name="CIN">
@@ -402,17 +472,42 @@
                                             <option value="Accelerators">Accelerators</option>
                                             <option value="Investors">Investors</option>
                                         </select>
-
+                                        
+                                        
                                     </fieldset>
 
                                     <div class="btns">
                                         <!-- <input type="text" name="_gotcha" value="" style="display:none;"> -->
-                                        <input type="submit" value="Submit application">
+                                        <input type="submit" value="Save">
                                     </div>
                                 </div>
-
+                                
 
                             </form>
+                            <div class="documents">
+                                <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
+                                    <tr style="border: 1px solid black;">
+                                      <th>Documents Available</th>
+                                      <th>View</th>
+                                    </tr>
+                                    <tr>
+                                      <td>tax info.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Payment.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+
+                                    </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
