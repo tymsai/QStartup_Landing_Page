@@ -31,6 +31,12 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--  toastify  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
     <style>
         .box {
             display: none;
@@ -197,7 +203,7 @@
                                         <div class="two-cols">
                                             <label>
                                                 State
-                                                <input type="text" name="Citizenship_Mentor">
+                                                <input type="text" name="state_Mentor">
                                             </label>
                                             <label>
                                                 City
@@ -316,7 +322,8 @@
                                         <div class="two-cols">
                                             <label>
                                                 StartUp Email address * [can't change]
-                                                <input type="email" name="email_StartUp" id="startupUserEmail" required>
+                                                <input type="email" name="email_StartUp" id="startupUserEmail" required
+                                                    readonly>
                                             </label>
 
                                             <label>
@@ -327,7 +334,7 @@
                                         <div class="two-cols">
                                             <label>
                                                 Registered State
-                                                <input type="text" name="Citizenship_StartUp">
+                                                <input type="text" name="state_StartUp">
                                             </label>
                                             <label>
                                                 Registered City
@@ -336,7 +343,7 @@
                                         </div>
                                         <label>
                                             Company URL
-                                            <input type="text" name="Address_StartUp">
+                                            <input type="text" name="companyUrl_StartUp">
                                         </label>
                                         <div class="two-cols">
 

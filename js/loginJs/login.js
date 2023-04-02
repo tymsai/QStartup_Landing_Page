@@ -35,7 +35,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-    fetch("https://qstartup-server.vercel.app/login", {
+    fetch("https://qstartupserver.onrender.com/login", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -44,9 +44,36 @@ document.getElementById('loginForm').onsubmit = ((event) => {
     })
         .then(res => res.json())
         .then(data => {
-            localStorage.setItem('currentUser', JSON.stringify(data))
-            console.log(data)
-            form.reset()
+            if (!data.token) {
+                console.log(data)
+                Toastify({
+                    text: data.message
+                    ,
+                    className: "info",
+                    position: 'center',
+                    style: {
+                        background: "red",
+                    },
+                }).showToast();
+            }
+            else if (data.token) {
+                localStorage.setItem('currentUser', JSON.stringify(data))
+                console.log(data)
+
+                Toastify({
+                    text: data.message
+                    ,
+                    className: "info",
+                    position: 'center',
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                }).showToast();
+
+                form.reset()
+                window.location.href = '/'
+            }
+
         })
         .catch(error => { console.log(error) })
 
@@ -82,7 +109,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 //                 email: user.email
 //             }
 //             if (user) {
-//                 fetch(`https://qstartup-server.vercel.app/signup`, {
+//                 fetch(`https://qstartupserver.onrender.com/signup`, {
 //                     method: 'PUT',
 //                     headers: {
 //                         'content-type': 'application/json'
@@ -115,7 +142,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-//         fetch("https://qstartup-server.vercel.app/sendResetLinkEmail", {
+//         fetch("https://qstartupserver.onrender.com/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'

@@ -35,6 +35,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--  toastify  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <style>
         .box {
             display: none;
@@ -150,8 +155,8 @@
                                     <label for="searchField" class="sr-only">User Name:</label>
                                     <!-- pattern="[a-zA-Z]+[0-9]+"
                                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" -->
-                                    <input type="email" name="searchEmil" id="searchField" class="form-control"
-                                        placeholder=" searchBy@email">
+                                    <input type="text" name="searchEmil" id="searchField" class="form-control"
+                                        placeholder=" searchBy unique Id">
                                 </div>
                                 <div class="centerr">
                                     <button type="submit" class="btn btn-primary mb-2" id="backend-data">Search</button>
@@ -183,9 +188,8 @@
                                         </label>
                                         <div class="two-cols">
                                             <label>
-                                                Email address * [can't change]
-                                                <input type="email" name="email_Mentor" id="mentorEmail" required
-                                                    readonly>
+                                                Email address
+                                                <input type="email" name="email_Mentor" id="mentorEmail" required>
                                             </label>
                                             <label>
                                                 Phone *
@@ -195,7 +199,7 @@
                                         <div class="two-cols">
                                             <label>
                                                 State
-                                                <input type="text" name="Citizenship_Mentor">
+                                                <input type="text" name="state_Mentor">
                                             </label>
                                             <label>
                                                 City
@@ -206,7 +210,7 @@
 
                                             <label>
                                                 Linkedin URL *
-                                                <input type="text" name="LinkedinURL_Mentor" required>
+                                                <input type="text" name="linkedin" required>
                                             </label>
                                             <label>
                                                 Number of active Months *
@@ -316,8 +320,7 @@
                                         <div class="two-cols">
                                             <label>
                                                 StartUp Email address * [can't change]
-                                                <input type="email" name="email_StartUp" id="startupUserEmail" required
-                                                    readonly>
+                                                <input type="email" name="email_StartUp" id="startupUserEmail" required>
                                             </label>
 
                                             <label>
@@ -337,7 +340,7 @@
                                         </div>
                                         <label>
                                             Company URL
-                                            <input type="text" name="Address_StartUp">
+                                            <input type="text" name="companyUrl_StartUp">
                                         </label>
                                         <div class="two-cols">
 
@@ -356,7 +359,7 @@
                                         </label>
                                         <label>
                                             MSME Certificate Number
-                                            <input type="text" name="Certificate_StartUp">
+                                            <input type="text" name="state_StartUp">
                                         </label>
                                         <label>
                                             Profile Picture
@@ -411,29 +414,6 @@
                                             <option value="Accelerators">Accelerators</option>
                                             <option value="Investors">Investors</option>
                                         </select>
-                                        <div class="documents">
-                                            <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
-                                                <tr style="border: 1px solid black;">
-                                                  <th>Documents Available</th>
-                                                  <th>View</th>
-                                                </tr>
-                                                <tr>
-                                                  <td>tax info.pdf</td>
-                                                  <td>
-                                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                                </td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Payment.pdf</td>
-                                                  <td>
-                                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
-            
-                                                </td>
-                                                </tr>
-                                            </table>
-                                        </div>
 
                                     </fieldset>
 
@@ -445,6 +425,29 @@
 
 
                             </form>
+                            <div class="documents">
+                                <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
+                                    <tr style="border: 1px solid black;">
+                                      <th>Documents Available</th>
+                                      <th>View</th>
+                                    </tr>
+                                    <tr>
+                                      <td>tax info.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Payment.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+
+                                    </td>
+                                    </tr>
+                                </table>
+                            </div>
 
                             <!-- <form id="ft-form" style="display: none;" class="startupForm">
                                 <div class="">
@@ -553,29 +556,6 @@
                                             <option value="Accelerators">Accelerators</option>
                                             <option value="Investors">Investors</option>
                                         </select>
-                                        <div class="documents">
-                                            <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
-                                                <tr style="border: 1px solid black;">
-                                                  <th>Documents Available</th>
-                                                  <th>View</th>
-                                                </tr>
-                                                <tr>
-                                                  <td>tax info.pdf</td>
-                                                  <td>
-                                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                                </td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Payment.pdf</td>
-                                                  <td>
-                                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
-            
-                                                </td>
-                                                </tr>
-                                            </table>
-                                        </div>
 
                                     </fieldset>
 
@@ -586,7 +566,31 @@
                                 </div>
 
 
-                            </form> -->
+                            </form> 
+                            <div class="documents">
+                                <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
+                                    <tr style="border: 1px solid black;">
+                                      <th>Documents Available</th>
+                                      <th>View</th>
+                                    </tr>
+                                    <tr>
+                                      <td>tax info.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Payment.pdf</td>
+                                      <td>
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+
+                                    </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            -->
 
 
                             <!-- ---------------------------sstartup form end------------------------------- -->
@@ -622,8 +626,8 @@
     <!-- edit js connection -->
     <script type="module" src="../js/Admin.js/Edit.js"></script>
 
-    <script type="module" src="../js/Registration.js/Mentor.js"></script>
-    <script src="../js/Registration.js/Startup.js"></script>
+    <!-- <script type="module" src="../js/Registration.js/Mentor.js"></script> -->
+    <!-- <script src="../js/Registration.js/Startup.js"></script> -->
 </body>
 
 </html>
