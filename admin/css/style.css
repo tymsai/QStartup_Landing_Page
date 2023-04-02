@@ -1,95 +1,56 @@
 
 body{
-    height: 100vh;
+    height:100vh;
     margin: 0;
     padding-bottom: 10px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     background: #e0e0e0;
-    /*overflow:hidden;*/
     position: relative;
-    overflow-x: hidden;
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+    background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate; 
    
 }
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-/* .cir-two{
-    width:200px;
-    height:200px;
-    background-color:rgb(81, 220, 255);
-    position:absolute;
-    top:-50px;
-    right:-50px;
-    border-radius:100%;
-    z-index:-1;
 }
 
-.cir-two::before{
-    width:300px;
-    height:300px;
-    background-color:rgb(81, 220, 255);
-    content:'';
-    position:absolute;
-    top:-50px;
-    right:-50px;
-    border-radius:100%;
-    animation: cirtwo 3s linear  infinite;
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:4000px; }
+to {background-position: -100px 0px;background-size:3750px;}
 }
 
-@keyframes cirtwo {
-    0%{
-        width:200px;
-        height:200px;
+@keyframes slidein {
+from {background-position: top;background-size:4000px; }
+to {background-position: -100px 0px;background-size:3750px;}
 
-    }
-
-    100%{
-        width:350px;
-        height:350px;
-        opacity: 0;
-    }
-    
-}
- */
-
-/*  */
-
-/* .cir-three{
-    width:200px;
-    height:200px;
-    background-color:rgb(81, 220, 255);
-    position:absolute;
-    right:-60px;
-    bottom:-70px;
-    border-radius:100%;
-    z-index:-1;
 }
 
-.cir-three::before{
-    width:300px;
-    height:300px;
-    background-color:rgb(81, 220, 255);
-    content:'';
-    position:absolute;
-    right:-50px;
-    bottom:-50px;
-    border-radius:100%;
-    animation: cirthree 3s linear  infinite;
-}
 
-@keyframes cirthree {
-    0%{
-        width:200px;
-        height:200px;
 
-    }
 
-    100%{
-        width:350px;
-        height:350px;
-        opacity: 0;
-    }
-    
-} */
+
+
+
+
 
 /* toggel area start here  */
 #check{
@@ -109,6 +70,7 @@ body{
        left: 10px;
        padding:15px 15px;
        transition: .2s all;
+    
     }
     
     label #cancel{
@@ -319,7 +281,7 @@ header{
     /* box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2); */
     border-radius: 50%;
     background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+    /* box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff; */
     margin-left: 10px;
 }
 
@@ -372,14 +334,14 @@ header{
     /* box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2); */
     border-radius: 30px;
     background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+    /* box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff; */
    
 }
 
 .card:nth-child(3){
     border-radius: 30px;
     background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
+    /* box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff; */
 }
 .dp-part{
     width:100px;
