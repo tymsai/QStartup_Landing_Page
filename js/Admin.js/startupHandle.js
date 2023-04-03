@@ -4,7 +4,7 @@ console.log('startupHandle.js')
 const loadStartUp = () => {
 
 
-    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
         .then(res => res.json())
         .then(data => {
             disPlayStartUp(data)
@@ -53,7 +53,7 @@ const deleteButton = document.querySelector("#delete");
 console.log(deleteButton)
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`https://qstartup-server.vercel.app/userDelete/${id}`, {
+    fetch(`https://qstartupserver.onrender.com/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'

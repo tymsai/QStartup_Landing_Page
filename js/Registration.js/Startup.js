@@ -31,7 +31,10 @@ startupForm.addEventListener('submit', (event) => {
     const startupData = { role: 'startUp', ...payload, imageurl }
 
     console.log(imageurl, startupData)
-    fetch(`https://qstartup-server.vercel.app/registration`, {
+
+    // data save to database
+    fetch(`https://qstartupserver.onrender.com/registration`, {
+
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -41,6 +44,29 @@ startupForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
+            if (data.status === 200) {
+                console.log(data.data.id)
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+
+                let newCurrentUser = { ...currentUser, id: data.data.id }
+
+
+                localStorage.setItem('currentUser', JSON.stringify(newCurrentUser));
+
+
+            }
+            Toastify({
+                text: data.message
+                ,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+            }).showToast();
+
         })
 
 

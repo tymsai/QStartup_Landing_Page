@@ -20,7 +20,7 @@ document.getElementById('contactForm').onsubmit = ((event) => {
 
 
 
-    fetch("https://qstartup-server.vercel.app/contact", {
+    fetch("https://qstartupserver.onrender.com/contact", {
         method: "POST",
         headers: {
             'content-type': 'application/json'

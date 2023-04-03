@@ -1,6 +1,6 @@
 
 // Fetch data from backend
-fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
+fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
     .then(response => response.json())
     .then(data => {
         // Get table body element
@@ -11,35 +11,32 @@ fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
         data.forEach((startUp, index) => {
             // Create new row element
             const row = document.createElement('tr');
-            row.setAttribute('data-id', startUp?._id);
+            row.setAttribute('data-id', startUp?.id);
 
             // Create and append cells to the row
             const indexCell = document.createElement('td');
             indexCell.textContent = index + 1;
             row.appendChild(indexCell);
             const idCell = document.createElement('td');
-            idCell.textContent = startUp?._id;
+            idCell.textContent = startUp?.id;
             row.appendChild(idCell);
 
             const nameCell = document.createElement('td');
-            nameCell.textContent = startUp?.title;
+            nameCell.textContent = startUp?.data?.startupName
+                ;
             row.appendChild(nameCell);
 
             const phoneCell = document.createElement('td');
-            phoneCell.textContent = startUp?.phone;
+            phoneCell.textContent = startUp?.data.phone_StartUp;
             row.appendChild(phoneCell);
 
-            const contactCell = document.createElement('td');
-            contactCell.textContent = startUp?.contact;
-            row.appendChild(contactCell);
+
 
             const emailCell = document.createElement('td');
             emailCell.textContent = startUp?.email;
             row.appendChild(emailCell);
 
-            const mentorCell = document.createElement('td');
-            mentorCell.textContent = startUp?.mentor_name;
-            row.appendChild(mentorCell);
+
 
             // Create the actions cell
             const actionsCell = document.createElement('td');
@@ -49,7 +46,7 @@ fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
     <a id="editButton" onClick="handleEdit('${startUp?._id}')" class="">
         <i class="fa fa-edit"></i>
     </a>
-    <span class="text-danger" id="delete" onclick="handleDelete('${startUp?._id}')">
+    <span class="text-danger" id="delete" onclick="handleDelete('${startUp?.id}')">
         <i class="fa fa-remove"></i>
     </span>
 `;
@@ -119,7 +116,7 @@ window.operateEvents = {
 
 function operateFormatter(value, row, index) {
     return [
-        ` <a id="editButton"  onClick="handleEdit('${row.email}')" >
+        ` <a id="editButton"  onClick="handleEdit('${row.id}')" >
               <i class="fa fa-edit"></i>
            </a>
            <span class="text-danger" id="delete" onclick="handleDelete('${row?.id}')" >
@@ -130,15 +127,15 @@ function operateFormatter(value, row, index) {
 
 
 
-const handleEdit = (email) => {
-    console.log(email)
-    window.location.href = `/admin/Edit.html?email=${email}`
+const handleEdit = (id) => {
+    console.log(id)
+    window.location.href = `/admin/Edit.html?id=${id}`
 }
 
 
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`https://qstartup-server.vercel.app/userDelete/${id}`, {
+    fetch(`https://qstartupserver.onrender.com/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'

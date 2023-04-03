@@ -32,7 +32,9 @@
 
   <!-- ____________________ -->
 
-
+  <!--  toastify  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </head>
 
@@ -51,10 +53,13 @@
     <div class="navigation">
 
       <div class="user-profile">
-        <div class="user-area">
-          <img src="/img/admin profile.jpg" alt="">
-          <h1>Company</h1>
-        </div>
+        <center>
+          <div class="user-area">
+            <a href="../index.html">
+              <img style="width: 5rem; border-radius: 0;" src="../img/Q-removebg-preview.png" alt="">
+            </a>
+            </div>
+        </center>
       </div>
 
       <!-- service part start here -->
@@ -73,7 +78,7 @@
 
           <li>
             <i class="fa-solid fa-q brown"></i>
-            <a href="">Settings</a>
+            <a href="./applicants.html">Applicants</a>
           </li>
 
           <li>
@@ -83,7 +88,7 @@
           <li>
             <i class="fa fa-info-circle coral" aria-hidden="true"></i>
             <a href="./editdetails.html">Details</a>
-        </li>
+          </li>
 
         </ul>
       </div>
@@ -182,9 +187,9 @@
                 <th data-field="id" data-sortable="true">ID</th>
                 <th data-field="name" data-sortable="true">StartUpName</th>
                 <th data-field="sturtupPhone" data-sortable="true">phone</th>
-                <th data-field="contact" data-sortable="true">Phone</th>
+
                 <th data-field="email" data-sortable="true">Email</th>
-                <th data-field="mentor name">User Name</th>
+                <!-- <th data-field="mentor name">User Name</th> -->
                 <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
               </thead>
 
@@ -202,7 +207,7 @@
 
   <!-- <script>
     // Fetch data from backend
-    fetch('https://qstartup-server.vercel.app/admin/getAllStartUp?role=startUp')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
       .then(response => response.json())
       .then(data => {
         // Get table body element
