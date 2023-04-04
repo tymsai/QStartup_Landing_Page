@@ -409,7 +409,18 @@ header{
     box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.194);
 }
-
+@media screen and (max-width:768px) {
+    .card{
+        width: auto;
+        height: auto;
+        /* background-color: white; */
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        padding: 0rem;
+        /* box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.2); */
+    }
+}
 .card:nth-child(3){
     border-radius: 30px;
     background: #e0e0e0;
