@@ -22,6 +22,7 @@ body{
         animation-direction: alternate; 
    
 }
+
 .center
 {
   display: flex;
@@ -48,6 +49,9 @@ to {background-position: -100px 0px;background-size:3750px;}
 
 
 
+.active{
+    border-bottom: 2px solid black;
+}
 
 
 /* toggel area start here  */
