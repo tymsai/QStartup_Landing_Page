@@ -13,8 +13,15 @@
     <link rel="stylesheet" href="./css/style.css">
     <!-- font awesome link here -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .bg_colour {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg");
+        }
+    </style>
 </head>
-<body>
+<body class="bg_colour">
 
 
 
@@ -140,56 +147,84 @@
     
                 <div class="user-profilee">
     
-                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-solid fa-user"></i>
                     
                 </div>
                 
                 <div class="user-name">
                     
-                    <h2>Your name</h2> &nbsp;  &nbsp;
-                    
-                    <i class="fa-solid fa-pencil"></i>
-    
+                    <h2>Admin</h2> &nbsp;  &nbsp;
                 </div>
     
             </div>
 
             <div class="work-space">
                 <div class="work-heading">
-                    <h2>Workspace admin</h2>
+                    <h2>Users</h2>
                 </div>
                 <div class="card-wrap">
                     <div class="card">
                         <div class="dp-part">
-                            <img src="/admin/img/admin profile.jpg" alt="">
                             <div class="text-part">
-                                <p>Name Username</p>
-                                <p>CEO</p>
+                                <p>SignUp</p>
+                                <p>10</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="dp-part">
-                            <img src="/admin/img/admin profile.jpg" alt="">
                             <div class="text-part">
-                                <p>Name Username</p>
-                                <p>Design Lead</p>
+                                <p>Registered People</p>
+                                <p>7</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="font-icon">
-                            <i class="fa-solid fa-plus"></i>
-                            <p>Add admin</p>
+                        <div class="dp-part">
+                            <div class="text-part">
+                                <p>Startups</p>
+                                <p>5</p>
+                            </div>
                         </div>
-                      
                     </div>
+                    <div class="card">
+                        <div class="dp-part">
+                            <div class="text-part">
+                                <p>Mentors</p>
+                                <p>2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                        
+                        <div class="card">
+                            <div class="font-icon">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add admin</p>
+                            </div>
+                            
+                        </div>
+                    -->
                 </div>
+                <div class="work-heading" style="display: block;">
+                    <h2>Emails for sending newsletter</h2>
+                    <textarea id="copyText">abc@gmail.com, xyz@gmail.com, cake@gmail.com, etc....</textarea>
+                    <br>
+                    <button onclick="copy()">Copy</button>
+                </div>
+
             </div>
     
         </div>
     
     </header>
     <!-- header part end here  -->
+    <script>
+        function copy() {
+        let textarea = document.getElementById("copyText");
+        textarea.select();
+        document.execCommand("copy");
+        }
+    </script>
 </body>
 </html>
