@@ -83,9 +83,9 @@ const fileInput = document.querySelector('#sturtupFile');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 console.log(user)
 
-// set default value of mentor name and email;
-document.getElementById('startupUserEmail').value = user.email
-document.getElementById('username').value = user.username;
+// // set default value of mentor name and email;
+// document.getElementById('startupUserEmail').value = user.email
+// document.getElementById('username').value = user.username;
 
 
 
@@ -167,8 +167,8 @@ const form = document.querySelector('.form');
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 // set default value of mentor name and email;
-document.getElementById('mentorEmail').value = currentUser.email
-document.getElementById('username').value = currentUser.username;
+// document.getElementById('mentorEmail').value = currentUser.email
+// document.getElementById('username').value = currentUser.username;
 
 let photUrl;
 
