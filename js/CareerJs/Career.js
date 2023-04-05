@@ -20,11 +20,38 @@ careerForm.addEventListener('submit', (event) => {
 
     const resume = event.target.resume.files[0]
     const cv = event.target.cv.files[0]
+
+    const applicationFor = event.target.applicationFor.value;
+    const FirstName = event.target.FirstName.value;
+    const FamilyName = event.target.FamilyName.value;
+    const citizenship = event.target.citizenship.value;
+    const DateOfBirth = event.target.DateOfBirth.value;
+    const address = event.target.address.value;
+    const zipCode = event.target.zipCode.value;
+    const city = event.target.city.value;
+    const phone = event.target.phone.value;
+    const email = event.target.email.value;
+
     console.log(resume, cv)
     const formData = new FormData()
 
     formData.append('resume', resume)
     formData.append('cv', cv)
+
+    // const fields = Array.from(event.target.querySelectorAll('input:not([type="file"]), textarea, select'))
+    // fields.forEach(field => {
+    //     formData.append(field.name, field.value)
+    // })
+    formData.append('applicationFor', applicationFor)
+    formData.append('FirstName', FirstName)
+    formData.append('FamilyName', FamilyName)
+    formData.append('citizenship', citizenship)
+    formData.append('DateOfBirth', DateOfBirth)
+    formData.append('address', address)
+    formData.append('zipCode', zipCode)
+    formData.append('city', city)
+    formData.append('phone', phone)
+    formData.append('email', email)
 
 
     // fetch(`http://localhost:5000/career`, {
