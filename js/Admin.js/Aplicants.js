@@ -34,7 +34,7 @@ const displayApplicants = (applicants) => {
                     <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
                   </td>
                  
-                  <td>Frontend Developer</td>
+                  <td>${applicant.applicationFor}</td>
                   <td>${applicant.date}</td>
                
               
@@ -58,7 +58,7 @@ const downloadPdf = (path, name) => {
 
     console.log(path)
 
-    fetch(`http://localhost:5000/downloadPdf?path=${path}`, {
+    fetch(`https://qstartupserver.onrender.com/downloadPdf?path=${path}`, {
         method: "GET",
         credentials: "include"
     })
