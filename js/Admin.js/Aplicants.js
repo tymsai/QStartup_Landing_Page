@@ -18,23 +18,59 @@ const displayApplicants = (applicants) => {
 
     const aplicantTbody = document.querySelector('#aplicantTbody')
 
-    const row = document.createElement('tr')
 
-    row.innerHTML = `
+
+    applicants.forEach(applicant => {
+        const row = document.createElement('tr')
+
+        row.innerHTML = `
     
    
-                  <td>Sai</td>
+                  <td >${applicant.name}</td>
                   <td>
-                    <i class="fa fa-download" aria-hidden="true"></i>
+                   <span onClick="downloadPdf('${applicant.resume}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
+                   
+                   
                     <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
                   </td>
+                 
                   <td>Frontend Developer</td>
-                  <td>25/12/1991</td>
+                  <td>${applicant.date}</td>
                
               
     `
+        aplicantTbody.appendChild(row)
+        console.log(aplicantTbody)
 
-    aplicantTbody.appendChild(row)
-    console.log(aplicantTbody)
+
+
+
+    });
+
+
+
+
+
+}
+
+const downloadPdf = (path, name) => {
+
+
+    console.log(path)
+
+    fetch(`http://localhost:5000/downloadPdf?path=${path}`, {
+        method: "GET",
+        credentials: "include"
+    })
+        .then(response => response.blob())
+        .then(blob => {
+            console.log(blob)
+            const url = URL.createObjectURL(blob);
+            console.log(url)
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name + "_resume" + '.pdf';
+            a.click();
+        });
 
 }
