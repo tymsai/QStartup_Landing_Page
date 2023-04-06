@@ -47,10 +47,6 @@ const displayApplicants = (applicants) => {
 
     });
 
-
-
-
-
 }
 
 const downloadPdf = (path, name) => {

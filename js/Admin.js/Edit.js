@@ -37,6 +37,7 @@ const loadMentorOrStartup = (id) => {
         .then(res => res.json())
         .then(data => {
             console.log(data[0]?.data)
+            displayBsuninssDocument(data[0]?.data?.businessDocument)
 
             if (data[0]?.role === 'startUp') {
 
@@ -71,6 +72,59 @@ const loadMentorOrStartup = (id) => {
         })
         .catch(error => console.log(error))
 }
+
+
+// display BsuninssDocumentTbody
+
+const displayBsuninssDocument = (BsuninssDocuments) => {
+    console.log('document', BsuninssDocuments)
+    const businessDocumentTbody = document.getElementById('BsuninssDocumentTbody');
+
+    BsuninssDocuments.forEach(BsuninssDocument => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+         <td >${BsuninssDocument.documentName}</td>
+            <td>
+               <span onClick="downloadBusinessDocument('${BsuninssDocument.path}','${BsuninssDocument.documentName}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
+               <i style="margin-left: 1rem;" class="fa fa-times"
+              aria-hidden="true"></i>
+           </td>
+        `
+
+        businessDocumentTbody.appendChild(row)
+    });
+
+
+
+
+}
+
+
+
+
+const downloadBusinessDocument = (path, name) => {
+
+
+    console.log('click', path, name)
+
+    fetch(`http://localhost:5000/downloadPdf?path=${path}`, {
+        method: "GET",
+        credentials: "include"
+    })
+        .then(response => response.blob())
+        .then(blob => {
+            console.log(blob)
+            const url = URL.createObjectURL(blob);
+            console.log(url)
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            a.click();
+        });
+
+}
+
+
 
 // ---startup edit __________
 

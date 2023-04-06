@@ -135,11 +135,11 @@ socialMediaForm.addEventListener('submit', (event) => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            document.querySelector('.btn-facebook').href = payload?.facebook;
-            document.querySelector('.btn-twitter').href = payload?.twitter;
-            document.querySelector('.btn-linkedin').href = payload?.linkdIn;
-            document.querySelector('.btn-instagram').href = payload?.instagram;
+            console.log('respons', data.data.data)
+            document.querySelector('.btn-facebook').href = data?.data?.data?.facebook;
+            document.querySelector('.btn-twitter').href = data?.data?.data?.twitter;
+            document.querySelector('.btn-linkedin').href = data?.data?.data?.linkdIn;
+            document.querySelector('.btn-instagram').href = data?.data?.data?.instagram;
 
             // show toast 
 
