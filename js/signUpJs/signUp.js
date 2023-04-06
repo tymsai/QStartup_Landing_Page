@@ -54,7 +54,7 @@ document.getElementById('form').onsubmit = (event) => {
                     },
                 }).showToast();
                 form.reset()
-                window.location.href = '/'
+                window.location.href = '/registration.html'
             }
         })
 
