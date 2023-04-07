@@ -1,5 +1,10 @@
 console.log('general connected')
 
+const AllSignUp = document.getElementById('signUp')
+const AllStartUp = document.getElementById('startUp')
+const AllMentor = document.getElementById('mentor')
+const registerd = document.getElementById('registerd')
+
 const loadAllUser = () => {
     fetch('http://localhost:5000/user')
         .then(res => res.json())
@@ -14,6 +19,10 @@ const loadAllUser = () => {
                 let mentor = data.filter(user => user.role == 'mentor')
                 console.log(mentor)
 
+                AllSignUp.textContent = data.length
+                AllStartUp.textContent = startUp.length
+                AllMentor.textContent = mentor.length
+                registerd.textContent = mentor.length + startUp.length
             }
         })
 }
