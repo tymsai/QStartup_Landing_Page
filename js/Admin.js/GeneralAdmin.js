@@ -4,6 +4,7 @@ const AllSignUp = document.getElementById('signUp')
 const AllStartUp = document.getElementById('startUp')
 const AllMentor = document.getElementById('mentor')
 const registerd = document.getElementById('registerd')
+const Allsubscribed = document.getElementById('subscribed')
 
 const copyText = document.getElementById('copyText')
 
@@ -23,11 +24,11 @@ const loadAllUser = () => {
                 let subscribedUsers = data.filter(user => user.subscribe === true)
                 console.log('subscribedUsers', subscribedUsers)
 
-                AllSignUp.textContent = data.length
-                AllStartUp.textContent = startUp.length
-                AllMentor.textContent = mentor.length
-                registerd.textContent = mentor.length + startUp.length
-
+                AllSignUp.textContent = data.length;
+                AllStartUp.textContent = startUp.length;
+                AllMentor.textContent = mentor.length;
+                registerd.textContent = mentor.length + startUp.length;
+                Allsubscribed.textContent = subscribedUsers.length;
 
                 // subscribedUsers.map(subscribedUser => {
                 //     copyText.textContent = subscribedUser.email

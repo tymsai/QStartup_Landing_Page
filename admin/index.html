@@ -170,8 +170,16 @@
                     <div class="card">
                         <div class="dp-part">
                             <div class="text-part">
+                                <p>subscribed Users</p>
+                                <p id="subscribed">loading..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="dp-part">
+                            <div class="text-part">
                                 <p>SignUp</p>
-                                <p id="signUp">10</p>
+                                <p id="signUp">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -179,7 +187,7 @@
                         <div class="dp-part">
                             <div class="text-part">
                                 <p>Registered People</p>
-                                <p id="registerd">7</p>
+                                <p id="registerd">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -187,7 +195,7 @@
                         <div class="dp-part">
                             <div class="text-part">
                                 <p>Startups</p>
-                                <p id="startUp">5</p>
+                                <p id="startUp">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -195,7 +203,7 @@
                         <div class="dp-part">
                             <div class="text-part">
                                 <p>Mentors</p>
-                                <p id="mentor">2</p>
+                                <p id="mentor">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -216,9 +224,11 @@
 
                     </div>
 
-                    <textarea id="copyText">abc@gmail.com, xyz@gmail.com, cake@gmail.com, etc....</textarea>
+                    <button id="copyBtn" onclick="copy()">Copy</button>
                     <br>
-                    <button onclick="copy()">Copy</button>
+                    <textarea style="min-height: 200px; min-width: 200px;"
+                        id="copyText"> loading all emails...</textarea>
+
                 </div>
 
             </div>
@@ -232,6 +242,7 @@
             let textarea = document.getElementById("copyText");
             textarea.select();
             document.execCommand("copy");
+            document.querySelector('#copyBtn').textContent = 'coped'
         }
     </script>
 

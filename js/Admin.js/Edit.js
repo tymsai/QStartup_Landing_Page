@@ -91,8 +91,8 @@ const displayBsuninssDocument = (BsuninssDocuments) => {
          <td >${BsuninssDocument.documentName}</td>
             <td>
                <span onClick="downloadBusinessDocument('${BsuninssDocument.path}','${BsuninssDocument.documentName}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
-               <i style="margin-left: 1rem;" class="fa fa-times"
-              aria-hidden="true"></i>
+             <span onClick="deletePdf('${BsuninssDocument.path}')">  <i style="margin-left: 1rem;" class="fa fa-times"
+              aria-hidden="true"></i></span>
            </td>
         `
 
@@ -129,7 +129,20 @@ const downloadBusinessDocument = (path, name) => {
 
 }
 
+const deletePdf = (BsuninssDocumentPath) => {
+    console.log('delte hit', BsuninssDocumentPath)
 
+    fetch(`http://localhost:5000/api/deletePdf?path=${BsuninssDocumentPath}`, {
+        method: "DELETE",
+        headers: {
+            'content-type': 'application/json'
+        },
+
+    }).then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+}
 
 // ---startup edit __________
 

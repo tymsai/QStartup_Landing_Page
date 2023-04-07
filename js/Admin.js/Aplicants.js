@@ -31,7 +31,7 @@ const displayApplicants = (applicants) => {
                    <span onClick="downloadPdf('${applicant.resume}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
                    
                    
-                    <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
+                  <span onClick="deletePdf('${applicant.resume}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
                   </td>
                  
                   <td>${applicant.applicationFor}</td>
@@ -69,4 +69,17 @@ const downloadPdf = (path, name) => {
             a.click();
         });
 
+}
+
+
+const deletePdf = (resumePath) => {
+    console.log('delte hit', resumePath)
+
+    fetch(`http://localhost:5000/api/deletePdf?path=${resumePath}`, {
+        method: "DELETE",
+        headers: {
+            'content-type': 'application/json'
+        },
+
+    })
 }
