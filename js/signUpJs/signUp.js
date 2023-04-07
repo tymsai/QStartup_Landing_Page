@@ -11,14 +11,19 @@ document.getElementById('form').onsubmit = (event) => {
     const confirmpassword = form.confirmPassword.value;
 
     const createdUser = {
-        username, email, password, confirmpassword
+        username,
+        email,
+        password,
+        confirmpassword,
+        role: 'user'
+
     }
 
     console.log(createdUser)
 
 
     // saveUserToDatabase
-    fetch(`https://qstartupserver.onrender.com/signup`, {
+    fetch(`http://localhost:5000/signup`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
