@@ -80,7 +80,12 @@ const displayBsuninssDocument = (BsuninssDocuments) => {
     console.log('document', BsuninssDocuments)
     const businessDocumentTbody = document.getElementById('BsuninssDocumentTbody');
 
-    BsuninssDocuments.forEach(BsuninssDocument => {
+    if (BsuninssDocuments == 'undefined' || !BsuninssDocuments) {
+        businessDocumentTbody.textContent = 'no business document available'
+    }
+
+
+    BsuninssDocuments !== 'undefined' && BsuninssDocuments?.forEach(BsuninssDocument => {
         const row = document.createElement('tr')
         row.innerHTML = `
          <td >${BsuninssDocument.documentName}</td>

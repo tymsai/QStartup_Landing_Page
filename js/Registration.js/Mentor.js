@@ -24,7 +24,7 @@ form.addEventListener('submit', (event) => {
 
 
 
-    fetch(`https://qstartupserver.onrender.com/registration`, {
+    fetch(`http://localhost:5000/registration`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
