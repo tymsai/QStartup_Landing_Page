@@ -33,6 +33,12 @@ const displayApplicants = (applicants) => {
                    
                   <span onClick="deletePdf('${applicant.resume}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
                   </td>
+                  <td>
+                   <span onClick="downloadPdf('${applicant.cv}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
+                   
+                   
+                  <span onClick="deletePdf('${applicant.cv}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
+                  </td>
                  
                   <td>${applicant.applicationFor}</td>
                   <td>${applicant.date}</td>
@@ -54,7 +60,7 @@ const downloadPdf = (path, name) => {
 
     console.log(path)
 
-    fetch(`https://qstartupserver.onrender.com/downloadPdf?path=${path}`, {
+    fetch(`http://localhost:5000/downloadPdf?path=${path}`, {
         method: "GET",
         credentials: "include"
     })
@@ -65,7 +71,7 @@ const downloadPdf = (path, name) => {
             console.log(url)
             const a = document.createElement('a');
             a.href = url;
-            a.download = name + "_resume" + '.pdf';
+            a.download = name + "_resume_cv" + '.pdf';
             a.click();
         });
 
@@ -75,7 +81,7 @@ const downloadPdf = (path, name) => {
 const deletePdf = (resumePath) => {
     console.log('delte hit', resumePath)
 
-    fetch(`http://localhost:5000/api/deletePdf?path=${resumePath}`, {
+    fetch(`http://localhost:5000/api/deletePdf?path=${resumePath}&&for=applicant`, {
         method: "DELETE",
         headers: {
             'content-type': 'application/json'
