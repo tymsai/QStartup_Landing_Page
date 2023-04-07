@@ -87,6 +87,8 @@ const displayBsuninssDocument = (BsuninssDocuments) => {
 
     BsuninssDocuments !== 'undefined' && BsuninssDocuments?.forEach(BsuninssDocument => {
         const row = document.createElement('tr')
+        row.setAttribute('path', BsuninssDocument.path)
+
         row.innerHTML = `
          <td >${BsuninssDocument.documentName}</td>
             <td>
@@ -141,6 +143,12 @@ const deletePdf = (BsuninssDocumentPath) => {
     }).then(res => res.json())
         .then(data => {
             console.log(data)
+            //     (`tr[data-id="${id}"]`)
+            // if (deletedRow) {
+            const deletedPdfRow = document.querySelector(`tr[path="${BsuninssDocumentPath}`)
+            if (deletedPdfRow) {
+                deletedPdfRow.remove()
+            }
         })
 }
 
@@ -155,9 +163,6 @@ const fileInput = document.querySelector('#sturtupFile');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 console.log(user)
 
-// // set default value of mentor name and email;
-// document.getElementById('startupUserEmail').value = user.email
-// document.getElementById('username').value = user.username;
 
 
 
@@ -238,9 +243,7 @@ const form = document.querySelector('.form');
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-// set default value of mentor name and email;
-// document.getElementById('mentorEmail').value = currentUser.email
-// document.getElementById('username').value = currentUser.username;
+
 
 let photUrl;
 
