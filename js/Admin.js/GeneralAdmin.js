@@ -5,6 +5,8 @@ const AllStartUp = document.getElementById('startUp')
 const AllMentor = document.getElementById('mentor')
 const registerd = document.getElementById('registerd')
 
+const copyText = document.getElementById('copyText')
+
 const loadAllUser = () => {
     fetch('http://localhost:5000/user')
         .then(res => res.json())
@@ -18,11 +20,23 @@ const loadAllUser = () => {
 
                 let mentor = data.filter(user => user.role == 'mentor')
                 console.log(mentor)
+                let subscribedUsers = data.filter(user => user.subscribe === true)
+                console.log('subscribedUsers', subscribedUsers)
 
                 AllSignUp.textContent = data.length
                 AllStartUp.textContent = startUp.length
                 AllMentor.textContent = mentor.length
                 registerd.textContent = mentor.length + startUp.length
+
+
+                // subscribedUsers.map(subscribedUser => {
+                //     copyText.textContent = subscribedUser.email
+                // })
+
+                const emails = subscribedUsers.map(subscribedUser => subscribedUser.email)
+                const emailString = emails.join(", ")
+                copyText.textContent = emailString
+
             }
         })
 }
