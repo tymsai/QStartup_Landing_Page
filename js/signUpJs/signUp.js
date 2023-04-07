@@ -15,7 +15,7 @@ document.getElementById('form').onsubmit = (event) => {
         email,
         password,
         confirmpassword,
-        role: 'user'
+
 
     }
 

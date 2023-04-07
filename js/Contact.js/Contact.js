@@ -20,7 +20,7 @@ document.getElementById('contactForm').onsubmit = ((event) => {
 
 
 
-    fetch("https://qstartupserver.onrender.com/contact", {
+    fetch("http://localhost:5000/contact", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -31,7 +31,20 @@ document.getElementById('contactForm').onsubmit = ((event) => {
         .then(data => {
 
             console.log(data)
-            // form.reset()
+            if (data.success === true) {
+                Toastify({
+                    text: data.message + '  ' + 'as' + "  " + data.username,
+                    className: "info",
+                    position: 'center',
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                }).showToast();
+            }
+
+
+
+            form.reset()
         })
         .catch(error => { console.log(error) })
 
