@@ -5,8 +5,12 @@ console.log('Admins edit connected')
 // get query parameters from url
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString)
+
+const uniqueId = document.getElementById('uniqueId').value;
+console.log('uniqId', uniqueId)
+
 let id = urlParams.get('id')
-console.log(id)
+console.log(id, 'id')
 
 
 
@@ -16,7 +20,8 @@ searchForm.addEventListener('submit', (event) => {
 
     event.preventDefault()
 
-    const searchEmil = event.target.searchEmil.value;
+    const searchEmil = event.target.searchEmil.value; // serch mail is id
+    id = searchEmil;
     console.log(searchEmil)
     loadMentorOrStartup(searchEmil)
 })
