@@ -30,15 +30,23 @@ const displayApplicants = (applicants) => {
                   <td >${applicant.name}</td>
                   <td >${applicant.email}</td>
 
-                  <td">
-                   <span onClick="downloadPdf('${applicant.resume}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
-                  <span onClick="deletePdf('${applicant.resume}' ,'${applicant.name}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
+              
+
+                 <td  id="${applicant.resume}">
+
+                 ${applicant.resume ? `<div>
+                <span onClick="downloadPdf('${applicant.resume}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
+                <span onClick="deletePdf('${applicant.resume}' ,'${applicant.name}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
+            </div>` : `<div> deleted</div>`}
+              
                   </td>
 
-                  <td>
-                   <span onClick="downloadPdf('${applicant.cv}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
-                  <span onClick="deletePdf('${applicant.cv}','${applicant.name}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
-                  </td>
+                ${applicant.cv ?
+                ` <td>
+                    <span onClick="downloadPdf('${applicant.cv}','${applicant.name}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
+                    <span onClick="deletePdf('${applicant.cv}','${applicant.name}')">  <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i> </span>
+                </td>` : 'deleted'
+            }
 
                  
                   <td>${applicant.applicationFor}</td>
@@ -92,14 +100,23 @@ const deletePdf = (resumePath, name) => {
         .then(res => res.json())
         .then(data => {
 
-            // const deletedRow = document.querySelector(`tr[data-id="${}"]`)
-            // const deletedTd = document.querySelector(`#${resumePath}`)
+            const deletedRow = document.querySelector(`tr[data-id="${name}"]`)
+            const thirdTd = deletedRow.querySelector('td:nth-child(3)');
+            thirdTd.textContent = 'deleted'
+
+
+            // if (tds.length >= 3) {
+            //     const thirdTd = tds[2]
+            //     console.log(thirdTd, 'third td')
+            //     console.log(thirdTd);
+            // }
+
+
 
             if (data.DocDelete) {
                 const deletedRow = document.querySelector(`tr[data-id="${name}"]`)
                 deletedRow.remove()
             }
-
 
             console.log(data)
         })
