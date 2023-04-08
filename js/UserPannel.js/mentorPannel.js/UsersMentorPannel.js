@@ -122,7 +122,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     formData.append('instagram', instagram)
 
 
-    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
+    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
         method: 'PUT',
         body: formData
     })

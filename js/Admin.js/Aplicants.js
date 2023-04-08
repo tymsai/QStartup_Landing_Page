@@ -1,7 +1,7 @@
 console.log('applicants js connected')
 
 const loadAllApplicants = () => {
-    fetch('http://localhost:5000/api/applicants')
+    fetch('https://qstartupserver.onrender.com/api/applicants')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -71,7 +71,7 @@ const downloadPdf = (path, name) => {
 
     console.log(path)
 
-    fetch(`http://localhost:5000/downloadPdf?path=${path}`, {
+    fetch(`https://qstartupserver.onrender.com/downloadPdf?path=${path}`, {
         method: "GET",
         credentials: "include"
     })
@@ -92,7 +92,7 @@ const downloadPdf = (path, name) => {
 const deletePdf = (resumePath, name) => {
     console.log('delte hit', resumePath)
 
-    fetch(`http://localhost:5000/api/deletePdf?path=${resumePath}&&for=applicant`, {
+    fetch(`https://qstartupserver.onrender.com/api/deletePdf?path=${resumePath}&&for=applicant`, {
         method: "DELETE",
         headers: {
             'content-type': 'application/json'

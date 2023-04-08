@@ -119,7 +119,7 @@ const downloadBusinessDocument = (path, name) => {
 
     console.log('click', path, name)
 
-    fetch(`http://localhost:5000/downloadPdf?path=${path}`, {
+    fetch(`https://qstartupserver.onrender.com/downloadPdf?path=${path}`, {
         method: "GET",
         credentials: "include"
     })
@@ -139,7 +139,7 @@ const downloadBusinessDocument = (path, name) => {
 const deletePdf = (BsuninssDocumentPath) => {
     console.log('delte hit', BsuninssDocumentPath)
 
-    fetch(`http://localhost:5000/api/deletePdf?path=${BsuninssDocumentPath}`, {
+    fetch(`https://qstartupserver.onrender.com/api/deletePdf?path=${BsuninssDocumentPath}&&for=businessDocument`, {
         method: "DELETE",
         headers: {
             'content-type': 'application/json'
@@ -152,8 +152,18 @@ const deletePdf = (BsuninssDocumentPath) => {
             // if (deletedRow) {
             const deletedPdfRow = document.querySelector(`tr[path="${BsuninssDocumentPath}`)
             if (deletedPdfRow) {
+
                 deletedPdfRow.remove()
             }
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.success === true ? "linear-gradient(to right, #00b09b, #96c93d)" : 'red',
+                },
+            }).showToast();
+
         })
 }
 

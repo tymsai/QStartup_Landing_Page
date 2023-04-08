@@ -5,7 +5,7 @@ const subscribeButton = document.getElementById('subscribeButton')
 
 subscribeButton.addEventListener('click', () => {
     const email = subscribeEmail.value;
-    fetch('http://localhost:5000/api/subscribe', {
+    fetch('https://qstartupserver.onrender.com/api/subscribe', {
         method: "PUT",
         headers: {
             'content-type': 'application/json'

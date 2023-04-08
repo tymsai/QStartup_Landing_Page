@@ -54,8 +54,8 @@ careerForm.addEventListener('submit', (event) => {
     formData.append('email', email)
 
 
-    // fetch(`http://localhost:5000/career`, {
-    fetch(`http://localhost:5000/application`, {
+    // fetch(`https://qstartupserver.onrender.com/career`, {
+    fetch(`https://qstartupserver.onrender.com/application`, {
         method: 'POST',
 
         body: formData

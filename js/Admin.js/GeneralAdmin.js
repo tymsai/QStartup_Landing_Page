@@ -9,7 +9,7 @@ const Allsubscribed = document.getElementById('subscribed')
 const copyText = document.getElementById('copyText')
 
 const loadAllUser = () => {
-    fetch('http://localhost:5000/user')
+    fetch('https://qstartupserver.onrender.com/user')
         .then(res => res.json())
         .then(data => {
             console.log(data)
