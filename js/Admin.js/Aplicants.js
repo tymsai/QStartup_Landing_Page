@@ -111,9 +111,21 @@ const deletePdf = (resumePath, name) => {
             else if (data.DocDelete) {
                 const deletedRow = document.querySelector(`tr[data-id="${name}"]`)
                 deletedRow.remove()
+            } else {
+                const fourthTd = deletedRow.querySelector('td:nth-child(4)');
+                fourthTd.textContent = 'deleted'
+                console.log(data)
+
             }
-            const fourthTd = deletedRow.querySelector('td:nth-child(4)');
-            fourthTd.textContent = 'deleted'
-            console.log(data)
+
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.success === true ? "linear-gradient(to right, #00b09b, #96c93d)" : 'red',
+                },
+            }).showToast();
+
         })
 }

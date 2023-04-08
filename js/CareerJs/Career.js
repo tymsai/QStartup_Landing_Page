@@ -63,6 +63,19 @@ careerForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.success === true ? "linear-gradient(to right, #00b09b, #96c93d)" : 'red',
+                },
+            }).showToast();
+            if (data.success === true) {
+
+                careerForm.reset()
+            }
         })
 
 
