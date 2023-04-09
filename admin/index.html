@@ -22,6 +22,13 @@
             background-size: cover;
             background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg");
         }
+        .btnTOcopy{
+            background-color: black;
+            color: white;
+            border: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            font-size: 1rem;
+        }
     </style>
 </head>
 
@@ -220,21 +227,15 @@
                 </div>
                 <div class="work-heading" style="display: block;">
                     <h2>Emails for sending newsletter</h2>
-                    <div id="subscribed email">
-
+                    <div id="subscribed email"></div>
+                    <div style="display: flex; justify-content: center;">
+                        <textarea style="min-height: 10rem; min-width: 50rem;" id="copyText"> loading all emails...</textarea>
+                        <br>
+                        <button class="btnTOcopy" id="copyBtn" onclick="copy()">Copy</button>
                     </div>
-
-                    <button id="copyBtn" onclick="copy()">Copy</button>
-                    <br>
-                    <textarea style="min-height: 200px; min-width: 200px;"
-                        id="copyText"> loading all emails...</textarea>
-
                 </div>
-
             </div>
-
         </div>
-
     </header>
     <!-- header part end here  -->
     <script>
@@ -242,7 +243,7 @@
             let textarea = document.getElementById("copyText");
             textarea.select();
             document.execCommand("copy");
-            document.querySelector('#copyBtn').textContent = 'coped'
+            document.querySelector('#copyBtn').textContent = 'copied'
         }
     </script>
 
