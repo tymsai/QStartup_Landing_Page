@@ -71,7 +71,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
                 }).showToast();
 
                 form.reset()
-                window.location.href = '/'
+                window.location.href = '/registration.html'
             }
 
         })

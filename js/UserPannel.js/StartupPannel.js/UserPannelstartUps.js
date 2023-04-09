@@ -97,30 +97,47 @@ const displyStartUpsInformation = (data) => {
 }
 
 
-// // social media link save and update
+// // social media and business document link save and update
 
 socialMediaForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    const formData = new FormData(socialMediaForm)
-    formData.delete('bussinesDoucument');
+    const facebook = event.target.facebook.value;
+    const twitter = event.target.twitter.value;
+    const linkdIn = event.target.linkdIn.value;
+    const instagram = event.target.instagram.value;
+    const businessDocument = event.target.businessDocument.files[0];
+    console.log(businessDocument)
+    console.log('cons', facebook, twitter, linkdIn, instagram)
+
+    const formData = new FormData()
+    // formData.delete('businessDocument');
     const payload = Object.fromEntries(formData)
     console.log(payload)
 
+
+    formData.append('businessFile', businessDocument)
+    formData.append('facebook', facebook)
+    formData.append('twitter', twitter)
+    formData.append('linkdIn', linkdIn)
+    formData.append('instagram', instagram)
+
+
     fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
         method: 'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        body: formData
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            document.querySelector('.btn-facebook').href = payload?.facebook;
-            document.querySelector('.btn-twitter').href = payload?.twitter;
-            document.querySelector('.btn-linkedin').href = payload?.linkdIn;
-            document.querySelector('.btn-instagram').href = payload?.instagram;
+            console.log('respons', data.data.data)
+
+
+
+            document.querySelector('#input-Business_Documents').value = ''
+            document.querySelector('.btn-facebook').href = data?.data?.data?.facebook;
+            document.querySelector('.btn-twitter').href = data?.data?.data?.twitter;
+            document.querySelector('.btn-linkedin').href = data?.data?.data?.linkdIn;
+            document.querySelector('.btn-instagram').href = data?.data?.data?.instagram;
 
             // show toast 
 

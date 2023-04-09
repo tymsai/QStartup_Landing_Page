@@ -5,8 +5,12 @@ console.log('Admins edit connected')
 // get query parameters from url
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString)
+
+const uniqueId = document.getElementById('uniqueId').value;
+console.log('uniqId', uniqueId)
+
 let id = urlParams.get('id')
-console.log(id)
+console.log(id, 'id')
 
 
 
@@ -16,7 +20,8 @@ searchForm.addEventListener('submit', (event) => {
 
     event.preventDefault()
 
-    const searchEmil = event.target.searchEmil.value;
+    const searchEmil = event.target.searchEmil.value; // serch mail is id
+    id = searchEmil;
     console.log(searchEmil)
     loadMentorOrStartup(searchEmil)
 })
@@ -37,6 +42,7 @@ const loadMentorOrStartup = (id) => {
         .then(res => res.json())
         .then(data => {
             console.log(data[0]?.data)
+            displayBsuninssDocument(data[0]?.data?.businessDocument)
 
             if (data[0]?.role === 'startUp') {
 
@@ -72,6 +78,95 @@ const loadMentorOrStartup = (id) => {
         .catch(error => console.log(error))
 }
 
+
+// display BsuninssDocumentTbody
+
+const displayBsuninssDocument = (BsuninssDocuments) => {
+    console.log('document', BsuninssDocuments)
+    const businessDocumentTbody = document.getElementById('BsuninssDocumentTbody');
+
+    if (BsuninssDocuments == 'undefined' || !BsuninssDocuments) {
+        businessDocumentTbody.textContent = 'no business document available'
+    }
+
+
+    BsuninssDocuments !== 'undefined' && BsuninssDocuments?.forEach(BsuninssDocument => {
+        const row = document.createElement('tr')
+        row.setAttribute('path', BsuninssDocument.path)
+
+        row.innerHTML = `
+         <td >${BsuninssDocument.documentName}</td>
+            <td>
+               <span onClick="downloadBusinessDocument('${BsuninssDocument.path}','${BsuninssDocument.documentName}')" > <i class="fa fa-download" aria-hidden="true"></i> </span>
+             <span onClick="deletePdf('${BsuninssDocument.path}')">  <i style="margin-left: 1rem;" class="fa fa-times"
+              aria-hidden="true"></i></span>
+           </td>
+        `
+
+        businessDocumentTbody.appendChild(row)
+    });
+
+
+
+
+}
+
+
+
+
+const downloadBusinessDocument = (path, name) => {
+
+
+    console.log('click', path, name)
+
+    fetch(`https://qstartupserver.onrender.com/downloadPdf?path=${path}`, {
+        method: "GET",
+        credentials: "include"
+    })
+        .then(response => response.blob())
+        .then(blob => {
+            console.log(blob)
+            const url = URL.createObjectURL(blob);
+            console.log(url)
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            a.click();
+        });
+
+}
+
+const deletePdf = (BsuninssDocumentPath) => {
+    console.log('delte hit', BsuninssDocumentPath)
+
+    fetch(`https://qstartupserver.onrender.com/api/deletePdf?path=${BsuninssDocumentPath}&&for=businessDocument`, {
+        method: "DELETE",
+        headers: {
+            'content-type': 'application/json'
+        },
+
+    }).then(res => res.json())
+        .then(data => {
+            console.log(data)
+            //     (`tr[data-id="${id}"]`)
+            // if (deletedRow) {
+            const deletedPdfRow = document.querySelector(`tr[path="${BsuninssDocumentPath}`)
+            if (deletedPdfRow) {
+
+                deletedPdfRow.remove()
+            }
+            Toastify({
+                text: data.message,
+                className: "info",
+                position: 'center',
+                style: {
+                    background: data.success === true ? "linear-gradient(to right, #00b09b, #96c93d)" : 'red',
+                },
+            }).showToast();
+
+        })
+}
+
 // ---startup edit __________
 
 
@@ -83,9 +178,6 @@ const fileInput = document.querySelector('#sturtupFile');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 console.log(user)
 
-// set default value of mentor name and email;
-document.getElementById('startupUserEmail').value = user.email
-document.getElementById('username').value = user.username;
 
 
 
@@ -166,9 +258,7 @@ const form = document.querySelector('.form');
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-// set default value of mentor name and email;
-document.getElementById('mentorEmail').value = currentUser.email
-document.getElementById('username').value = currentUser.username;
+
 
 let photUrl;
 

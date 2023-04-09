@@ -11,7 +11,12 @@ document.getElementById('form').onsubmit = (event) => {
     const confirmpassword = form.confirmPassword.value;
 
     const createdUser = {
-        username, email, password, confirmpassword
+        username,
+        email,
+        password,
+        confirmpassword,
+
+
     }
 
     console.log(createdUser)
@@ -54,7 +59,7 @@ document.getElementById('form').onsubmit = (event) => {
                     },
                 }).showToast();
                 form.reset()
-                window.location.href = '/'
+                window.location.href = '/registration.html'
             }
         })
 

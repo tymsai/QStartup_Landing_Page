@@ -15,13 +15,18 @@
   <!-- TABLE LINKS -->
   <!---------- CHECK ASSETS ONCE IT has JS files MAY include Backend ALSO --------------->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--  toastify  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
   <style>
     .bg_colour {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg");
     }
-</style>
+  </style>
 </head>
 
 <body class="bg_colour">
@@ -44,7 +49,7 @@
             <a href="../index.html">
               <img style="width: 5rem; border-radius: 0;" src="../img/Q-removebg-preview.png" alt="">
             </a>
-            </div>
+          </div>
         </center>
       </div>
 
@@ -73,6 +78,7 @@
           </li>
           <li>
             <i class="fa fa-info-circle coral" aria-hidden="true"></i>
+            <!-- <a href="./editdetails.html">Details</a> -->
             <a href="./editdetails.html">Details</a>
           </li>
 
@@ -95,64 +101,64 @@
   <!-- navbar end -->
 
   <div class="glowing">
-    
+
     <span style="--i:1;"></span>
-    
+
     <span style="--i:2;"></span>
-    
+
     <span style="--i:3;"></span>
-    
+
   </div>
-  
+
   <div class="glowing">
-    
+
     <span style="--i:1;"></span>
-    
+
     <span style="--i:2;"></span>
-    
+
     <span style="--i:3;"></span>
-    
+
   </div>
-  
+
   <!-- background animation start -->
   <div class="glowing">
-    
+
     <span style="--i:1;"></span>
-    
+
     <span style="--i:2;"></span>
-    
+
     <span style="--i:3;"></span>
-    
+
   </div>
-  
+
   <div class="glowing">
-    
+
     <span style="--i:1;"></span>
-    
+
     <span style="--i:2;"></span>
-    
+
     <span style="--i:3;"></span>
-    
+
   </div>
-  
+
   <div class="glowing">
-    
+
     <span style="--i:1;"></span>
-    
+
     <span style="--i:2;"></span>
-    
+
     <span style="--i:3;"></span>
-    
+
   </div>
-  
+
   <div class="glowing">
-    
+
     <span style="--i:1;"></span>
-    
+
     <span style="--i:2;"></span>
-    
+
     <span style="--i:3;"></span>
-    
+
   </div>
   <!-- background animation end -->
 
@@ -166,134 +172,31 @@
           </div>
 
           <div class="documents">
-            <table style="width:100%; border: 1px solid black; margin-top: 1rem;">
-                <tr style="border: 1px solid black;">
-                  <th>Name</th>
-                  <th>View Resume / Remove</th>
-                  <th>Job Type</th>
-                  <!-----------------Sort BY date applied------------------>
-                  <th>Date Applied</th>
-                </tr>
-                <tr>
-                  <td>Sai</td>
-                  <td>
-                    <i class="fa fa-download" aria-hidden="true"></i>
-                    <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
-                  </td>
-                  <td>Frontend Developer</td>
-                  <td>25/12/1991</td>
-                </tr>
-                <tr>
-                  <td>Nasir</td>
-                  <td>
-                    <i class="fa fa-download" aria-hidden="true"></i>
-                    <i style="margin-left: 1rem;" class="fa fa-times" aria-hidden="true"></i>
-                    
-                  </td>
-                  <td>Full Stack Developer</td>
-                  <td>08/10/1917</td>
-                </tr>
+            <table
+              style="width:100%; border: 1px solid black; margin-top: 1rem; padding: 0px, 10px; text-align: center;">
+              <thead style="border: 1px solid black; ">
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Email</th>
+                <th style="text-align: center;">download Resume / Remove</th>
+                <th style="text-align: center;">download cv / Remove</th>
+                <th style="text-align: center;">Job Type</th>
+                <!-----------------Sort BY date applied------------------>
+                <th style="text-align: center;">Date Applied [d/m/y]</th>
+              </thead>
+              <tbody id="aplicantTbody">
+
+              </tbody>
+
             </table>
-        </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-
-
-  <!-- <script>
-    // Fetch data from backend
-    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
-      .then(response => response.json())
-      .then(data => {
-        // Get table body element
-        console.log(data)
-        const tbody = document.querySelector('#tbody');
-
-        // Loop through data and create table rows
-        data.forEach(item => {
-          // Create new row element
-          const row = document.createElement('tr');
-
-          // Create and append cells to the row
-          const idCell = document.createElement('td');
-          idCell.textContent = item._id;
-          row.appendChild(idCell);
-
-          const nameCell = document.createElement('td');
-          nameCell.textContent = item.title;
-          row.appendChild(nameCell);
-
-          const phoneCell = document.createElement('td');
-          phoneCell.textContent = item.phone;
-          row.appendChild(phoneCell);
-
-          const contactCell = document.createElement('td');
-          contactCell.textContent = item.contact;
-          row.appendChild(contactCell);
-
-          const emailCell = document.createElement('td');
-          emailCell.textContent = item.email;
-          row.appendChild(emailCell);
-
-          const mentorCell = document.createElement('td');
-          mentorCell.textContent = item.mentor_name;
-          row.appendChild(mentorCell);
-
-          const actionsCell = document.createElement('td');
-          actionsCell.textContent = 'Actions';
-          row.appendChild(actionsCell);
-
-          // Append the new row to the table body
-          tbody.appendChild(row);
-        });
-
-        // Initialize the DataTable
-        $('#fresh-table').bootstrapTable('destroy').bootstrapTable({
-          classes: 'table table-hover table-striped',
-          toolbar: '.toolbar',
-          search: true,
-          showRefresh: true,
-          showToggle: true,
-          showColumns: true,
-          pagination: true,
-          striped: true,
-          sortable: true,
-          pageSize: 8,
-          pageList: [8, 10, 25, 50, 100],
-
-
-
-          // -----------
-          // other options...
-          pagination: true,
-          pageNumber: 1,
-          pageSize: 10,
-          pageList: [10, 25, 50, 100],
-          paginationPreText: 'Previous',
-          paginationNextText: 'Next',
-          paginationHAlign: 'right',
-          paginationDetailHAlign: 'left',
-          paginationShowPageGo: true,
-          paginationTrimType: 'middle',
-          showPaginationSwitch: true,
-          // --------
-
-
-          formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return ''
-          },
-          formatRecordsPerPage: function (pageNumber) {
-            return pageNumber + ' rows visible'
-          }
-        });
-      })
-      .catch(error => console.error(error));
-  </script> -->
-
-
   <script src="../js/Admin.js/startupHandle2.js"></script>
+  <script src="../js/Admin.js/Aplicants.js"></script>
 </body>
+
 
 </html>

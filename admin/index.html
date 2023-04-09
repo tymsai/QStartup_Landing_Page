@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,9 @@
     <!-- css file link here -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- font awesome link here -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .bg_colour {
             background-repeat: no-repeat;
@@ -21,6 +24,7 @@
         }
     </style>
 </head>
+
 <body class="bg_colour">
 
 
@@ -33,19 +37,19 @@
     </label>
     <!-- toggle area end here -->
     <nav class="navbar-side">
-       
+
         <div class="navigation">
-            
+
             <div class="user-profile">
                 <center>
-                  <div class="user-area">
-                    <a href="../index.html">
-                      <img style="width: 5rem; border-radius: 0;" src="../img/Q-removebg-preview.png" alt="">
-                    </a>
+                    <div class="user-area">
+                        <a href="../index.html">
+                            <img style="width: 5rem; border-radius: 0;" src="../img/Q-removebg-preview.png" alt="">
+                        </a>
                     </div>
                 </center>
-              </div>
-            
+            </div>
+
             <!-- service part start here -->
             <div class="service-part">
                 <ul class="links">
@@ -54,7 +58,7 @@
                         <a class="active" href="./index.html">General</a>
                     </li>
 
-                   
+
                     <li>
                         <i class="fa-solid fa-list-ul green"></i>
                         <a href="./startup.html">Startup</a>
@@ -93,69 +97,69 @@
     </nav>
     <!-- navbar end -->
 
-    
- 
+
+
 
     <!-- header part start here  -->
     <header class="wrapper">
 
         <!-- background animation start -->
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  
-  <div class="glowing">
-    
-    <span style="--i:1;"></span>
-    
-    <span style="--i:2;"></span>
-    
-    <span style="--i:3;"></span>
-    
-  </div>
-  <!-- background animation end -->
-    
+        <div class="glowing">
+
+            <span style="--i:1;"></span>
+
+            <span style="--i:2;"></span>
+
+            <span style="--i:3;"></span>
+
+        </div>
+
+        <div class="glowing">
+
+            <span style="--i:1;"></span>
+
+            <span style="--i:2;"></span>
+
+            <span style="--i:3;"></span>
+
+        </div>
+
+        <div class="glowing">
+
+            <span style="--i:1;"></span>
+
+            <span style="--i:2;"></span>
+
+            <span style="--i:3;"></span>
+
+        </div>
+
+        <div class="glowing">
+
+            <span style="--i:1;"></span>
+
+            <span style="--i:2;"></span>
+
+            <span style="--i:3;"></span>
+
+        </div>
+        <!-- background animation end -->
+
         <div class="inner-width">
-    
+
             <div class="profile">
-    
+
                 <div class="user-profilee">
-    
+
                     <i class="fa-solid fa-user"></i>
-                    
+
                 </div>
-                
+
                 <div class="user-name">
-                    
-                    <h2>Admin</h2> &nbsp;  &nbsp;
+
+                    <h2>Admin</h2> &nbsp; &nbsp;
                 </div>
-    
+
             </div>
 
             <div class="work-space">
@@ -166,8 +170,16 @@
                     <div class="card">
                         <div class="dp-part">
                             <div class="text-part">
+                                <p>subscribed Users</p>
+                                <p id="subscribed">loading..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="dp-part">
+                            <div class="text-part">
                                 <p>SignUp</p>
-                                <p>10</p>
+                                <p id="signUp">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +187,7 @@
                         <div class="dp-part">
                             <div class="text-part">
                                 <p>Registered People</p>
-                                <p>7</p>
+                                <p id="registerd">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -183,7 +195,7 @@
                         <div class="dp-part">
                             <div class="text-part">
                                 <p>Startups</p>
-                                <p>5</p>
+                                <p id="startUp">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -191,7 +203,7 @@
                         <div class="dp-part">
                             <div class="text-part">
                                 <p>Mentors</p>
-                                <p>2</p>
+                                <p id="mentor">loading..</p>
                             </div>
                         </div>
                     </div>
@@ -208,23 +220,35 @@
                 </div>
                 <div class="work-heading" style="display: block;">
                     <h2>Emails for sending newsletter</h2>
-                    <textarea id="copyText">abc@gmail.com, xyz@gmail.com, cake@gmail.com, etc....</textarea>
+                    <div id="subscribed email">
+
+                    </div>
+
+                    <button id="copyBtn" onclick="copy()">Copy</button>
                     <br>
-                    <button onclick="copy()">Copy</button>
+                    <textarea style="min-height: 200px; min-width: 200px;"
+                        id="copyText"> loading all emails...</textarea>
+
                 </div>
 
             </div>
-    
+
         </div>
-    
+
     </header>
     <!-- header part end here  -->
     <script>
         function copy() {
-        let textarea = document.getElementById("copyText");
-        textarea.select();
-        document.execCommand("copy");
+            let textarea = document.getElementById("copyText");
+            textarea.select();
+            document.execCommand("copy");
+            document.querySelector('#copyBtn').textContent = 'coped'
         }
     </script>
+
+    <!-- general script connection -->
+
+    <script src="../js/Admin.js/GeneralAdmin.js"></script>
 </body>
+
 </html>

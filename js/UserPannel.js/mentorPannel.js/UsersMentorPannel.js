@@ -100,18 +100,45 @@ const displyStartUpsInformation = (data) => {
 socialMediaForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    const formData = new FormData(socialMediaForm)
-    formData.delete('bussinesDoucument');
+
+    const facebook = event.target.facebook.value;
+    const twitter = event.target.twitter.value;
+    const linkedin = event.target.linkedin.value;
+    const instagram = event.target.instagram.value;
+    const businessDocument = event.target.businessDocument.files[0];
+    console.log(businessDocument)
+    console.log('cons', facebook, twitter, linkedin, instagram)
+
+    const formData = new FormData()
+    // formData.delete('businessDocument');
     const payload = Object.fromEntries(formData)
     console.log(payload)
 
+
+    formData.append('businessFile', businessDocument)
+    formData.append('facebook', facebook)
+    formData.append('twitter', twitter)
+    formData.append('linkedin', linkedin)
+    formData.append('instagram', instagram)
+
+
     fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
         method: 'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        body: formData
     })
+
+        // const formData = new FormData(socialMediaForm)
+        // formData.delete('bussinesDoucument');
+        // const payload = Object.fromEntries(formData)
+        // console.log(payload)
+
+        // fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(payload)
+        // })
         .then(res => res.json())
         .then(data => {
             console.log(data)

@@ -33,6 +33,10 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--  toastify  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -142,14 +146,13 @@
                             <h2 class="mt-2">Be a Part of something great</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <form action="SEND ADDRESS" id="ft-form" class="careerForm" method="POST"
-                                accept-charset="UTF-8" enctype="multipart/form-data">
+                            <form id="ft-form" class="careerForm" accept-charset="UTF-8" enctype="multipart/form-data">
                                 <fieldset>
                                     <legend>Job / Internship</legend>
                                     <label>
-                                        Application for *
-                                        <select name="applicationFor" required>
-                                            <option>-</option>
+                                        Application for * [ please choose your job]
+                                        <select name="applicationFor" placeholder="she" required>
+
                                             <option>Full Stack Developer</option>
                                             <option>Backend Developer</option>
                                             <option>Frontend Developer</option>
@@ -216,17 +219,17 @@
                                     <div class="two-cols">
                                         <label>
                                             Resume
-                                            <input type="file" name="resume" accept=".pdf">
+                                            <input type="file" name="resume" id="resume" accept=".pdf">
                                         </label>
                                         <label>
                                             Curriculum vitae
-                                            <input type="file" name="Curriculum vitae" accept=".pdf">
+                                            <input type="file" name="cv" accept=".pdf">
                                         </label>
                                     </div>
                                     <p>Possible file types: PDF. Maximum file size: 5 MB.</p>
                                 </fieldset>
                                 <div class="btns">
-                                    <input type="text" name="_gotcha" value="" style="display:none;">
+
                                     <input type="submit" value="Submit application">
                                 </div>
                             </form>
@@ -248,7 +251,8 @@
                         <p><i class="fa fa-map-marker-alt me-3"></i>16, GOLAGHATA ROAD
                             Kolkata - 700048
                             <br>
-                            West Bengal - India</p>
+                            West Bengal - India
+                        </p>
                         <p><i class="fa fa-phone-alt me-3"></i>+91 93391 19671</p>
                         <p><i class="fa fa-envelope me-6"></i>consult.pragya@gmail.com</p>
                         <div class="d-flex pt-2">
