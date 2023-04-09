@@ -206,10 +206,20 @@ body{
     height:90vh;
 }
 
-.user-profile{
-    width:200px;
-    height:90px;
-    /* background-color: red; */
+.txtarea{
+    min-height: 10rem; 
+    min-width: 45rem;
+}
+@media screen and (max-width:768px) {
+    .txtarea{
+        min-height: 10rem; 
+        min-width: 18rem;
+    }
+
+}
+
+.profile{
+    margin-top: 1rem;
 }
 .user-area{
     margin: 10px;
@@ -333,12 +343,6 @@ header{
     margin-top: 50px;
     margin-left: 250px; 
 }
-.profile{
-    height:auto;
-    display: flex;
-    flex-wrap: wrap;
-    
-}
 
 .user-profilee{
     width:150px;
@@ -356,15 +360,6 @@ header{
     background: #e0e0e0;
     box-shadow: 15px 15px 30px #bebebe,-15px -15px 30px #ffffff;
     margin-left: 10px;
-}
-
-.user-name{
-    width:250px;
-    height:150px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 .user-name h2{
     display: inline;
@@ -696,8 +691,7 @@ select{
     }
 
     .user-name{
-        width:120px;
-        height:100px;
+        height:auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
