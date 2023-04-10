@@ -11,7 +11,7 @@ const loadAllApplicants = () => {
     fetch('https://qstartupserver.onrender.com/api/applicants')
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            console.log('data', data)
             displayApplicants(data)
         })
         .catch(error => {
