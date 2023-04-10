@@ -1,8 +1,8 @@
 console.log('applicants js connected')
 
-const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
-console.log(LocalCurrentUser)
-if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
+const LocalCurrentUser1 = JSON.parse(localStorage.getItem('currentUser'))
+console.log(LocalCurrentUser1)
+if (!LocalCurrentUser1 || LocalCurrentUser1.role !== 'admin') {
     window.location.href = '/index.html'
 }
 
