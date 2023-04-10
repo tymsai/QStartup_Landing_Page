@@ -1,5 +1,12 @@
 console.log('applicants js connected')
 
+const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
+console.log(LocalCurrentUser)
+if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
+    window.location.href = '/index.html'
+}
+
+
 const loadAllApplicants = () => {
     fetch('https://qstartupserver.onrender.com/api/applicants')
         .then(res => res.json())

@@ -78,6 +78,9 @@ document.getElementById('loginForm').onsubmit = ((event) => {
                 } else if (data?.role === 'mentor') {
                     window.location.href = '/userPanel/mentorPanel/index.html'
                 }
+                else if (data?.role === 'admin') {
+                    window.location.href = '/admin/index.html'
+                }
 
             }
 
