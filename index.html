@@ -33,6 +33,10 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--  toastify  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -72,13 +76,19 @@
                                 <!--<a href="404.html" class="dropdown-item">404 Page</a>----->
                             </div>
                         </div>
-                        <div style="display: none;" id="logout">
+                        <div id="dashboard" onclick="handleDashboard()" style="display: none;" id="logout">
+                            <a class="nav-item nav-link">DashBoard</a>
+                        </div>
 
-                            <a href="/signUp.html" class="nav-item nav-link" id="logout">Logout</a>
+                        <div onclick="handleLogout()" style="display: none;" id="logout">
+                            <a class="nav-item nav-link">Logout</a>
+                        </div>
+                        <div style="display: none;" id="login">
+                            <a href="/login.html" class="nav-item nav-link">Login</a>
                         </div>
                     </div>
                     <!--<butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>-->
-                    <a href="Registration.html"
+                    <a id="Register" href="Registration.html"
                         class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Register</a>
                 </div>
             </nav>
@@ -194,16 +204,15 @@
                         <div class="circle">
                             <img src="/img/circle.png" alt="">
                         </div>
-                        <div class="position-relative w-100 mt-3">
+                        <form id="subscribeForm" class="position-relative w-100 mt-3">
 
                             <input id="subscribeEmail" class="form-control border-0 rounded-pill w-100 ps-4 pe-5"
-                                type="email" placeholder="Enter Your Email" style="height: 48px;">
+                                type="email" placeholder="Enter Your Email" style="height: 48px;" required>
 
-                            <button id="subscribeButton" type="button"
-                                class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
+                            <button type="submit" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
                                     class="fa fa-paper-plane text-primary fs-4"></i>
                             </button>
-                        </div>
+                        </form>
                     </div>
                     <div class="col-md-6 text-center mb-n5 d-none d-md-block">
                         <img class="img-fluid mt-5" style="height: 250px;" src="img/newsletter.png">
@@ -795,6 +804,7 @@
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="./js/Homejs/Home.js"></script>
+    <script src="./js/NavbarJs/Navbar.js"></script>
     <script>
         const options = {
             bottom: '64px', // default: '32px'
@@ -817,14 +827,6 @@
     </script>
 
     <script>
-        const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
-        console.log(LocalCurrentUser)
-        if (LocalCurrentUser) {
-            document.querySelector('#logout').style.display = 'block'
-        }
-        else {
-            document.querySelector('#login').style.display = 'block'
-        }
 
     </script>
 

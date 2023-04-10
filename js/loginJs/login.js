@@ -35,7 +35,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-    fetch("https://qstartupserver.onrender.com/login", {
+    fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -71,7 +71,14 @@ document.getElementById('loginForm').onsubmit = ((event) => {
                 }).showToast();
 
                 form.reset()
-                window.location.href = '/registration.html'
+                if (data?.role === 'user') {
+                    window.location.href = '/registration.html'
+                } else if (data?.role === 'startUp') {
+                    window.location.href = '/userPanel/startupPanel/index.html'
+                } else if (data?.role === 'mentor') {
+                    window.location.href = '/userPanel/mentorPanel/index.html'
+                }
+
             }
 
         })

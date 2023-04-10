@@ -111,8 +111,8 @@ socialMediaForm.addEventListener('submit', (event) => {
 
     const formData = new FormData()
     // formData.delete('businessDocument');
-    const payload = Object.fromEntries(formData)
-    console.log(payload)
+    // const payload = Object.fromEntries(formData)
+    // console.log(payload)
 
 
     formData.append('businessFile', businessDocument)
@@ -122,7 +122,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     formData.append('instagram', instagram)
 
 
-    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
+    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
         method: 'PUT',
         body: formData
     })
@@ -141,11 +141,19 @@ socialMediaForm.addEventListener('submit', (event) => {
         // })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            document.querySelector('.btn-facebook').href = payload.facebook;
-            document.querySelector('.btn-twitter').href = payload.twitter;
-            document.querySelector('.btn-linkedin').href = payload.linkedin;
-            document.querySelector('.btn-instagram').href = payload.instagram;
+            console.log('data', data)
+            // document.querySelector('.btn-facebook').href = payload.facebook;
+            // document.querySelector('.btn-twitter').href = payload.twitter;
+            // document.querySelector('.btn-linkedin').href = payload.linkedin;
+            // document.querySelector('.btn-instagram').href = payload.instagram;
+
+
+            document.querySelector('#input-Business_Documents').value = ''
+            document.querySelector('.btn-facebook').href = data?.data?.data?.facebook;
+            document.querySelector('.btn-twitter').href = data?.data?.data?.twitter;
+            document.querySelector('.btn-linkedin').href = data?.data?.data?.linkedin;
+            document.querySelector('.btn-instagram').href = data?.data?.data?.instagram;
+
 
             // show toast 
             console.log(data.status)
