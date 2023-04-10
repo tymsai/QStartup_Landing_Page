@@ -145,7 +145,7 @@
                     <li class="nav-item">
                         <input class="btnChangeCard" type="reset" name="colorRadio" value="Message">
                     </li>
-                    <li class="nav-item">
+                    <li onclick="handleLogout()" class="nav-item">
                         <input class="btnChangeCard" type="button" value="Logout">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </li>
@@ -170,26 +170,7 @@
                     </p>
                     <hr class="horizontal gray-light my-4">
                     <ul class="list-group" id="mentorInfoList">
-                        <!-- <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">
-                                Unique ID:</strong> &nbsp; M0001</li>
-                        <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
-                            &nbsp; 987654321</li>
-                        <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong>
-                            &nbsp; xyz@gmail.com</li>
-                        <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong>
-                            &nbsp; State & City</li>
-                        <li class="list-group-item border-0 ps-0 pb-0">
-                            <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
-                            </a>
-                        </li> -->
+
                     </ul>
                 </div>
             </div>
@@ -903,6 +884,14 @@
         </script>
         <script src="../assets/js/loopple/loopple.js"></script>
         <script src="../../js/UserPannel.js/mentorPannel.js/UsersMentorPannel.js"></script>
+
+        <script>
+            const handleLogout = () => {
+                localStorage.removeItem('currentUser')
+                window.location.href = '/login.html'
+
+            }
+        </script>
 </body>
 
 </html>

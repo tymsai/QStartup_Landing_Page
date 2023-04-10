@@ -84,7 +84,7 @@
             <!-- service part end here -->
 
             <!-- user log out btn -->
-            <div class="log-out">
+            <div onclick="handleLogout()" class="log-out">
                 <ul class="user-logout">
                     <li>
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -236,6 +236,15 @@
         </div>
 
     </header>
+    <script>
+        const handleLogout = () => {
+            localStorage.removeItem('currentUser')
+            window.location.href = '/login.html'
+
+        }
+    </script>
+
+
     <!-- header part end here  -->
     <script>
         function copy() {

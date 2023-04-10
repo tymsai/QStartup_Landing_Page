@@ -36,9 +36,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <style>
-    .fa-remove{
+    .fa-remove {
       margin-left: 2rem;
     }
+
     .bg_colour {
       background-repeat: no-repeat;
       background-size: cover;
@@ -105,7 +106,7 @@
       <!-- service part end here -->
 
       <!-- user log out btn -->
-      <div class="log-out">
+      <div onclick="handleLogout" class="log-out">
         <ul class="user-logout">
           <li>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -282,7 +283,13 @@
       })
       .catch(error => console.error(error));
   </script> -->
+  <script>
+    const handleLogout = () => {
+      localStorage.removeItem('currentUser')
+      window.location.href = '/login.html'
 
+    }
+  </script>
 
   <script src="../js/Admin.js/mentorHandle.js"></script>
 </body>

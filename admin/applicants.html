@@ -89,7 +89,7 @@
       <!-- user log out btn -->
       <div class="log-out">
         <ul class="user-logout">
-          <li>
+          <li onclick="handleLogout()">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <a href="#">Logout</a>
           </li>
@@ -193,7 +193,13 @@
       </div>
     </div>
   </div>
+  <script>
+    const handleLogout = () => {
+      localStorage.removeItem('currentUser')
+      window.location.href = '/login.html'
 
+    }
+  </script>
   <script src="../js/Admin.js/startupHandle2.js"></script>
   <script src="../js/Admin.js/Aplicants.js"></script>
 </body>

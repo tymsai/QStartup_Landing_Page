@@ -23,6 +23,7 @@ const handleLogout = () => {
     window.location.href = '/login.html'
 
 }
+
 const handleDashboard = () => {
 
     if (LocalCurrentUser.role == 'startUp') {

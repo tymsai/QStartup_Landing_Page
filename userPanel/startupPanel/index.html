@@ -146,7 +146,7 @@
                     <li class="nav-item">
                         <input class="btnChangeCard" type="reset" name="colorRadio" value="Message">
                     </li>
-                    <li class="nav-item">
+                    <li onclick="handleLogout()" class="nav-item">
                         <input class="btnChangeCard" type="button" value="Logout">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </li>
@@ -891,6 +891,13 @@
                     },
                 });
             };
+        </script>
+        <script>
+            const handleLogout = () => {
+                localStorage.removeItem('currentUser')
+                window.location.href = '/login.html'
+
+            }
         </script>
         <script src="./assets/js/loopple/loopple.js"></script>
         <script src="../../js/UserPannel.js/StartupPannel.js/UserPannelstartUps.js"></script>

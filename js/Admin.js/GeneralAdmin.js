@@ -1,4 +1,9 @@
 console.log('general connected')
+const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
+console.log(LocalCurrentUser)
+if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
+    window.location.href = '/index.html'
+}
 
 const AllSignUp = document.getElementById('signUp')
 const AllStartUp = document.getElementById('startUp')
