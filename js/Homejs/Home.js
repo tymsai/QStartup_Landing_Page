@@ -1,16 +1,21 @@
 console.log('home js connected')
 
-console.log('cookie', document.cookie)
+const CurrentUser = JSON.parse(localStorage.getItem('currentUser'))
+console.log(CurrentUser)
+
+
 
 const subscribeEmail = document.getElementById('subscribeEmail')
 const subscribeForm = document.getElementById('subscribeForm')
-
+if (CurrentUser?._id) {
+    subscribeEmail.value = CurrentUser.email
+}
 subscribeForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const email = subscribeEmail.value;
     console.log(email)
     // fetch('https://qstartupserver.onrender.com/api/subscribe', {
-    fetch('http://localhost:5000/api/subscribe', {
+    fetch('https://qstartupserver.onrender.com/api/subscribe', {
         method: "PUT",
         headers: {
             'content-type': 'application/json'
