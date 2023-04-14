@@ -244,7 +244,6 @@ userStartupEditForm.addEventListener('submit', (event) => {
 
 
 // send message
-
 const startUpmessageForm = document.getElementById('startUpmessageForm')
 console.log(startUpmessageForm, 'startUpmessageForm')
 
