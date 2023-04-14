@@ -15,7 +15,7 @@ subscribeForm.addEventListener('submit', (event) => {
     const email = subscribeEmail.value;
     console.log(email)
     // fetch('http://localhost:5000/api/subscribe', {
-    fetch('https://qstartupserver.onrender.com/api/subscribe', {
+    fetch('http://localhost:5000/api/subscribe', {
         method: "PUT",
         headers: {
             'content-type': 'application/json'

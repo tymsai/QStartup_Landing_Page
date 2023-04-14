@@ -14,7 +14,7 @@ console.log(socialMediaForm)
 
 const loadCurrentUser = (_id) => {
     console.log(id)
-    fetch(`https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=mentor`)
+    fetch(`http://localhost:5000/SingleUser?id=${id}&&role=mentor`)
         .then(res => res.json())
         .then(data => {
             displyStartUpsInformation(data[0])
@@ -122,7 +122,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     formData.append('instagram', instagram)
 
 
-    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
+    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
         method: 'PUT',
         body: formData
     })
@@ -132,7 +132,7 @@ socialMediaForm.addEventListener('submit', (event) => {
         // const payload = Object.fromEntries(formData)
         // console.log(payload)
 
-        // fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
+        // fetch(`http://localhost:5000/socialMedia?id=${id}`, {
         //     method: 'PUT',
         //     headers: {
         //         'content-type': 'application/json'
@@ -179,7 +179,7 @@ loadCurrentUser(id)
 
 // load all mentor
 const loadAllmentor = () => {
-    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
+    fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -229,7 +229,7 @@ usersMentorEditForm.addEventListener('submit', (event) => {
 
     console.log(usersMentorEditForm)
 
-    fetch(`https://qstartupserver.onrender.com/EditUser?id=${UniqueId}`, {
+    fetch(`http://localhost:5000/EditUser?id=${UniqueId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

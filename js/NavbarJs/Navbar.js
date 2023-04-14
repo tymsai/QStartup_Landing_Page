@@ -11,6 +11,7 @@ else {
     document.querySelector('#login').style.display = 'block'
 
 }
+
 if (LocalCurrentUser.role == 'mentor' || 'startup') {
     document.querySelector('#Register').style.display = 'none'
 }
@@ -25,7 +26,9 @@ const handleLogout = () => {
 }
 
 const handleDashboard = () => {
-
+    if (LocalCurrentUser.role == 'user') {
+        window.location.href = '/registration.html'
+    }
     if (LocalCurrentUser.role == 'startUp') {
         window.location.href = '/userPanel/startupPanel/index.html'
     } else if (LocalCurrentUser.role == 'mentor') {
