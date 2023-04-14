@@ -4,13 +4,13 @@ console.log('startups user pannet added')
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 const id = currentUser._id
 const UniqueId = currentUser.id
-console.log('id', id)
+// console.log('id', id)
 console.log('current user', currentUser)
 
 
 // social media form
 const socialMediaForm = document.querySelector('#socialMediaForm')
-console.log(socialMediaForm)
+// console.log(socialMediaForm)
 
 const loadCurrentUser = (id) => {
     console.log(id)
@@ -20,7 +20,7 @@ const loadCurrentUser = (id) => {
             console.log('in function', data)
             displyStartUpsInformation(data[0])
         })
-    console.log('load called')
+    // console.log('load called')
 }
 
 loadCurrentUser(id)
@@ -46,15 +46,18 @@ const displyStartUpsInformation = (data) => {
 
                         <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.facebook}">
+                          ${data?.data?.facebook ? `  <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.facebook}">
                                 <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.twitter}">
-                                <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.instagram}">
+                            </a>`: ""}
+                           ${data?.data?.twitter ? `<a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.twitter}">
+        <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+
+                            </a >`: ""}
+
+
+                           ${data?.data?.instagram ? ` <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.instagram}">
                                 <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
-                            </a>
+                            </a>`: ""}
                            <a class="btn btn-linkedin btn-simple mb-0 ps-1 pe-2 py-0" href="${data?.data?.linkdIn}">
     <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
 </a>
@@ -69,7 +72,7 @@ const displyStartUpsInformation = (data) => {
 
         const socialMediaForm = document.getElementsByName(prop)[0];
 
-        console.log(socialMediaForm, prop)
+        // console.log(socialMediaForm, prop)
         if (socialMediaForm) {
             socialMediaForm.value = data.data[prop];
         }
@@ -82,7 +85,7 @@ const displyStartUpsInformation = (data) => {
     for (const prop in data?.data) {
 
         const userStartupEditInput = document.getElementsByName(prop)[0];
-        console.log(userStartupEditInput, prop)
+        // console.log(userStartupEditInput, prop)
         if (userStartupEditInput) {
             userStartupEditInput.value = data?.data[prop]
         }
@@ -176,7 +179,7 @@ loadAllmentor()
 
 const displayAllMentor = (mentors) => {
     const mentorTbody = document.querySelector('#tbody')
-    console.log(mentorTbody)
+    // console.log(mentorTbody)
 
     mentors.forEach(mentor => {
         const row = document.createElement('tr');
@@ -238,3 +241,78 @@ userStartupEditForm.addEventListener('submit', (event) => {
         })
 
 })
+
+
+// send message
+
+const startUpmessageForm = document.getElementById('startUpmessageForm')
+console.log(startUpmessageForm, 'startUpmessageForm')
+
+startUpmessageForm.addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    const form = event.target;
+    const subject = form.subject.value;
+    const uniqueId = form.uniqueId.value;
+    const message = form.message.value;
+
+    const senderId = currentUser.id
+    const msgBody = {
+        subject,
+        uniqueId,
+        message,
+        senderId
+    }
+    console.log(msgBody)
+
+    const res = await fetch('http://localhost:5000/api/sendMessage', {
+
+        method: "PUT",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(msgBody)
+    })
+    const data = await res.json()
+    console.log(data)
+
+})
+
+// load message
+const loadMessageByUniqueId = () => {
+    fetch(`http://localhost:5000/api/getMessage?uniqueId=${currentUser.id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            displayMessage(data.data)
+        })
+}
+
+loadMessageByUniqueId()
+
+const displayMessage = (data) => {
+    const messageCard = document.getElementById('messageCard')
+    console.log('data', data)
+    data.message.forEach(message => {
+        const div = document.createElement('div')
+        console.log(message)
+        div.innerHTML = `
+        
+         <div class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                            <div class="avatar me-3">
+                                <!--------------------------------- MENTOR LOGO------------------------------------->
+                                <img src=${message.senderImage}
+                                    alt="kal" class="border-radius-lg shadow">
+                            </div>
+
+                            <div class="d-flex align-items-start flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">${message.name}</h6>
+                                <p class="text-xxs">${message.senderId}</p>
+                                <p class="mb-0 text-xs">${message.message}</p>
+                            </div>
+                        </div>
+                        <hr>
+        `
+        messageCard.appendChild(div)
+    })
+}
