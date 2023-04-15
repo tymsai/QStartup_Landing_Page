@@ -7,7 +7,7 @@ if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
 
 
 // Fetch data from backend
-fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
+fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
     .then(response => response.json())
     .then(data => {
         // Get table body element
@@ -142,7 +142,7 @@ const handleEdit = (id) => {
 
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`http://localhost:5000/userDelete/${id}`, {
+    fetch(`https://qstartupserver.onrender.com/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'

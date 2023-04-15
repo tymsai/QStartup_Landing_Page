@@ -35,7 +35,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-    fetch("http://localhost:5000/login", {
+    fetch("https://qstartupserver.onrender.com/login", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -119,7 +119,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 //                 email: user.email
 //             }
 //             if (user) {
-//                 fetch(`http://localhost:5000/signup`, {
+//                 fetch(`https://qstartupserver.onrender.com/signup`, {
 //                     method: 'PUT',
 //                     headers: {
 //                         'content-type': 'application/json'
@@ -152,7 +152,7 @@ document.getElementById('loginForm').onsubmit = ((event) => {
 
 
 
-//         fetch("http://localhost:5000/sendResetLinkEmail", {
+//         fetch("https://qstartupserver.onrender.com/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'

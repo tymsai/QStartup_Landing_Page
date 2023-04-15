@@ -15,7 +15,7 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
 
 
 
-    fetch(" http://localhost:5000/sendResetLinkEmail", {
+    fetch(" https://qstartupserver.onrender.com/sendResetLinkEmail", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -70,7 +70,7 @@ document.getElementById('ResetForm').onsubmit = ((event) => {
 
 
 
-//         fetch("http://localhost:5000/sendResetLinkEmail", {
+//         fetch("https://qstartupserver.onrender.com/sendResetLinkEmail", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': 'application/json'

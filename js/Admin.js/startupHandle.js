@@ -11,7 +11,7 @@ if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
 const loadStartUp = () => {
 
 
-    fetch('http://localhost:5000/admin/getAllStartUp?role=startUp')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
         .then(res => res.json())
         .then(data => {
             disPlayStartUp(data)
@@ -60,7 +60,7 @@ const deleteButton = document.querySelector("#delete");
 console.log(deleteButton)
 const handleDelete = (id) => {
     console.log('delete clicked', id)
-    fetch(`http://localhost:5000/userDelete/${id}`, {
+    fetch(`https://qstartupserver.onrender.com/userDelete/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
