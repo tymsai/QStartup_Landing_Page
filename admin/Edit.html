@@ -122,7 +122,7 @@
             <!-- service part end here -->
 
             <!-- user log out btn -->
-            <div class="log-out">
+            <div onclick="handleLogout" class="log-out">
                 <ul class="user-logout">
                     <li>
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -325,7 +325,7 @@
 
                                         <div class="two-cols">
                                             <label>
-                                                StartUp Email address * [can't change]
+                                                StartUp Email address
                                                 <input type="email" name="email_StartUp" id="startupUserEmail" required>
                                             </label>
 
@@ -464,7 +464,13 @@
     </div>
 
 
+    <script>
+        const handleLogout = () => {
+            localStorage.removeItem('currentUser')
+            window.location.href = '/login.html'
 
+        }
+    </script>
 
 
     <!-- JavaScript Libraries -->

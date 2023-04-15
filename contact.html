@@ -75,9 +75,19 @@
                                 <!--<a href="404.html" class="dropdown-item">404 Page</a>-->
                             </div>
                         </div>
+                        <div id="dashboard" onclick="handleDashboard()" style="display: none;" id="logout">
+                            <a class="nav-item nav-link">DashBoard</a>
+                        </div>
+
+                        <div onclick="handleLogout()" style="display: none;" id="logout">
+                            <a class="nav-item nav-link">Logout</a>
+                        </div>
+                        <div style="display: none;" id="login">
+                            <a href="/login.html" class="nav-item nav-link">Login</a>
+                        </div>
                     </div>
                     <!--<butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>-->
-                    <a href="Registration.html"
+                    <a id="Register" href="Registration.html"
                         class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Register</a>
                 </div>
             </nav>
@@ -204,7 +214,8 @@
                         <p><i class="fa fa-phone-alt me-3"></i>+91 93391 19671</p>
                         <p><i class="fa fa-envelope me-6"></i>consult.pragya@gmail.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/company/q-startups/">
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.linkedin.com/company/q-startups/">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a class="btn btn-outline-light btn-social" href="./contact.html">
@@ -322,6 +333,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/Contact.js/Contact.js"></script>
+    <script src="./js/NavbarJs/Navbar.js"></script>
 </body>
 
 </html>

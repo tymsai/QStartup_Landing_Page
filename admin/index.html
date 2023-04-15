@@ -23,7 +23,8 @@
             height: 100%;
             background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg");
         }
-        .btnTOcopy{
+
+        .btnTOcopy {
             background-color: black;
             color: white;
             border: 0;
@@ -92,7 +93,7 @@
             <!-- service part end here -->
 
             <!-- user log out btn -->
-            <div class="log-out">
+            <div onclick="handleLogout()" class="log-out">
                 <ul class="user-logout">
                     <li>
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -232,6 +233,15 @@
             </div>
         </div>
     </header>
+    <script>
+        const handleLogout = () => {
+            localStorage.removeItem('currentUser')
+            window.location.href = '/login.html'
+
+        }
+    </script>
+
+
     <!-- header part end here  -->
     <script>
         function copy() {

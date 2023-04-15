@@ -36,9 +36,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <style>
-    .fa-remove{
+    .fa-remove {
       margin-left: 2rem;
     }
+
     .bg_colour {
       background-repeat: no-repeat;
       background-size: cover;
@@ -105,7 +106,7 @@
       <!-- service part end here -->
 
       <!-- user log out btn -->
-      <div class="log-out">
+      <div onclick="handleLogout()" class="log-out">
         <ul class="user-logout">
           <li>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -213,99 +214,13 @@
     </div>
   </div>
 
+  <script>
+    const handleLogout = () => {
+      localStorage.removeItem('currentUser')
+      window.location.href = '/login.html'
 
-
-  <!-- <script>
-    // Fetch data from backend
-    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
-      .then(response => response.json())
-      .then(data => {
-        // Get table body element
-        console.log(data)
-        const tbody = document.querySelector('#tbody');
-
-        // Loop through data and create table rows
-        data.forEach(item => {
-          // Create new row element
-          const row = document.createElement('tr');
-
-          // Create and append cells to the row
-          const idCell = document.createElement('td');
-          idCell.textContent = item._id;
-          row.appendChild(idCell);
-
-          const nameCell = document.createElement('td');
-          nameCell.textContent = item.title;
-          row.appendChild(nameCell);
-
-          const phoneCell = document.createElement('td');
-          phoneCell.textContent = item.phone;
-          row.appendChild(phoneCell);
-
-          const contactCell = document.createElement('td');
-          contactCell.textContent = item.contact;
-          row.appendChild(contactCell);
-
-          const emailCell = document.createElement('td');
-          emailCell.textContent = item.email;
-          row.appendChild(emailCell);
-
-          const mentorCell = document.createElement('td');
-          mentorCell.textContent = item.mentor_name;
-          row.appendChild(mentorCell);
-
-          const actionsCell = document.createElement('td');
-          actionsCell.textContent = 'Actions';
-          row.appendChild(actionsCell);
-
-          // Append the new row to the table body
-          tbody.appendChild(row);
-        });
-
-        // Initialize the DataTable
-        $('#fresh-table').bootstrapTable('destroy').bootstrapTable({
-          classes: 'table table-hover table-striped',
-          toolbar: '.toolbar',
-          search: true,
-          showRefresh: true,
-          showToggle: true,
-          showColumns: true,
-          pagination: true,
-          striped: true,
-          sortable: true,
-          pageSize: 8,
-          pageList: [8, 10, 25, 50, 100],
-
-
-
-          // -----------
-          // other options...
-          pagination: true,
-          pageNumber: 1,
-          pageSize: 10,
-          pageList: [10, 25, 50, 100],
-          paginationPreText: 'Previous',
-          paginationNextText: 'Next',
-          paginationHAlign: 'right',
-          paginationDetailHAlign: 'left',
-          paginationShowPageGo: true,
-          paginationTrimType: 'middle',
-          showPaginationSwitch: true,
-          // --------
-
-
-          formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return ''
-          },
-          formatRecordsPerPage: function (pageNumber) {
-            return pageNumber + ' rows visible'
-          }
-        });
-      })
-      .catch(error => console.error(error));
-  </script> -->
-
-
+    }
+  </script>
   <script src="../js/Admin.js/startupHandle2.js"></script>
 </body>
 

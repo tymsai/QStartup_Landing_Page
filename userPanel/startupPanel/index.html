@@ -146,7 +146,7 @@
                     <li class="nav-item">
                         <input class="btnChangeCard" type="reset" name="colorRadio" value="Message">
                     </li>
-                    <li class="nav-item">
+                    <li onclick="handleLogout()" class="nav-item">
                         <input class="btnChangeCard" type="button" value="Logout">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </li>
@@ -201,10 +201,10 @@
                     <h6 class="mb-0">Inbox</h6>
                 </div>
                 <div class="card-body p-3">
-                    <ul class="list-group">
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                    <ul id="messageCard" class="list-group">
+                        <!-- <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                             <div class="avatar me-3">
-                                <!--------------------------------- MENTOR LOGO------------------------------------->
+                                ------------------------------- MENTOR LOGO-----------------------------------
                                 <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/kal-visuals-square.jpg"
                                     alt="kal" class="border-radius-lg shadow">
                             </div>
@@ -218,40 +218,10 @@
                                     illum harum expedita temporibus quibusdam facilis? Ipsam rerum fuga assumenda.
                                     Omnis!</p>
                             </div>
-                        </li>
-                        <hr>
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                            <div class="avatar me-3">
-                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/marie.jpg"
-                                    alt="kal" class="border-radius-lg shadow">
-                            </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Admin</h6>
-                                <p class="text-xxs">Unique ID</p>
-                                <p class="mb-0 text-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-                                    facere praesentium vitae consequuntur nostrum ducimus architecto necessitatibus
-                                    ipsam sunt quos molestiae exercitationem corporis ipsum dicta nisi ab rerum, ad
-                                    voluptatem, minus sit. Debitis ipsam repellat ullam saepe, incidunt voluptas unde
-                                    temporibus officiis exercitationem veniam, impedit totam accusantium accusamus at
-                                    laborum!</p>
-                            </div>
-                        </li>
-                        <hr>
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                            <div class="avatar me-3">
-                                <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/ivana-square.jpg"
-                                    alt="kal" class="border-radius-lg shadow">
-                            </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Other Mentor Name</h6>
-                                <p class="text-xxs">Unique ID</p>
-                                <p class="mb-0 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                                    rerum fugiat repudiandae voluptates commodi placeat, eius doloremque quisquam eos
-                                    facilis perspiciatis corrupti modi quasi laboriosam eum tempora reprehenderit
-                                    delectus ab? Consectetur fugit itaque nihil maiores? Officiis quo beatae obcaecati
-                                    eius. Animi magnam necessitatibus iusto cum totam voluptates autem nostrum quis!</p>
-                            </div>
-                        </li>
+                        </li> -->
+                        <!-- <hr> -->
+
+
                     </ul>
                 </div>
             </div>
@@ -690,31 +660,32 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="">
+                <form action="" id="startUpmessageForm">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-subject">Subject</label>
-                                <input type="text" id="input-subject" class="form-control" placeholder="Text" value="">
+                                <input required type="text" id="input-subject" name="subject" class="form-control"
+                                    placeholder="Text" value="">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-uniqueID_Message">Unique ID</label>
-                                <input type="text" id="input-uniqueID_Message" class="form-control"
-                                    placeholder="unique ID">
+                                <input required type="text" name="uniqueId" id="input-uniqueID_Message"
+                                    class="form-control" placeholder="unique ID">
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-Message_sendAmessage_form">Message</label>
-                                <input type="textarea" id="input-Message_sendAmessage_form" class="form-control"
-                                    placeholder="Message">
+                                <input required type="textarea" name="message" id="input-Message_sendAmessage_form"
+                                    class="form-control" placeholder="Message">
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn bg-gradient-primary">Send</button>
+                    <button type="submit" class="btn bg-gradient-primary">Send</button>
 
                 </form>
             </div>
@@ -891,6 +862,13 @@
                     },
                 });
             };
+        </script>
+        <script>
+            const handleLogout = () => {
+                localStorage.removeItem('currentUser')
+                window.location.href = '/login.html'
+
+            }
         </script>
         <script src="./assets/js/loopple/loopple.js"></script>
         <script src="../../js/UserPannel.js/StartupPannel.js/UserPannelstartUps.js"></script>

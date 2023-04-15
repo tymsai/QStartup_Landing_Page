@@ -1,4 +1,11 @@
 
+const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
+console.log(LocalCurrentUser)
+if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
+    window.location.href = '/index.html'
+}
+
+
 // Fetch data from backend
 fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=startUp')
     .then(response => response.json())

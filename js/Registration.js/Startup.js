@@ -49,11 +49,14 @@ startupForm.addEventListener('submit', (event) => {
                 console.log(data.data.id)
                 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
+                delete currentUser.password
 
-                let newCurrentUser = { ...currentUser, id: data.data.id }
+                let newCurrentUser = { ...currentUser, id: data.data.id, role: data.data.role }
 
 
                 localStorage.setItem('currentUser', JSON.stringify(newCurrentUser));
+
+                window.location.href = '/userPanel/startupPanel/index.html'
 
 
             }

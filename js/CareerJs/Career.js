@@ -12,11 +12,16 @@ const user = JSON.parse(localStorage.getItem('currentUser'));
 console.log(user)
 
 
-
+const submitButton = document.getElementById('submitInput')
+console.log(submitButton)
 
 // submit handler
 careerForm.addEventListener('submit', (event) => {
     event.preventDefault()
+
+
+    submitButton.value = 'Applying...'
+
 
     const resume = event.target.resume.files[0]
     const cv = event.target.cv.files[0]
@@ -54,6 +59,8 @@ careerForm.addEventListener('submit', (event) => {
     formData.append('email', email)
 
 
+
+
     // fetch(`https://qstartupserver.onrender.com/career`, {
     fetch(`https://qstartupserver.onrender.com/application`, {
         method: 'POST',
@@ -63,7 +70,7 @@ careerForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-
+            submitButton.value = 'Submit application'
             Toastify({
                 text: data.message,
                 className: "info",
@@ -75,6 +82,7 @@ careerForm.addEventListener('submit', (event) => {
             if (data.success === true) {
 
                 careerForm.reset()
+                submitButton.value = 'Applied'
             }
         })
 

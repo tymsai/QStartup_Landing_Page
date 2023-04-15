@@ -2,6 +2,13 @@
 
 console.log('Admins edit connected')
 
+const LocalCurrentUser = JSON.parse(localStorage.getItem('currentUser'))
+console.log(LocalCurrentUser)
+if (!LocalCurrentUser || LocalCurrentUser.role !== 'admin') {
+    window.location.href = '/index.html'
+}
+
+
 // get query parameters from url
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString)

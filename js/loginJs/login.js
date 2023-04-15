@@ -71,7 +71,17 @@ document.getElementById('loginForm').onsubmit = ((event) => {
                 }).showToast();
 
                 form.reset()
-                window.location.href = '/registration.html'
+                if (data?.role === 'user') {
+                    window.location.href = '/registration.html'
+                } else if (data?.role === 'startUp') {
+                    window.location.href = '/userPanel/startupPanel/index.html'
+                } else if (data?.role === 'mentor') {
+                    window.location.href = '/userPanel/mentorPanel/index.html'
+                }
+                else if (data?.role === 'admin') {
+                    window.location.href = '/admin/index.html'
+                }
+
             }
 
         })
