@@ -14,7 +14,7 @@ const Allsubscribed = document.getElementById('subscribed')
 const copyText = document.getElementById('copyText')
 
 const loadAllUser = () => {
-    fetch('https://qstartupserver.onrender.com/user')
+    fetch('http://localhost:5000/user')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -39,7 +39,7 @@ const loadAllUser = () => {
                 //     copyText.textContent = subscribedUser.email
                 // })
 
-                const emails = subscribedUsers.map(subscribedUser => subscribedUser.email)
+                const emails = data.map(user => user.email)
                 const emailString = emails.join(", ")
                 copyText.textContent = emailString
 

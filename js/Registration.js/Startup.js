@@ -33,7 +33,7 @@ startupForm.addEventListener('submit', (event) => {
     console.log(imageurl, startupData)
 
     // data save to database
-    fetch(`https://qstartupserver.onrender.com/registration`, {
+    fetch(`http://localhost:5000/registration`, {
 
         method: 'PUT',
         headers: {
