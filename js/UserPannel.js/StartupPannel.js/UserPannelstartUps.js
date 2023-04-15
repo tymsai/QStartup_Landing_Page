@@ -14,7 +14,7 @@ const socialMediaForm = document.querySelector('#socialMediaForm')
 
 const loadCurrentUser = (id) => {
     console.log(id)
-    fetch(`http://localhost:5000/SingleUser?id=${id}&&role=startUp`) //http://localhost:5000/SingleUser?id=${id}&&role=startUp
+    fetch(`https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=startUp`) //https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=startUp
         .then(res => res.json())
         .then(data => {
             console.log('in function', data)
@@ -126,7 +126,7 @@ socialMediaForm.addEventListener('submit', (event) => {
     formData.append('instagram', instagram)
 
 
-    fetch(`http://localhost:5000/socialMedia?id=${id}`, {
+    fetch(`https://qstartupserver.onrender.com/socialMedia?id=${id}`, {
         method: 'PUT',
         body: formData
     })
@@ -166,7 +166,7 @@ socialMediaForm.addEventListener('submit', (event) => {
 
 // load all mentor
 const loadAllmentor = () => {
-    fetch('http://localhost:5000/admin/getAllStartUp?role=mentor')
+    fetch('https://qstartupserver.onrender.com/admin/getAllStartUp?role=mentor')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -213,7 +213,7 @@ userStartupEditForm.addEventListener('submit', (event) => {
 
     console.log(userStartupEditForm)
 
-    fetch(`http://localhost:5000/EditUser?id=${UniqueId}`, {
+    fetch(`https://qstartupserver.onrender.com/EditUser?id=${UniqueId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -264,7 +264,7 @@ startUpmessageForm.addEventListener('submit', async (event) => {
     }
     console.log(msgBody)
 
-    const res = await fetch('http://localhost:5000/api/sendMessage', {
+    const res = await fetch('https://qstartupserver.onrender.com/api/sendMessage', {
 
         method: "PUT",
         headers: {
@@ -279,7 +279,7 @@ startUpmessageForm.addEventListener('submit', async (event) => {
 
 // load message
 const loadMessageByUniqueId = () => {
-    fetch(`http://localhost:5000/api/getMessage?uniqueId=${currentUser.id}`)
+    fetch(`https://qstartupserver.onrender.com/api/getMessage?uniqueId=${currentUser.id}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)

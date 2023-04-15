@@ -20,7 +20,7 @@ document.getElementById('contactForm').onsubmit = ((event) => {
 
 
 
-    fetch("http://localhost:5000/contact", {
+    fetch("https://qstartupserver.onrender.com/contact", {
         method: "POST",
         headers: {
             'content-type': 'application/json'
