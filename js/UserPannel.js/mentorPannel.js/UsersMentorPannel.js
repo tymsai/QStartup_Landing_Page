@@ -17,8 +17,14 @@ const loadCurrentUser = (_id) => {
     fetch(`https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=mentor`)
         .then(res => res.json())
         .then(data => {
+            if (data[0].data.status === 'active') {
+                document.getElementById('MentorshipStatusCheckbox').checked = true;
+            } else {
+                document.getElementById('MentorshipStatusCheckbox').checked = false;
+
+            }
             displyStartUpsInformation(data[0])
-            console.log('in function', data)
+            console.log('in function', data[0].data.status)
         })
     // console.log('load called')
 }
@@ -186,7 +192,7 @@ const displayAllStartUp = (startUps) => {
         row.innerHTML = ` 
                                             <td>${startUp.id}</td>
                                             <td> ${startUp.username}</td>
-                                            <td> ${`status`}</td>
+                                           <td style="color: ${startUp?.data?.status === 'active' ? 'green' : 'red'}"> ${startUp?.data?.status}</td>
                                             <td> ${startUp.data.phone_StartUp}</td>
                                             <td> ${startUp.data.email_StartUp}</td>
 
@@ -315,3 +321,27 @@ const displayMessage = (data) => {
         messageCard.appendChild(div)
     })
 }
+
+// MentorshipStatusCheckbox handle
+const MentorshipStatusCheckbox = document.getElementById('MentorshipStatusCheckbox')
+
+MentorshipStatusCheckbox.addEventListener('click', () => {
+
+    console.log(MentorshipStatusCheckbox.checked)
+    let status = 'active'
+    if (MentorshipStatusCheckbox.checked === false) {
+        status = 'inActive'
+    }
+    console.log(status)
+
+    const mentor = {
+        status, id: currentUser.id
+    }
+    fetch('https://qstartupserver.onrender.com/api/updateMentorStatus', {
+        method: "PUT",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(mentor)
+    })
+})

@@ -17,6 +17,12 @@ const loadCurrentUser = (id) => {
     fetch(`https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=startUp`) //https://qstartupserver.onrender.com/SingleUser?id=${id}&&role=startUp
         .then(res => res.json())
         .then(data => {
+            if (data[0].data.status === 'active') {
+                document.getElementById('MentorshipStatusCheckbox').checked = true;
+            } else {
+                document.getElementById('MentorshipStatusCheckbox').checked = false;
+
+            }
             console.log('in function', data)
             displyStartUpsInformation(data[0])
         })
@@ -186,7 +192,7 @@ const displayAllMentor = (mentors) => {
         row.innerHTML = ` 
                                             <td>${mentor?.id}</td>
                                             <td> ${mentor?.username}</td>
-                                            <td> ${`status`}</td>
+                                            <td style="color: ${mentor?.data?.status === 'active' ? 'green' : 'red'}"> ${mentor?.data?.status}</td>
                                            <td> ${mentor?.data.Phone_Mentor}</td>
                                             <td> ${mentor?.data.email_Mentor}</td>
                                          
@@ -315,3 +321,26 @@ const displayMessage = (data) => {
         messageCard.appendChild(div)
     })
 }
+// MentorshipStatusCheckbox handle
+const MentorshipStatusCheckbox = document.getElementById('MentorshipStatusCheckbox')
+
+MentorshipStatusCheckbox.addEventListener('click', () => {
+
+    console.log(MentorshipStatusCheckbox.checked)
+    let status = 'active'
+    if (MentorshipStatusCheckbox.checked === false) {
+        status = 'inActive'
+    }
+    console.log(status)
+
+    const mentor = {
+        status, id: currentUser.id
+    }
+    fetch('https://qstartupserver.onrender.com/api/updateMentorStatus', {
+        method: "PUT",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(mentor)
+    })
+})

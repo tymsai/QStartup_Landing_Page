@@ -39,7 +39,7 @@ const loadAllUser = () => {
                 //     copyText.textContent = subscribedUser.email
                 // })
 
-                const emails = subscribedUsers.map(subscribedUser => subscribedUser.email)
+                const emails = data.map(user => user.email)
                 const emailString = emails.join(", ")
                 copyText.textContent = emailString
 
